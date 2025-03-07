@@ -1,0 +1,37 @@
+site_name: Critter & Guitari Documentation
+#nav:
+#  - Home: index.md
+#  - Product 1:
+#      - Overview: product1/index.md
+#      - Setup: product1/setup.md
+#      - Usage: product1/usage.md
+#  - Product 2:
+#      - Overview: product2/index.md
+#      - Setup: product2/setup.md
+#      - Usage: product2/usage.md
+
+
+theme:
+  name: material
+
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      primary: black
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: black
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+
+markdown_extensions:
+  - toc:
+      permalink: true
+      toc_depth: 2-3  # This limits TOC to `##` and `###`
+

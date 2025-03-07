@@ -12,6 +12,12 @@ For EYESY OS version 2.3.
 
 Welcome to **EYESY**! Time is money so let’s get you up and running…
 
+------------------------------------------------------------------------ 
+
+## WAIT AM I IN THE RIGHT PLACE? 
+
+This is the manual for the original version of the EYESY software version 2.3. You can check the software version by pressing the top left On Screen Display button. If your EYESY is running version 2.3 you can upgrade to verison 3 by flashing the micro SD card. See section 6.1 for instructions.
+
 ### Package Manifest
 
 There are four items in the box you just opened:
@@ -667,7 +673,9 @@ Follow these steps to burn a new SD card:
 
 1. Download the microSD card disk image to your computer: 
 
-    - Current OS release: [EYESY-2.3](https://cgdiskimages.nyc3.digitaloceanspaces.com/EYESY-v2.3.img.zip). Requires 8GB or larger microSD card.
+    - New OS release version 3.0 (see OS v3.0 manual after flashing): [EYESY-3.0](https://cgdiskimages.nyc3.digitaloceanspaces.com/EYESY-v3.0.img.zip). Requires 8GB or larger microSD card.
+    
+    - Old EYESY version 2.3: [EYESY-2.3](https://cgdiskimages.nyc3.digitaloceanspaces.com/EYESY-v2.3.img.zip). Requires 8GB or larger microSD card.
      
 2. **Optional**: If you want to unzip the disk image please use one of the following programs: 
 

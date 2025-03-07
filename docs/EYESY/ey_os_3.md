@@ -4,15 +4,20 @@
 
 Original edition by Dave Linnenbank. This edition updated for EYESY OS v3.0 - March 2025
 
-For EYESY OS version 2.3. 
+For EYESY OS version 3.0 
 
 ©2021 Critter & Guitari. All Rights Reserved.
 
 
 ## Getting Started
 
+Welcome to **EYESY**! Time is money so let’s get you up and running.
 
-Welcome to **EYESY**! Time is money so let’s get you up and running…
+------------------------------------------------------------------------ 
+
+## WAIT AM I IN THE RIGHT PLACE? 
+
+The **EYESY** has had some major software updates in 2025. This manual is for the latest EYESY OS version 3 and higher. You can check the software version by pressing the top left On Screen Display button. If your EYESY is running version 2.3 you can upgrade to verison 3 by flashing the micro SD card. See section 6.1 for instructions.
 
 ### Package Manifest
 

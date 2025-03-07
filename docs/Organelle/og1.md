@@ -1,4 +1,4 @@
-# Organelle User Manual  
+# Organelle 1 User Manual  
 
 ![](images/organelle.png)
 
@@ -19,7 +19,7 @@ Welcome to the world of Organelle! You seem to be in a hurry so here is the shor
 
 ## WAIT AM I IN THE RIGHT PLACE? 
 
-Before we get started, please note that this manual is for the original Organelle 1, without a built-in speaker and battery power. Visit [this page](https://www.critterandguitari.com/manual?m=Organelle_M_Manual) if you are looking for the manual for the Organelle M.
+Before we get started, please note that this manual is for the original **Organelle 1**, without a built-in speaker and battery power.
 
 This manual is for OS version 4.0.  You can check your OS version number from the Info menu item in the SYSTEM menu. If your hardware unit is running a version earlier than v4.0, see Chapter 7 for information on updating your Organelle OS.  
 

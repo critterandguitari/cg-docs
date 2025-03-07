@@ -1,4 +1,8 @@
 site_name: Critter & Guitari Documentation
+
+site_url: https://critterandguitari.github.io/cg-docs/
+
+
 #nav:
 #  - Home: index.md
 #  - Product 1:
@@ -13,7 +17,7 @@ site_name: Critter & Guitari Documentation
 
 theme:
   name: material
-
+  logo: logo.png
   palette:
     # Palette toggle for light mode
     - scheme: default

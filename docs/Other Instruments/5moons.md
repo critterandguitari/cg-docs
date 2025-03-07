@@ -23,7 +23,7 @@ You probably want to get started right away! Here are a few steps to get you mak
 
 Each jack, button, slider, and LED has a corresponding letter. We'll use these letters frequently in this manual. This chart with labels can be conveniently found on 5 Moons' bottom side:
 
-![image](./5moonsRearSticker.png) 
+![image](images/5moonsRearSticker.png) 
 
 ## Using Your 5 Moons
 
@@ -35,7 +35,7 @@ Once 5 Moons is connected to power it will automatically power on. The LEDs (M) 
 
 The same button is used to power down. Hold the button for one second, or until the LEDs turn purple. Don't fret! Everything you've recorded is saved.
 
-![image](./5moonsReadJacks.png)
+![image](images/5moonsReadJacks.png)
 
 ### Sound Output
 
@@ -92,7 +92,7 @@ In Disk Mode, 5 Moons itself is no longer in multitrack recording mode. The butt
 
 On your computer, open a file browser (Finder for Mac, Explorer for Windows). In the disks, select '5MOONS.' The 'Songs' folder will have show the song currently on 5 Moons in numbered folders. Each song has a WAV file for each track that has audio recorded to it. 
 
-![image](./5moonsDiskMode.png)  
+![image](images/5moonsDiskMode.png)  
 
 **Important**: 5 Moons is particular about the numbering of *Song* folder and file names found in the storage partition. If you add or remove folders and/or files please note the following:
  
@@ -117,25 +117,25 @@ There are so many ways to use 5 Moons. Here are some examples of setups that nur
 
 Connect an electric guitar to the input and a guitar amp to the output. Use 5 Moons as a guitar mutlitracker or as a 5-channel loop. Connect it to other pedals for a big rig.
 
-![image](./5moonsAsGuitarPedal.png) 
+![image](images/5moonsAsGuitarPedal.png) 
 
 ### Techno Live Set
 
 Is it your turn at Panorama Bar? Connect 5 Moons to a mixer via Send and Return. Any instrument connected to the mixer can be sent to 5 Moons to build a loop, harmonize, or even just to record your set.
 
-![image](./5moonsTechno.png) 
+![image](images/5moonsTechno.png) 
 
 ### Modular
 
 While not technically a eurorack module, 5 Moons has 3.5mm TS input and output, so it's basically a eurorack module for your desk. Patch a module into the input and send 5 Moons back out to another module! Turn monophonic oscillators into 5-voice polysynths! 
 
-![image](./5moonsModular.png) 
+![image](images/5moonsModular.png) 
 
 ### Living room
 
 Tour got you beat? Skip studio day and hang on the couch with your friends. Connect a mic to the input and send the output to home speakers. Lay down some acapella beats and freestyles. 
 
-![image](./5moonsInLivingRoom.png) 
+![image](images/5moonsInLivingRoom.png) 
 
 ## Specifications	
 

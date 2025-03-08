@@ -6,7 +6,7 @@ Original edition by Dave Linnenbank. This edition updated for EYESY OS v3.0 - Ma
 
 For EYESY OS version 3.0 
 
-©2021 Critter & Guitari. All Rights Reserved.
+©2025 Critter & Guitari. All Rights Reserved.
 
 
 ## Getting Started
@@ -21,9 +21,8 @@ The **EYESY** has had some major software updates in 2025. This manual is for th
 
 ### Package Manifest
 
-There are four items in the box you just opened:
+There are three items in the box you just opened:
 
-- **Quickstart Guide & Warranty**. 
 - **Your EYESY**. Ready to go!
 - **A USB-WiFi Adapter**. For connecting your EYESY to WiFi, not necessary for operation.
 - **A Power Adapter**. This power adapter has prongs for US-style wall sockets, but it will work with input voltages from 100 to 240VAC at 50/60Hz. You may need an adapter for the shape of your wall socket.

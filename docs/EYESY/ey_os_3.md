@@ -17,7 +17,7 @@ Welcome to **EYESY**! Time is money so let’s get you up and running.
 
 ## WAIT AM I IN THE RIGHT PLACE? 
 
-The **EYESY** has had some major software updates in 2025. This manual is for the latest EYESY OS version 3 and higher. You can check the software version by pressing the top left On Screen Display button. If your EYESY is running version 2.3 you can upgrade to verison 3 by flashing the micro SD card. See section 6.1 for instructions.
+The **EYESY** has had some major software updates in 2025. This manual is for the latest EYESY OS version 3 and higher. You can check the software version by pressing the top left On Screen Display button. If your EYESY is running version 2.3 you can upgrade to version 3 by flashing the micro SD card. See section 6.1 for instructions.
 
 ### Package Manifest
 

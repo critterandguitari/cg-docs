@@ -455,7 +455,7 @@ The screen has two menus:
 
 Use the **Mode Forward** and **Mode Backward** buttons to cycle through the available palettes. Once you have made your selections, press **Save** to store the settings and exit the menu.  
 
-The first selection in the list is the original EYESY (OS v2.3)  color palette.
+The first selection in the list is the original EYESY (OS v2.3) color palette. This original palette has some built-in color randomization. The changing colors at the top and bottom of the selection screen (and the OSD) are expected.
 
 These selections are stored in the configuration and will be used every time EYESY starts up. However, keep in mind that **scenes also store palette selections**, so when a scene is recalled, it may override these default settings. The palette settings in this menu act as the **default** colors used when EYESY first powers on, before any scenes are loaded.  
 

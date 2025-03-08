@@ -1,6 +1,6 @@
 # EYESY User Manual OS v3 
 
-![](images/EYESY-main.jpg)
+![](images/EYESY-Black-Manual-Hero.jpg)
 
 Original edition by Dave Linnenbank. This edition updated for EYESY OS v3.0 - March 2025
 

@@ -716,6 +716,17 @@ Along with all of these variables, the `EYESY` object does have two functions wo
 	
 	`color = eyesy.color_picker(etc.knob4)`
 
+-   `eyesy.color_picker_lfo()` - This function is similar to *"etc.color_picker()"* but has a built-in LFO so the color changes automatically. The first half of the knob rotation (moving from maximum left to center) selects a static color. The second half of the knob rotation (moving from center to maximum right) selects the LFO rate. This function is usually associated with Knob 4: *"etc.color_picker_lfo(etc.knob4)"*, but any knob can be used to for this color picker. When the LFO is active, the color will bounce back and forth so as to avoid stark jumps in color. When called, this function returns a *tuple* of three integers representing the red, green, and blue components of this color. In the factory modes, you will often see a local variable (usually `color`) being set by this function, like so… 
+	
+	`color = eyesy.color_picker_lfo(etc.knob4)`
+
+This function has an optional, second argument that controls the maximum LFO rate. the default value of this argument is 0.5. In the example below *1.1* is the optional argument:
+
+	`color = eyesy.color_picker_lfo(etc.knob4, 1.1)`
+
+Please note that the 'actual' LFO rate may vary from one mode to another depending on the quantity, size, etc. of elements needed to be drawn to the screen. 
+
+
 The idea here is that you can easily set an element color based on a given knob. 
 
 As you program modes you might consider using the same knob for the color picker and background color selector across them. This is so that when you switch between modes using the same mapping, the foreground and background colors will be consistent, making transitions more fluid.

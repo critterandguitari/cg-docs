@@ -324,7 +324,7 @@ This makes it easy to switch between different sets of settings by simply using 
 
 ### 2.7 The Rear Panel
 
-![](images/EYESY-ports.jpg)
+![](images/EYESY-black-rear-panel.jpg)
 
 Most of the ports are on the back of EYESY, and many of them have already come up in our conversation, but we’ll take a moment to touch on each of them with any information relevant to this conversation of general functionality. As we look from left to right: 
 
@@ -350,7 +350,7 @@ Most of the ports are on the back of EYESY, and many of them have already come u
 
 Finally, **the `USB` port** resides on the left side panel. This port is for connecting the USB-WiFi adapter or a class-compliant USB-MIDI adapter. 
 
-![](images/EYESY-USB.jpg)
+![](images/EYESY-black-USB.jpg)
 
 If you need more USB ports, you could connect a hub to this port. That hub and any other devices you connect should be class-compliant, meaning that it doesn’t require a special software driver to be installed. This will help to ensure compatibility with EYESY. 
 

@@ -174,7 +174,7 @@ So let’s turn the knobs, push the buttons, and watch what happens!...
 
 The top row of EYESY has system-level controls. We will discuss these items from left to right.
 
-![](images/EYESY-row-top.jpg)
+![](images/EYESY-black-row-top.jpg)
 
 **The `On Screen Display` button** (or `OSD`) is a toggle that calls up an overlay of current system information. The image below is an example of the `OSD`.
 
@@ -225,7 +225,7 @@ There is a dependent relationship between the `Persist` and modes that have a kn
 
 ### 2.2 Mode Parameter Controls
 
-![](images/EYESY-row-middle.jpg)
+![](images/EYESY-black-row-middle.jpg)
 
 The middle row of controls features five knobs. The role of the knobs is dependent on the current mode. Knobs can control mode parameters such as element size, position, quantity, color, rate of change, etc. A knob could be a single parameter that controls one discrete element of the mode, or it could be several parameters wrapped into a true “macro” function. While you may not know the specifics for each mode ahead of using a particular mode, it is good to keep in mind that a 'factory' mode will have five controls. 
 
@@ -246,7 +246,7 @@ And as for how to switch between different modes and scenes (and store new scene
 
 The bottom row of EYESY has a number of navigation and action-based options, all in the form of maple buttons. We will look at each one, going from left to right.
 
-![](images/EYESY-row-bottom.jpg)
+![](images/EYESY-black-row-bottom.jpg)
 
 **The *Mode Selector* buttons** are first up. This pair of buttons on the far left around the eyeball icon allow you to step backward (left) or forward (right) through the modes that are currently stored in the `Modes` folder of your EYESY's microSD card or USB drive. Holding the button will cycle quickly through the modes.
 

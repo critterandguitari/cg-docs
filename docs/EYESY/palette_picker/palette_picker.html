@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Palette Picker</title>
+  <title>Color Palette Graph</title>
   <!-- Load p5.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
   <style>
     body {
-      background-color: #222;
+      background-color: #333;
       color: #fff;
       margin: 0;
       padding: 0;
@@ -17,15 +17,14 @@
       align-items: center;
     }
     #canvas-container {
-      margin-top: 10px;
+      margin-top: 20px;
     }
     .param-grid {
       display: grid;
-      /* 5 columns: one for the row label and four for the parameters */
       grid-template-columns: 80px repeat(4, 1fr);
-      gap: 10px;
-      margin-top: 20px;
-      max-width: 900px;
+      gap: 16px;
+      margin-top: 16px;
+      max-width: 720px;
     }
     .param-cell {
       display: flex;
@@ -33,25 +32,25 @@
       align-items: flex-start;
     }
     .param-cell input[type=range] {
-      width: 120px;
+      width: 96px;
     }
     .param-cell input[type=number] {
-      width: 60px;
-      margin-top: 5px;
+      width: 48px;
+      margin-top: 4px;
     }
     pre {
       background: #333;
-      padding: 10px;
-      margin-top: 20px;
-      max-width: 900px;
+      padding: 8px;
+      margin-top: 16px;
+      max-width: 720px;
       width: 100%;
       overflow-x: auto;
       user-select: all;
     }
     button {
-      margin-top: 10px;
-      padding: 6px 12px;
-      font-size: 14px;
+      margin-top: 8px;
+      padding: 4px 10px;
+      font-size: 12px;
       cursor: pointer;
     }
   </style>
@@ -102,7 +101,7 @@
       <input type="range" id="gFreq" min="0" max="5" step="0.01" value="1" />
       <input type="number" id="gFreqNum" min="0" max="5" step="0.01" value="1" />
     </div>
-    <!-- Default green phase set to 0.33 (roughly 0.33) -->
+    <!-- Default green phase set to 0.33 -->
     <div class="param-cell">
       <input type="range" id="gPhase" min="-1" max="1" step="0.01" value="0.33" />
       <input type="number" id="gPhaseNum" min="-1" max="1" step="0.01" value="0.33" />
@@ -122,7 +121,7 @@
       <input type="range" id="bFreq" min="0" max="5" step="0.01" value="1" />
       <input type="number" id="bFreqNum" min="0" max="5" step="0.01" value="1" />
     </div>
-    <!-- Default blue phase set to 0.67 (roughly 0.67) -->
+    <!-- Default blue phase set to 0.67 -->
     <div class="param-cell">
       <input type="range" id="bPhase" min="-1" max="1" step="0.01" value="0.67" />
       <input type="number" id="bPhaseNum" min="-1" max="1" step="0.01" value="0.67" />
@@ -155,11 +154,11 @@
   <button id="randomizeButton">Randomize</button>
 
   <script>
-    // Canvas dimensions and layout settings
-    let canvasWidth = 800;
-    let canvasHeight = 450;
-    let previewHeight = 50;
-    let gap = 10; // gap between graph and preview
+    // Reduced dimensions: 20% smaller than original.
+    let canvasWidth = 640;
+    let canvasHeight = 360;
+    let previewHeight = 40;
+    let gap = 8; // gap between graph and preview
     let graphHeight = canvasHeight - previewHeight - gap;
 
     // R, G, B controls
@@ -252,7 +251,6 @@
       let rOffset = parseFloat(rOffsetNum.value);
       let rAmp    = parseFloat(rAmplitudeNum.value);
       let rFreq   = parseFloat(rFreqNum.value);
-      // For phase, get the raw UI value (range -1 to 1)
       let rPhaseUI = parseFloat(rPhaseNum.value);
       
       let gOffset = parseFloat(gOffsetNum.value);
@@ -299,21 +297,19 @@
         for (let x = 0; x < canvasWidth; x++) {
           let t = x / (canvasWidth - 1);
           // Add slight offsets for display so curves don't completely overlap:
-          // For green add 0.01 radians and blue add 0.02 radians.
           let phaseAdj = phases[c];
           if(c === 1) phaseAdj += 0.01;
           if(c === 2) phaseAdj += 0.02;
           let effectivePhase = phaseAdj + globalPhase;
           let level = offsets[c] + gOff + amps[c] * gAmpVal * cos(TWO_PI * freqs[c] * gFrq * t + effectivePhase);
           level = constrain(level, 0, 1);
-          // Map level: 0 → bottom of graph area, 1 → top of graph area
           let y = map(level, 0, 1, graphHeight, 0);
           vertex(x, y);
         }
         endShape();
       }
       
-      // Draw gradient preview in the designated preview area (without display phase adjustments)
+      // Draw gradient preview in the designated preview area
       let yStart = graphHeight + gap;
       for (let x = 0; x < canvasWidth; x++) {
         let t = x / (canvasWidth - 1);
@@ -327,8 +323,7 @@
         line(x, yStart, x, canvasHeight);
       }
       
-      // Create the JSON object from the slider values, applying global adjustments.
-      // For phase values, output the raw UI values (range -1 to 1) with globals applied.
+      // Create the JSON object from the slider values (with global adjustments)
       let palette = {
         "name": "My Palette",
         "a": [ 
@@ -353,11 +348,9 @@
         ]
       };
       
-      // Output collapsed JSON (no extra whitespace)
       document.getElementById('jsonOutput').innerText = JSON.stringify(palette);
     }
     
-    // Utility to sync a slider (range) with its number input
     function linkRangeAndNumber(rangeEl, numberEl) {
       rangeEl.addEventListener('input', () => {
         numberEl.value = rangeEl.value;
@@ -367,7 +360,6 @@
       });
     }
     
-    // Function to randomize a slider's value within its allowed range and step.
     function randomizeSlider(sliderEl) {
       let min = parseFloat(sliderEl.min);
       let max = parseFloat(sliderEl.max);
@@ -376,11 +368,9 @@
       let randomStep = Math.floor(Math.random() * (steps + 1));
       let newVal = min + randomStep * step;
       sliderEl.value = newVal.toFixed(2);
-      // Trigger input event to update linked number input
       sliderEl.dispatchEvent(new Event('input'));
     }
     
-    // Function to randomize all sliders
     function randomizeValues() {
       randomizeSlider(rOffsetRange);
       randomizeSlider(rAmplitudeRange);
@@ -403,7 +393,6 @@
       randomizeSlider(globalPhaseRange);
     }
     
-    // Attach event listeners to the buttons once the DOM is loaded
     window.addEventListener('DOMContentLoaded', () => {
       document.getElementById("copyButton").addEventListener("click", function() {
         let jsonText = document.getElementById("jsonOutput").innerText;

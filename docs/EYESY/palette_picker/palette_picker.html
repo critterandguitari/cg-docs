@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Palette Picker</title>
+  <!-- Load p5.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  <style>
+    body {
+      background-color: #222;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #canvas-container {
+      margin-top: 10px;
+    }
+    .param-grid {
+      display: grid;
+      /* 5 columns: one for the row label and four for the parameters */
+      grid-template-columns: 80px repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+      max-width: 900px;
+    }
+    .param-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .param-cell input[type=range] {
+      width: 120px;
+    }
+    .param-cell input[type=number] {
+      width: 60px;
+      margin-top: 5px;
+    }
+    pre {
+      background: #333;
+      padding: 10px;
+      margin-top: 20px;
+      max-width: 900px;
+      width: 100%;
+      overflow-x: auto;
+      user-select: all;
+    }
+    button {
+      margin-top: 10px;
+      padding: 6px 12px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="canvas-container"></div>
+
+  <!-- Grid for parameters -->
+  <div class="param-grid">
+    <!-- Header row -->
+    <div>Color</div>
+    <div>Offset</div>
+    <div>Amplitude</div>
+    <div>Frequency</div>
+    <div>Phase</div>
+
+    <!-- Red row -->
+    <div>Red</div>
+    <div class="param-cell">
+      <input type="range" id="rOffset" min="0" max="1" step="0.01" value="0.5" />
+      <input type="number" id="rOffsetNum" min="0" max="1" step="0.01" value="0.5" />
+    </div>
+    <div class="param-cell">
+      <input type="range" id="rAmplitude" min="-2" max="2" step="0.01" value="1" />
+      <input type="number" id="rAmplitudeNum" min="-2" max="2" step="0.01" value="1" />
+    </div>
+    <div class="param-cell">
+      <input type="range" id="rFreq" min="0" max="5" step="0.01" value="1" />
+      <input type="number" id="rFreqNum" min="0" max="5" step="0.01" value="1" />
+    </div>
+    <!-- Phase now from -1 to 1 -->
+    <div class="param-cell">
+      <input type="range" id="rPhase" min="-1" max="1" step="0.01" value="0" />
+      <input type="number" id="rPhaseNum" min="-1" max="1" step="0.01" value="0" />
+    </div>
+
+    <!-- Green row -->
+    <div>Green</div>
+    <div class="param-cell">
+      <input type="range" id="gOffset" min="0" max="1" step="0.01" value="0.5" />
+      <input type="number" id="gOffsetNum" min="0" max="1" step="0.01" value="0.5" />
+    </div>
+    <div class="param-cell">
+      <input type="range" id="gAmplitude" min="-2" max="2" step="0.01" value="1" />
+      <input type="number" id="gAmplitudeNum" min="-2" max="2" step="0.01" value="1" />
+    </div>
+    <div class="param-cell">
+      <input type="range" id="gFreq" min="0" max="5" step="0.01" value="1" />
+      <input type="number" id="gFreqNum" min="0" max="5" step="0.01" value="1" />
+    </div>
+    <!-- Default green phase set to 0.33 (roughly 0.33) -->
+    <div class="param-cell">
+      <input type="range" id="gPhase" min="-1" max="1" step="0.01" value="0.33" />
+      <input type="number" id="gPhaseNum" min="-1" max="1" step="0.01" value="0.33" />
+    </div>
+
+    <!-- Blue row -->
+    <div>Blue</div>
+    <div class="param-cell">
+      <input type="range" id="bOffset" min="0" max="1" step="0.01" value="0.5" />
+      <input type="number" id="bOffsetNum" min="0" max="1" step="0.01" value="0.5" />
+    </div>
+    <div class="param-cell">
+      <input type="range" id="bAmplitude" min="-2" max="2" step="0.01" value="1" />
+      <input type="number" id="bAmplitudeNum" min="-2" max="2" step="0.01" value="1" />
+    </div>
+    <div class="param-cell">
+      <input type="range" id="bFreq" min="0" max="5" step="0.01" value="1" />
+      <input type="number" id="bFreqNum" min="0" max="5" step="0.01" value="1" />
+    </div>
+    <!-- Default blue phase set to 0.67 (roughly 0.67) -->
+    <div class="param-cell">
+      <input type="range" id="bPhase" min="-1" max="1" step="0.01" value="0.67" />
+      <input type="number" id="bPhaseNum" min="-1" max="1" step="0.01" value="0.67" />
+    </div>
+
+    <!-- Global row -->
+    <div>Global</div>
+    <div class="param-cell">
+      <input type="range" id="globalOffset" min="-1" max="1" step="0.01" value="0" />
+      <input type="number" id="globalOffsetNum" min="-1" max="1" step="0.01" value="0" />
+    </div>
+    <div class="param-cell">
+      <input type="range" id="globalAmplitude" min="0" max="2" step="0.01" value="1" />
+      <input type="number" id="globalAmplitudeNum" min="0" max="2" step="0.01" value="1" />
+    </div>
+    <div class="param-cell">
+      <input type="range" id="globalFreq" min="0" max="5" step="0.01" value="1" />
+      <input type="number" id="globalFreqNum" min="0" max="5" step="0.01" value="1" />
+    </div>
+    <!-- Global phase also from -1 to 1 -->
+    <div class="param-cell">
+      <input type="range" id="globalPhase" min="-1" max="1" step="0.01" value="0" />
+      <input type="number" id="globalPhaseNum" min="-1" max="1" step="0.01" value="0" />
+    </div>
+  </div>
+
+  <!-- JSON output and buttons -->
+  <pre id="jsonOutput"></pre>
+  <button id="copyButton">Copy JSON</button>
+  <button id="randomizeButton">Randomize</button>
+
+  <script>
+    // Canvas dimensions and layout settings
+    let canvasWidth = 800;
+    let canvasHeight = 450;
+    let previewHeight = 50;
+    let gap = 10; // gap between graph and preview
+    let graphHeight = canvasHeight - previewHeight - gap;
+
+    // R, G, B controls
+    let rOffsetRange, rOffsetNum, rAmplitudeRange, rAmplitudeNum, rFreqRange, rFreqNum, rPhaseRange, rPhaseNum;
+    let gOffsetRange, gOffsetNum, gAmplitudeRange, gAmplitudeNum, gFreqRange, gFreqNum, gPhaseRange, gPhaseNum;
+    let bOffsetRange, bOffsetNum, bAmplitudeRange, bAmplitudeNum, bFreqRange, bFreqNum, bPhaseRange, bPhaseNum;
+
+    // Global controls
+    let globalOffsetRange, globalOffsetNum;
+    let globalAmplitudeRange, globalAmplitudeNum;
+    let globalFreqRange, globalFreqNum;
+    let globalPhaseRange, globalPhaseNum;
+
+    function setup() {
+      let canvas = createCanvas(canvasWidth, canvasHeight);
+      canvas.parent("canvas-container");
+
+      // Link slider and number inputs for each control
+      rOffsetRange     = document.getElementById('rOffset');
+      rOffsetNum       = document.getElementById('rOffsetNum');
+      linkRangeAndNumber(rOffsetRange, rOffsetNum);
+
+      rAmplitudeRange  = document.getElementById('rAmplitude');
+      rAmplitudeNum    = document.getElementById('rAmplitudeNum');
+      linkRangeAndNumber(rAmplitudeRange, rAmplitudeNum);
+
+      rFreqRange       = document.getElementById('rFreq');
+      rFreqNum         = document.getElementById('rFreqNum');
+      linkRangeAndNumber(rFreqRange, rFreqNum);
+
+      rPhaseRange      = document.getElementById('rPhase');
+      rPhaseNum        = document.getElementById('rPhaseNum');
+      linkRangeAndNumber(rPhaseRange, rPhaseNum);
+
+      gOffsetRange     = document.getElementById('gOffset');
+      gOffsetNum       = document.getElementById('gOffsetNum');
+      linkRangeAndNumber(gOffsetRange, gOffsetNum);
+
+      gAmplitudeRange  = document.getElementById('gAmplitude');
+      gAmplitudeNum    = document.getElementById('gAmplitudeNum');
+      linkRangeAndNumber(gAmplitudeRange, gAmplitudeNum);
+
+      gFreqRange       = document.getElementById('gFreq');
+      gFreqNum         = document.getElementById('gFreqNum');
+      linkRangeAndNumber(gFreqRange, gFreqNum);
+
+      gPhaseRange      = document.getElementById('gPhase');
+      gPhaseNum        = document.getElementById('gPhaseNum');
+      linkRangeAndNumber(gPhaseRange, gPhaseNum);
+
+      bOffsetRange     = document.getElementById('bOffset');
+      bOffsetNum       = document.getElementById('bOffsetNum');
+      linkRangeAndNumber(bOffsetRange, bOffsetNum);
+
+      bAmplitudeRange  = document.getElementById('bAmplitude');
+      bAmplitudeNum    = document.getElementById('bAmplitudeNum');
+      linkRangeAndNumber(bAmplitudeRange, bAmplitudeNum);
+
+      bFreqRange       = document.getElementById('bFreq');
+      bFreqNum         = document.getElementById('bFreqNum');
+      linkRangeAndNumber(bFreqRange, bFreqNum);
+
+      bPhaseRange      = document.getElementById('bPhase');
+      bPhaseNum        = document.getElementById('bPhaseNum');
+      linkRangeAndNumber(bPhaseRange, bPhaseNum);
+
+      globalOffsetRange    = document.getElementById('globalOffset');
+      globalOffsetNum      = document.getElementById('globalOffsetNum');
+      linkRangeAndNumber(globalOffsetRange, globalOffsetNum);
+
+      globalAmplitudeRange = document.getElementById('globalAmplitude');
+      globalAmplitudeNum   = document.getElementById('globalAmplitudeNum');
+      linkRangeAndNumber(globalAmplitudeRange, globalAmplitudeNum);
+
+      globalFreqRange      = document.getElementById('globalFreq');
+      globalFreqNum        = document.getElementById('globalFreqNum');
+      linkRangeAndNumber(globalFreqRange, globalFreqNum);
+
+      globalPhaseRange     = document.getElementById('globalPhase');
+      globalPhaseNum       = document.getElementById('globalPhaseNum');
+      linkRangeAndNumber(globalPhaseRange, globalPhaseNum);
+
+      noSmooth();
+    }
+
+    function draw() {
+      background(30);
+
+      // Read current control values (from the number inputs)
+      let rOffset = parseFloat(rOffsetNum.value);
+      let rAmp    = parseFloat(rAmplitudeNum.value);
+      let rFreq   = parseFloat(rFreqNum.value);
+      // For phase, get the raw UI value (range -1 to 1)
+      let rPhaseUI = parseFloat(rPhaseNum.value);
+      
+      let gOffset = parseFloat(gOffsetNum.value);
+      let gAmp    = parseFloat(gAmplitudeNum.value);
+      let gFreq   = parseFloat(gFreqNum.value);
+      let gPhaseUI = parseFloat(gPhaseNum.value);
+      
+      let bOffset = parseFloat(bOffsetNum.value);
+      let bAmp    = parseFloat(bAmplitudeNum.value);
+      let bFreq   = parseFloat(bFreqNum.value);
+      let bPhaseUI = parseFloat(bPhaseNum.value);
+      
+      let gOff    = parseFloat(globalOffsetNum.value);
+      let gAmpVal = parseFloat(globalAmplitudeNum.value);
+      let gFrq    = parseFloat(globalFreqNum.value);
+      let globalPhaseUI = parseFloat(globalPhaseNum.value);
+      
+      // Convert UI phase values (range -1..1) to radians for computation
+      let rPhase = rPhaseUI * TWO_PI;
+      let gPhase = gPhaseUI * TWO_PI;
+      let bPhase = bPhaseUI * TWO_PI;
+      let globalPhase = globalPhaseUI * TWO_PI;
+      
+      // For convenience, group per-channel values (offset, amplitude, frequency)
+      let offsets = [rOffset, gOffset, bOffset];
+      let amps    = [rAmp,    gAmp,    bAmp];
+      let freqs   = [rFreq,   gFreq,   bFreq];
+      let phases  = [rPhase,  gPhase,  bPhase];
+      
+      // Colors for curves
+      let colors = [
+        color(255, 0, 0),
+        color(0, 255, 0),
+        color(0, 0, 255)
+      ];
+      
+      strokeWeight(2);
+      noFill();
+      
+      // Draw the cosine curves in the graph area (using adjusted phases for display)
+      for (let c = 0; c < 3; c++) {
+        stroke(colors[c]);
+        beginShape();
+        for (let x = 0; x < canvasWidth; x++) {
+          let t = x / (canvasWidth - 1);
+          // Add slight offsets for display so curves don't completely overlap:
+          // For green add 0.01 radians and blue add 0.02 radians.
+          let phaseAdj = phases[c];
+          if(c === 1) phaseAdj += 0.01;
+          if(c === 2) phaseAdj += 0.02;
+          let effectivePhase = phaseAdj + globalPhase;
+          let level = offsets[c] + gOff + amps[c] * gAmpVal * cos(TWO_PI * freqs[c] * gFrq * t + effectivePhase);
+          level = constrain(level, 0, 1);
+          // Map level: 0 → bottom of graph area, 1 → top of graph area
+          let y = map(level, 0, 1, graphHeight, 0);
+          vertex(x, y);
+        }
+        endShape();
+      }
+      
+      // Draw gradient preview in the designated preview area (without display phase adjustments)
+      let yStart = graphHeight + gap;
+      for (let x = 0; x < canvasWidth; x++) {
+        let t = x / (canvasWidth - 1);
+        let rVal = (rOffset + gOff) + (rAmp * gAmpVal) * cos(TWO_PI * (rFreq * gFrq) * t + (rPhase + globalPhase));
+        let gVal = (gOffset + gOff) + (gAmp * gAmpVal) * cos(TWO_PI * (gFreq * gFrq) * t + (gPhase + globalPhase));
+        let bVal = (bOffset + gOff) + (bAmp * gAmpVal) * cos(TWO_PI * (bFreq * gFrq) * t + (bPhase + globalPhase));
+        rVal = constrain(rVal, 0, 1);
+        gVal = constrain(gVal, 0, 1);
+        bVal = constrain(bVal, 0, 1);
+        stroke(rVal * 255, gVal * 255, bVal * 255);
+        line(x, yStart, x, canvasHeight);
+      }
+      
+      // Create the JSON object from the slider values, applying global adjustments.
+      // For phase values, output the raw UI values (range -1 to 1) with globals applied.
+      let palette = {
+        "name": "My Palette",
+        "a": [ 
+          parseFloat((rOffset + gOff).toFixed(3)), 
+          parseFloat((gOffset + gOff).toFixed(3)), 
+          parseFloat((bOffset + gOff).toFixed(3))
+        ],
+        "b": [ 
+          parseFloat((rAmp * gAmpVal).toFixed(3)), 
+          parseFloat((gAmp * gAmpVal).toFixed(3)), 
+          parseFloat((bAmp * gAmpVal).toFixed(3))
+        ],
+        "c": [ 
+          parseFloat((rFreq * gFrq).toFixed(3)), 
+          parseFloat((gFreq * gFrq).toFixed(3)), 
+          parseFloat((bFreq * gFrq).toFixed(3))
+        ],
+        "d": [ 
+          parseFloat((rPhaseUI + globalPhaseUI).toFixed(3)), 
+          parseFloat((gPhaseUI + globalPhaseUI).toFixed(3)), 
+          parseFloat((bPhaseUI + globalPhaseUI).toFixed(3))
+        ]
+      };
+      
+      // Output collapsed JSON (no extra whitespace)
+      document.getElementById('jsonOutput').innerText = JSON.stringify(palette);
+    }
+    
+    // Utility to sync a slider (range) with its number input
+    function linkRangeAndNumber(rangeEl, numberEl) {
+      rangeEl.addEventListener('input', () => {
+        numberEl.value = rangeEl.value;
+      });
+      numberEl.addEventListener('input', () => {
+        rangeEl.value = numberEl.value;
+      });
+    }
+    
+    // Function to randomize a slider's value within its allowed range and step.
+    function randomizeSlider(sliderEl) {
+      let min = parseFloat(sliderEl.min);
+      let max = parseFloat(sliderEl.max);
+      let step = parseFloat(sliderEl.step);
+      let steps = Math.floor((max - min) / step);
+      let randomStep = Math.floor(Math.random() * (steps + 1));
+      let newVal = min + randomStep * step;
+      sliderEl.value = newVal.toFixed(2);
+      // Trigger input event to update linked number input
+      sliderEl.dispatchEvent(new Event('input'));
+    }
+    
+    // Function to randomize all sliders
+    function randomizeValues() {
+      randomizeSlider(rOffsetRange);
+      randomizeSlider(rAmplitudeRange);
+      randomizeSlider(rFreqRange);
+      randomizeSlider(rPhaseRange);
+      
+      randomizeSlider(gOffsetRange);
+      randomizeSlider(gAmplitudeRange);
+      randomizeSlider(gFreqRange);
+      randomizeSlider(gPhaseRange);
+      
+      randomizeSlider(bOffsetRange);
+      randomizeSlider(bAmplitudeRange);
+      randomizeSlider(bFreqRange);
+      randomizeSlider(bPhaseRange);
+      
+      randomizeSlider(globalOffsetRange);
+      randomizeSlider(globalAmplitudeRange);
+      randomizeSlider(globalFreqRange);
+      randomizeSlider(globalPhaseRange);
+    }
+    
+    // Attach event listeners to the buttons once the DOM is loaded
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById("copyButton").addEventListener("click", function() {
+        let jsonText = document.getElementById("jsonOutput").innerText;
+        navigator.clipboard.writeText(jsonText).then(() => {
+          alert("JSON copied to clipboard!");
+        }).catch((err) => {
+          console.error("Error copying JSON: ", err);
+        });
+      });
+      
+      document.getElementById("randomizeButton").addEventListener("click", randomizeValues);
+    });
+  </script>
+</body>
+</html>
+

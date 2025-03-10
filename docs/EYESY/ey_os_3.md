@@ -15,7 +15,7 @@ Welcome to **EYESY**! Time is money so let’s get you up and running.
 
 ------------------------------------------------------------------------ 
 
-## WAIT AM I IN THE RIGHT PLACE? 
+## WAIT...AM I IN THE RIGHT PLACE? 
 
 The **EYESY** has had some major software updates in 2025. This manual is for the latest EYESY OS version 3 and higher. You can check the software version by pressing the top left On Screen Display button. If your EYESY is running version 2.3 you can upgrade to version 3 by flashing the micro SD card. See section 6.1 for instructions.
 
@@ -213,7 +213,7 @@ When the `Status LED` is glowing in one of these colors, it is indicating the fo
 -   Red: The knob sequencer is recording.
 -   Green: The knob sequencer is playing.
 
-**The `Shift` Button** allows access to additional functionality including an on screen menu. These functions are discussed later in this chapter and Chapter 3.
+**The `Shift` button** allows access to additional functionality including an on screen menu. These functions are discussed later in this chapter and Chapter 3.
 
 **The `Persist Toggle` button** is a nice toggle effect available in all situations. This is easier explained with a brief word on how EYESY carries out its drawing functions.
 
@@ -442,7 +442,7 @@ Once all mappings are set, press **Save** to store them in the system configurat
 If a scene that is mapped to a **Program Change number** is deleted, it will also be removed from this list automatically.  
 
 
-### 3.4 Color Palette  
+### 3.4 Color Palette
 
 The **Color Palette** menu allows you to select default foreground and background color palettes for all modes.  
 
@@ -458,6 +458,29 @@ Use the **Mode Forward** and **Mode Backward** buttons to cycle through the avai
 The first selection in the list is the original EYESY (OS v2.3) color palette. This original palette has some built-in color randomization. The changing colors at the top and bottom of the selection screen (and the OSD) are expected.
 
 These selections are stored in the configuration and will be used every time EYESY starts up. However, keep in mind that **scenes also store palette selections**, so when a scene is recalled, it may override these default settings. The palette settings in this menu act as the **default** colors used when EYESY first powers on, before any scenes are loaded.  
+
+####Customizing the List of Palettes
+
+A built-in file called *palettes.py* stores the palettes on the 'stock' OS. If you place file of the same name and format in the System folder (more on this in section 4.2) this file will override the default list of palettes.
+
+A copy of the stock *palettes.py* file is located in the EYESY documentation menu to the left. Feel free to remove and/or rearrange any of the individual palettes. A complete palette consists of the following:
+
+`    {
+      "name": "Greyscale",
+      "a": [0.500, 0.500, 0.500],
+      "b": [0.500, 0.500, 0.500],
+      "c": [0.500, 0.500, 0.500],
+      "d": [0.500, 0.500, 0.500]
+    },
+    `
+
+
+You can create your own palettes with the **Palette Picker** tool. The tool is located in the EYESY documentation menu to the left. 
+
+Once you have created a new palette, use the *Copy JSON* button and paste it in the *palettes.py* file in your desired location. Take care to ensure that a comma (`,`) is after the closed curly brace: `},` unless it is the last palette in the file. Be sure to give your new palette a name for easier reference. Save your updated *palettes.py* and upload it to the **System** folder (again, more on this in section 3.5 and chapter 4). As with any changes made to system files, the EYESY video engine will need to be restarted for changes to take effect (more on this in section 4.1). 
+
+The EYESY will present an error in the **Logs** if the *palettes.py* isn't formatted correctly. If this is the case, it use the default file instead. The **Logs** will display an error like this:
+`Error loading /sdcard/System/gradients.json: Expecting ',' delimiter: line 116 column 1 (char 2879), using default palettes.`
 
 ### 3.5 WiFi and Network Setup
 
@@ -495,7 +518,24 @@ The available options are:
 
 These options provide quick ways to manage storage, reset network settings, and ensure smooth operation while switching between SD and USB environments.  
 
-### 3.7 Logs  
+### 3.7 Hardware Test
+
+This menu has displays a simple line drawing of the EYESY's controls, as well as a grid of all 128 MIDI notes, a stereo VU meter, and some text about certain features passing a test or not:
+
+![System Settings Menu](images/menu_factory_test.png) 
+
+Let's start with the EYESY's controls:
+
+- Knobs: To test the knobs (aka 'potentiometers') please turn the knob to maximum left and then to maximum right. This left to right order is important because it is how the EYESY is expecting the values to come in. If the potentiometer outputs a voltage relative to a 0-to-1 range, it will pass and turn green. 
+- Buttons: A button must register three (3) presses to pass the test. If it does, it will turn green.
+
+To test the connections/other ports:
+
+- **USB WiFi adapter / USB Port** - 
+- **MIDI Input Port** -
+- **Audio Input Port**
+
+### 3.8 Logs  
 
 The **Logs** menu displays system messages from the EYESY software. This can be useful for debugging issues, checking for errors, or understanding what’s happening under the hood.  
 
@@ -697,8 +737,6 @@ Having walked through the general framework and requirements of EYESY’s modes,
 -   `eyesy.knob3` - A *float* representing the current value of *Knob 3*. Additionally, an incoming MIDI control change message of number `23` on the current selected MIDI channel will replace the value of *Knob 3*, until the knob is moved again.
 -   `eyesy.knob4` - A *float* representing the current value of *Knob 4*. Additionally, an incoming MIDI control change message of number `24` on the current selected MIDI channel will replace the value of *Knob 4*, until the knob is moved again.
 -   `eyesy.knob5` - A *float* representing the current value of *Knob 5*. Additionally, an incoming MIDI control change message of number `25` on the current selected MIDI channel will replace the value of *Knob 5*, until the knob is moved again.
--   `eyesy.lastgrab` - A **Pygame** *surface* that contains an image of the last taken screenshot taken (via the *Screenshot* button). This surface has dimensions of 1280 by 720, matching the full size of the screenshot.
--   `eyesy.lastgrab_thumb` - A **Pygame** *surface* that contains a thumbnail image of the last taken screenshot taken (via the *Screenshot* button). This surface has dimensions of 128 by 72.
 -   `eyesy.midi_notes` - A *list* representing the 128 various MIDI note pitches. Each value in this list indicates whether that note is current on or not. For example, you could create a threshold function that executes when “middle C” (MIDI note 60) is being held down with something like…
 
     `if eyesy.midi_notes[60] : yourFunctionHere()`
@@ -710,7 +748,7 @@ Having walked through the general framework and requirements of EYESY’s modes,
 
 Along with all of these variables, the `EYESY` object does have two functions worth mentioning as well:
 
--   `eyesy.bg_color()` - This sets the background color. It is usually specified as *"etc.color_picker_bg(etc.knob5)"* but any knob can be used to control the background color.  This function takes the knob value (from 0-1) and translates it to RGB values and uses that for the background color.
+-   `eyesy.color_picker_bg()` - This sets the background color. It is usually specified as *"etc.color_picker_bg(etc.knob5)"* but any knob can be used to control the background color.  This function takes the knob value (from 0-1) and translates it to RGB values and uses that for the background color.
 
 -   `eyesy.color_picker()` - This function translates the value of the specified knob into a color.  It is usually specified as *"etc.color_picker(etc.knob4)"* but any knob can be used to for the color picker. When called, this function returns a *tuple* of three integers representing the red, green, and blue components of this color. In the factory modes, you will often see a local variable (usually `color`) being set by this function, like so… 
 	
@@ -720,7 +758,7 @@ Along with all of these variables, the `EYESY` object does have two functions wo
 	
 	`color = eyesy.color_picker_lfo(etc.knob4)`
 
-This function has an optional, second argument that controls the maximum LFO rate. the default value of this argument is 0.5. In the example below *1.1* is the optional argument:
+This function has an optional, second argument that controls the maximum LFO rate. If no value is included in the function call, the default LFO rate will be used. This default value is 0.1. In the example below *1.1* is the optional argument:
 
 	`color = eyesy.color_picker_lfo(etc.knob4, 1.1)`
 

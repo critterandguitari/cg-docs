@@ -53,6 +53,9 @@
       font-size: 12px;
       cursor: pointer;
     }
+    .colorlabel {
+      margin-top: 12px;
+    }
   </style>
 </head>
 <body>
@@ -60,14 +63,14 @@
   <!-- Grid for parameters -->
   <div class="param-grid">
     <!-- Header row -->
-    <div>Color</div>
+    <div></div>
     <div>Offset</div>
     <div>Amplitude</div>
     <div>Frequency</div>
     <div>Phase</div>
 
     <!-- Red row -->
-    <div>Red</div>
+    <div class="colorlabel">Red</div>
     <div class="param-cell">
       <input type="range" id="rOffset" min="0" max="1" step="0.01" value="0.5" />
       <input type="number" id="rOffsetNum" min="0" max="1" step="0.01" value="0.5" />
@@ -87,7 +90,7 @@
     </div>
 
     <!-- Green row -->
-    <div>Green</div>
+    <div class="colorlabel">Green</div>
     <div class="param-cell">
       <input type="range" id="gOffset" min="0" max="1" step="0.01" value="0.5" />
       <input type="number" id="gOffsetNum" min="0" max="1" step="0.01" value="0.5" />
@@ -107,7 +110,7 @@
     </div>
 
     <!-- Blue row -->
-    <div>Blue</div>
+    <div class="colorlabel">Blue</div>
     <div class="param-cell">
       <input type="range" id="bOffset" min="0" max="1" step="0.01" value="0.5" />
       <input type="number" id="bOffsetNum" min="0" max="1" step="0.01" value="0.5" />
@@ -127,7 +130,7 @@
     </div>
 
     <!-- Global row -->
-    <div>Global</div>
+    <div class="colorlabel">Global</div>
     <div class="param-cell">
       <input type="range" id="globalOffset" min="-1" max="1" step="0.01" value="0" />
       <input type="number" id="globalOffsetNum" min="-1" max="1" step="0.01" value="0" />

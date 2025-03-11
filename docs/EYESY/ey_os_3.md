@@ -467,10 +467,10 @@ A copy of the stock *palettes.py* file is located in the EYESY documentation men
 
 `    {
       "name": "Greyscale",
-      "a": [0.500, 0.500, 0.500],
-      "b": [0.500, 0.500, 0.500],
-      "c": [0.500, 0.500, 0.500],
-      "d": [0.500, 0.500, 0.500]
+      		"a": [0.500, 0.500, 0.500],
+      		"b": [0.500, 0.500, 0.500],
+      		"c": [0.500, 0.500, 0.500],
+      		"d": [0.500, 0.500, 0.500]
     },
     `
 
@@ -589,14 +589,14 @@ The `Code` pane is indeed a code editor, complete with line numbers and syntax h
 
 ### 4.2 Folder & File Management in the MicroSD Card
 
-As has been mentioned, EYESY organizes its operation around four key folders:  
+As mentioned in Section 2.6, EYESY organizes its operation with four key folders. These folders are located the microSD card by default. The folders are: 
 
 - **Modes** – Stores all available visual modes.  
 - **Scenes** – Saves user-created scenes, including mode selections and knob settings.  
 - **Grabs** – Contains screenshots captured using the *Screenshot* button.  
 - **System** – Holds system configuration files.
 
-The following is an example directory listing of either */sdcard* or */usbdrive*. You can see four modes here, each with a required `main.py` file, as well as the `Grabs` folder and a `Scenes.csv` file.
+Remember, the EYESY can use either the */sdcard* or a connected */usbdrive* as the location for these directories. The following is an example directory listing of either */sdcard* or */usbdrive*. You can see four folders (directories): `Grabs`, `Modes`, `System`, and `Scenes` as well as their contents.
 
     Grabs/
         0.png
@@ -614,9 +614,11 @@ The following is an example directory listing of either */sdcard* or */usbdrive*
     	scene-0001
     	scene-0002
 
+Screen grabs taken with the **Screenshot** button are stored in the `Grabs`. It is permissible for this directory to be empty.
+
 Inside of the `Modes` folder there are two modes. So in the example shown above, the two modes available on EYESY would be `S - Circle Scope Connected`, and `T - Density Cloud`. And once more, the practice with factory modes is that a leading `S - ` indicates a scope mode while a leading `T - ` signifies a trigger mode (see chapter one).
 
-Scenes are stored as individual **folders** inside the **Scenes** directory. Each scene has its own folder, making it easier to organize, rename, and manage them.  
+Scenes are stored as individual **folders** inside the `Scenes` directory. Each scene has its own folder, making it easier to organize, rename, and manage them.  
 
 Scenes are **loaded alphabetically**, so you can rename them to change their order.  
 
@@ -676,7 +678,7 @@ A word or two on how EYESY actually does its work will go a long way. We will sp
 
 As was said early on, EYESY’s modes are written in **Python** using the graphics library of **Pygame**. So **Python** is the programming language in use, and the graphics library executing the drawing comes from **Pygame**.
 
-**Python** has a rich standard library with numerous modules, any of which can be used in your modes. A full list of modules can be found in [Python’s documentation](https://docs.python.org/2/library/). Going through the factory modes, you will see such modules as `glob`, `imp`, `math`, `random`, and `time` in use. To learn more about how any of the library modules work or more about **Python** itself, the documentation link above is a wonderful place to start.
+**Python** has a rich standard library with numerous modules, any of which can be used in your modes. A full list of modules can be found in [Python’s documentation](https://docs.python.org/3/library/). Going through the factory modes, you will see such modules as `glob`, `imp`, `math`, `random`, and `time` in use. To learn more about how any of the library modules work or more about **Python** itself, the documentation link above is a wonderful place to start.
 
 **Pygame** is a set of **Python** modules that were originally written for video game development. EYESY is using the graphics library of **Pygame** to create our visuals. A full list of available modules can be found in [Pygame’s documentation](http://www.Pygame.org/docs/) under the *Reference* section a little ways down the page. Some of the factory modes make use of additional libraries such as `pygame.freetype` and `pygame.gfxdraw`, but other graphics-related modules could be used as well.
 
@@ -748,24 +750,24 @@ Having walked through the general framework and requirements of EYESY’s modes,
 
 Along with all of these variables, the `EYESY` object does have two functions worth mentioning as well:
 
--   `eyesy.color_picker_bg()` - This sets the background color. It is usually specified as *"etc.color_picker_bg(etc.knob5)"* but any knob can be used to control the background color.  This function takes the knob value (from 0-1) and translates it to RGB values and uses that for the background color.
+-   `eyesy.color_picker_bg()` - This sets the background color. It is usually specified as *"eyesy.color_picker_bg(etc.knob5)"* but any knob can be used to control the background color.  This function takes the knob value (from 0-1) and translates it to RGB values and uses that for the background color.
 
--   `eyesy.color_picker()` - This function translates the value of the specified knob into a color.  It is usually specified as *"etc.color_picker(etc.knob4)"* but any knob can be used to for the color picker. When called, this function returns a *tuple* of three integers representing the red, green, and blue components of this color. In the factory modes, you will often see a local variable (usually `color`) being set by this function, like so… 
+-   `eyesy.color_picker()` - This function translates the value of the specified knob into a color.  It is usually specified as *"eyesy.color_picker(etc.knob4)"* but any knob can be used to for the color picker. When called, this function returns a *tuple* of three integers representing the red, green, and blue components of this color. In the factory modes, you will often see a local variable (usually `color`) being set by this function, like so… 
 	
-	`color = eyesy.color_picker(etc.knob4)`
+	`color = eyesy.color_picker(eyesy.knob4)`
 
--   `eyesy.color_picker_lfo()` - This function is similar to *"etc.color_picker()"* but has a built-in LFO so the color changes automatically. The first half of the knob rotation (moving from maximum left to center) selects a static color. The second half of the knob rotation (moving from center to maximum right) selects the LFO rate. This function is usually associated with Knob 4: *"etc.color_picker_lfo(etc.knob4)"*, but any knob can be used to for this color picker. When the LFO is active, the color will bounce back and forth so as to avoid stark jumps in color. When called, this function returns a *tuple* of three integers representing the red, green, and blue components of this color. In the factory modes, you will often see a local variable (usually `color`) being set by this function, like so… 
+-   `eyesy.color_picker_lfo()` - This function is similar to *"eyesy.color_picker()"* but has a built-in LFO so the color changes automatically. The first half of the knob rotation (moving from maximum left to center) selects a static color. The second half of the knob rotation (moving from center to maximum right) selects the LFO rate. This function is usually associated with Knob 4: *"eyesy.color_picker_lfo(etc.knob4)"*, but any knob can be used to for this color picker. When the LFO is active, the color will bounce back and forth so as to avoid stark jumps in color. When called, this function returns a *tuple* of three integers representing the red, green, and blue components of this color. In the factory modes, you will often see a local variable (usually `color`) being set by this function, like so… 
 	
-	`color = eyesy.color_picker_lfo(etc.knob4)`
+	`color = eyesy.color_picker_lfo(eyesy.knob4)`
 
 This function has an optional, second argument that controls the maximum LFO rate. If no value is included in the function call, the default LFO rate will be used. This default value is 0.1. In the example below *1.1* is the optional argument:
 
-	`color = eyesy.color_picker_lfo(etc.knob4, 1.1)`
+	`color = eyesy.color_picker_lfo(eyesy.knob4, 1.1)`
 
 Please note that the 'actual' LFO rate may vary from one mode to another depending on the quantity, size, etc. of elements needed to be drawn to the screen. 
 
 
-The idea here is that you can easily set an element color based on a given knob. 
+The idea with the three *eyesy.color_picker...* functions is that you can easily set an element color based on a given knob. 
 
 As you program modes you might consider using the same knob for the color picker and background color selector across them. This is so that when you switch between modes using the same mapping, the foreground and background colors will be consistent, making transitions more fluid.
 
@@ -789,7 +791,7 @@ Follow these steps to burn a new SD card:
 
 1. Download the microSD card disk image to your computer: 
 
-    - Current OS release: [EYESY-2.3](https://cgdiskimages.nyc3.digitaloceanspaces.com/EYESY-v3.0.img.zip). Requires 8GB or larger microSD card.
+    - Current OS release: [EYESY-3.0](https://cgdiskimages.nyc3.digitaloceanspaces.com/EYESY-v3.0.img.zip). Requires 8GB or larger microSD card.
      
 2. **Optional**: If you want to unzip the disk image please use one of the following programs: 
 

@@ -461,26 +461,27 @@ These selections are stored in the configuration and will be used every time EYE
 
 ####Customizing the List of Palettes
 
-A built-in file called *palettes.py* stores the palettes on the 'stock' OS. If you place file of the same name and format in the System folder (more on this in section 4.2) this file will override the default list of palettes.
+A built-in file called *palettes.json* stores the palettes on the 'stock' OS. If you place file of the same name and format in the System folder (more on this in section 4.2) this file will override the default list of palettes.
 
-A copy of the stock *palettes.py* file is located in the EYESY documentation menu to the left. Feel free to remove and/or rearrange any of the individual palettes. A complete palette consists of the following:
+A copy of the stock *palettes.json* file is located in the EYESY documentation menu to the left. Feel free to download it and remove and/or rearrange any of the individual palettes. A complete palette consists of the following:
 
-`    {
-      "name": "Greyscale",
-      		"a": [0.500, 0.500, 0.500],
-      		"b": [0.500, 0.500, 0.500],
-      		"c": [0.500, 0.500, 0.500],
-      		"d": [0.500, 0.500, 0.500]
-    },
-    `
-
+	{
+		"name": "Greyscale",
+		"a": [0.500, 0.500, 0.500],
+		"b": [0.500, 0.500, 0.500],
+		"c": [0.500, 0.500, 0.500],
+		"d": [0.500, 0.500, 0.500]
+	},
 
 You can create your own palettes with the **Palette Picker** tool. The tool is located in the EYESY documentation menu to the left. 
 
-Once you have created a new palette, use the *Copy JSON* button and paste it in the *palettes.py* file in your desired location. Take care to ensure that a comma (`,`) is after the closed curly brace: `},` unless it is the last palette in the file. Be sure to give your new palette a name for easier reference. Save your updated *palettes.py* and upload it to the **System** folder (again, more on this in section 3.5 and chapter 4). As with any changes made to system files, the EYESY video engine will need to be restarted for changes to take effect (more on this in section 4.1). 
+Once you have created a new palette, use the *Copy JSON* button and paste it in your desired location within in the *palettes.json* file . Take care to ensure that a comma (`,`) is after the closed curly brace: `},` *unless* it is the last palette in the file. Be sure to give your new palette a name for easier reference. Save your updated *palettes.json* and upload it to the **System** folder (again, more on this in section 3.5 and chapter 4). As with any changes made to system files, the EYESY video engine will need to be restarted for changes to take effect (more on this in section 4.1). 
 
-The EYESY will present an error in the **Logs** if the *palettes.py* isn't formatted correctly. If this is the case, it use the default file instead. The **Logs** will display an error like this:
-`Error loading /sdcard/System/gradients.json: Expecting ',' delimiter: line 116 column 1 (char 2879), using default palettes.`
+The EYESY will present an error in the **Logs** if the *palettes.py* isn't formatted correctly. If this is the case, the EYESY will use the default file instead. The **Logs** will display an error like this:
+
+`Error loading /sdcard/System/palettes.json: Expecting ',' delimiter: line 116 column 1 (char 2879), using default palettes.`
+
+If you are unsure of how to format the JSON file, you can copy and paste the entire contents of *palettes.json* into a JSON validator like [Duck Duck Go's](https://duckduckgo.com/?t=ffab&q=json+formatter&ia=answer). Select "Indent with Four Spaces" from the drop down menu and then click "Validate JSON". Once validated, copy it and paste it all back into your *palettes.json* file. Be sure to save it before uploading to your EYESY.
 
 ### 3.5 WiFi and Network Setup
 

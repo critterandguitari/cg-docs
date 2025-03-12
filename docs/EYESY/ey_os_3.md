@@ -11,7 +11,7 @@ For EYESY OS version 3.0
 
 ## Getting Started
 
-Welcome to **EYESY**! Time is money so let’s get you up and running.
+Welcome to **EYESY**! Let’s get you up and running.
 
 ------------------------------------------------------------------------ 
 
@@ -401,7 +401,7 @@ The first item in the menu is **MIDI Program Change Scene Mapping**—more on th
 
 The remaining settings are adjustable:  
 
-- **Trigger Source** – Sets the trigger source. Choices are 
+- **Trigger Source** – Sets the trigger source for any modes that use triggers. Choices are:
   - **Audio** a trigger gets generated when audio exceeds about -5dB.
   - **MIDI Note** A trigger gets generated when a MIDI Note On is recieved. For example pressing a key will generate a trigger, but not releasing it.
   - **MIDI Note or Audio** Either will generate a trigger.
@@ -475,15 +475,15 @@ A copy of the stock *palettes.json* file is located in the EYESY documentation m
 
 You can create your own palettes with the **Palette Picker** tool. The tool is located in the EYESY documentation menu to the left. The **Palette Picker** consists of a graph of three cosine waveforms representing Red, Green, and Blue values of a palette. Below the graph is the output of the cosine function. This output is what you see on your EYESY's `OSD` and `Palettes` menu. 
 
-Below the output are the controls for manipulating the waveforms.  
+Below the output are the controls for manipulating the waveforms. Each color cosine has controls for Offset, Amplitude, Frequency, and Phase. The Global settings at the bottom of each column scale the values of their respective columns. Use the horizontal sliders to set values. You can also enter specific numbers into the text boxes below the sliders - this is a useful way to enter values outside of the slider's range. 
 
-Once you have created a new palette, use the *Copy JSON* button and paste it in your desired location within in the *palettes.json* file . Take care to ensure that a comma (`,`) is after the closed curly brace: `},` *unless* it is the last palette in the file. Be sure to give your new palette a name for easier reference. Save your updated *palettes.json* and upload it to the **System** folder (again, more on this in section 3.5 and chapter 4). As with any changes made to system files, the EYESY video engine will need to be restarted for changes to take effect (more on this in section 4.1). 
+Once you have created a new palette, use the *Copy JSON* button and paste it in your desired location within your custom *palettes.json* file. Take care to ensure that a comma (`,`) is after the closed curly brace: `},` *unless* it is the last palette in the file. Be sure to give your new palette a name for easier reference. Save your updated *palettes.json* and upload it to the **System** folder (again, more on this in section 3.5 and chapter 4). As with any changes made to system files, the EYESY video engine will need to be restarted for changes to take effect (more on this in section 4.1). 
 
 The EYESY will present an error in the **Logs** if the *palettes.py* isn't formatted correctly. If this is the case, the EYESY will use the default file instead. The **Logs** will display an error like this:
 
 `Error loading /sdcard/System/palettes.json: Expecting ',' delimiter: line 116 column 1 (char 2879), using default palettes.`
 
-If you are unsure of how to format the JSON file, you can copy and paste the entire contents of *palettes.json* into a JSON validator like [Duck Duck Go's](https://duckduckgo.com/?t=ffab&q=json+formatter&ia=answer). Select "Indent with Four Spaces" from the drop down menu and then click "Validate JSON". Once validated, copy it and paste it all back into your *palettes.json* file. Be sure to save it before uploading to your EYESY.
+If you are unsure of how to format the JSON file, you can copy and paste the entire contents of your *palettes.json* into a JSON validator like [Duck Duck Go's](https://duckduckgo.com/?t=ffab&q=json+formatter&ia=answer). Select "Indent with Four Spaces" from the drop down menu and then click "Validate JSON". Once validated, copy it and paste it all back into your *palettes.json* file. Be sure to save it before uploading to your EYESY.
 
 ### 3.5 WiFi and Network Setup
 
@@ -523,20 +523,24 @@ These options provide quick ways to manage storage, reset network settings, and 
 
 ### 3.7 Hardware Test
 
-This menu has displays a simple line drawing of the EYESY's controls, as well as a grid of all 128 MIDI notes, a stereo VU meter, and some text about certain features passing a test or not:
+This menu item is included to help diagnose any hardware issues. If you reach out to us on our forum or support email we may ask that this test be run. The test page does not include any instructions, so they are included below.
+
+The test page displays a simple line drawing of the EYESY's controls, as well as a grid of all 128 MIDI notes, a stereo VU meter, and some text about certain features passing a test or not:
 
 ![System Settings Menu](images/menu_factory_test.png) 
 
 Let's start with the EYESY's controls:
 
-- Knobs: To test the knobs (aka 'potentiometers') please turn the knob to maximum left and then to maximum right. This left to right order is important because it is how the EYESY is expecting the values to come in. If the potentiometer outputs a voltage relative to a 0-to-1 range, it will pass and turn green. 
-- Buttons: A button must register three (3) presses to pass the test. If it does, it will turn green.
+- Knobs: To test the knobs (aka 'potentiometers') please turn a knob to maximum left and then to maximum right. This left to right order is important because it is how the EYESY is expecting the values to come in. If the potentiometer outputs the correct value range, it will pass and turn green. 
+- Buttons: A button must register three (3) presses to pass the test. If it does, it will turn green. If you press the `OSD` button, you will exit the test!
 
 To test the connections/other ports:
 
-- **USB WiFi adapter / USB Port** - 
-- **MIDI Input Port** -
-- **Audio Input Port**
+- **USB WiFi Adapter / USB Port** - Before the entering the test page, the USB-WiFi adapter needs to be inserted in the EYESY's USB port and needs to be connected to an existing network. Please see section 3.5 for more information about WiFi. If the test finds that the USB-WiFi adapter is connected to a local network, it will pass.  
+- **MIDI Input Port** - Connect the MIDI Input Port to the MIDI output of another device such as a synth or DAW. *Please make sure that the external device and EYESY are set to the same MIDI Channel.* The test expects that you press and hold MIDI note numbers 60, 62, 64 at the same time. These note number correspond to 'middle' C, D, E. These and any other note numbers will be displayed as filled squares on the grid of 128 squares on the upper right corner of the test screen. (Note: if EYESY receives MIDI notes from a connected USB-MIDI device, these notes will show up on the grid too.)
+- **Audio Input Port** - This test expects that a stereo 1/4" cable is connected to the Audio Input Port. When both the right & left audio channels are loud enough to set the **trigger**, this will pass. The trigger is set when the onscreen VU meter gets to the first yellow indicator. 
+
+> Please note that the test does not save any results. Each time you venture to this page, it will start fresh.  
 
 ### 3.8 Logs  
 
@@ -681,7 +685,7 @@ A word or two on how EYESY actually does its work will go a long way. We will sp
 
 As was said early on, EYESY’s modes are written in **Python** using the graphics library of **Pygame**. So **Python** is the programming language in use, and the graphics library executing the drawing comes from **Pygame**.
 
-**Python** has a rich standard library with numerous modules, any of which can be used in your modes. A full list of modules can be found in [Python’s documentation](https://docs.python.org/3/library/). Going through the factory modes, you will see such modules as `glob`, `imp`, `math`, `random`, and `time` in use. To learn more about how any of the library modules work or more about **Python** itself, the documentation link above is a wonderful place to start.
+**Python** has a rich standard library with numerous modules, any of which can be used in your modes. A full list of modules can be found in [Python’s documentation](https://docs.python.org/3/library/). EYESY OSv3 is using *Python 3.11*. Going through the factory modes, you will see such modules as `glob`, `imp`, `math`, `random`, and `time` in use. To learn more about how any of the library modules work or more about **Python** itself, the documentation link above is a wonderful place to start.
 
 **Pygame** is a set of **Python** modules that were originally written for video game development. EYESY is using the graphics library of **Pygame** to create our visuals. A full list of available modules can be found in [Pygame’s documentation](http://www.Pygame.org/docs/) under the *Reference* section a little ways down the page. Some of the factory modes make use of additional libraries such as `pygame.freetype` and `pygame.gfxdraw`, but other graphics-related modules could be used as well.
 

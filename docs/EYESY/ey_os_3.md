@@ -473,7 +473,11 @@ A copy of the stock *palettes.json* file is located in the EYESY documentation m
 		"d": [0.500, 0.500, 0.500]
 	},
 
-You can create your own palettes with the **Palette Picker** tool. The tool is located in the EYESY documentation menu to the left. The **Palette Picker** consists of a graph of three cosine waveforms representing Red, Green, and Blue values of a palette. Below the graph is the output of the cosine function. This output is what you see on your EYESY's `OSD` and `Palettes` menu. 
+You can create your own palettes with the **Palette Picker** tool. The tool is located in the EYESY documentation menu to the left. It looks like this:
+
+![Palette Picker](images/palette_picker_tool.png)
+
+The **Palette Picker** consists of a graph of three cosine waveforms representing Red, Green, and Blue values of a palette. Below the graph is the output of the cosine function. This output is what you see on your EYESY's `OSD` and `Palettes` menu. 
 
 Below the output are the controls for manipulating the waveforms. Each color cosine has controls for Offset, Amplitude, Frequency, and Phase. The Global settings at the bottom of each column scale the values of their respective columns. Use the horizontal sliders to set values. You can also enter specific numbers into the text boxes below the sliders - this is a useful way to enter values outside of the slider's range. 
 

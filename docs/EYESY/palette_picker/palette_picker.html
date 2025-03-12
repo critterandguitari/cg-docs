@@ -23,29 +23,32 @@
       display: grid;
       grid-template-columns: 80px repeat(4, 1fr);
       gap: 16px;
-      margin-top: 16px;
+      row-gap: 35px;
+      column-gap: 30px;
+      margin-top: 24px;
       max-width: 720px;
     }
     .param-cell {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
     }
     .param-cell input[type=range] {
       width: 96px;
     }
     .param-cell input[type=number] {
-      width: 48px;
-      margin-top: 4px;
+      width: 60px;
+      margin-top: 8px;
     }
     pre {
       background: #333;
       padding: 8px;
-      margin-top: 16px;
-      max-width: 720px;
+      margin-top: 30px;
+      max-width: 640px;
       width: 100%;
       overflow-x: auto;
       user-select: all;
+      align-items: center;
     }
     button {
       margin-top: 8px;
@@ -56,6 +59,13 @@
     .colorlabel {
       margin-top: 12px;
     }
+    .credit-section a {
+      color: #fff;
+      text-decoration: underline;
+    }
+    .credit-section a:visited {
+      color: #fff;
+    }
   </style>
 </head>
 <body>
@@ -64,13 +74,13 @@
   <div class="param-grid">
     <!-- Header row -->
     <div></div>
-    <div>Offset</div>
-    <div>Amplitude</div>
-    <div>Frequency</div>
-    <div>Phase</div>
+    <div style="text-align: center;">Offset</div>
+    <div style="text-align: center;">Amplitude</div>
+    <div style="text-align: center;">Frequency</div>
+    <div style="text-align: center;">Phase</div>
 
     <!-- Red row -->
-    <div class="colorlabel">Red</div>
+    <div class="colorlabel" style="text-align: center">Red</div>
     <div class="param-cell">
       <input type="range" id="rOffset" min="0" max="1" step="0.01" value="0.5" />
       <input type="number" id="rOffsetNum" min="0" max="1" step="0.01" value="0.5" />
@@ -90,7 +100,7 @@
     </div>
 
     <!-- Green row -->
-    <div class="colorlabel">Green</div>
+    <div class="colorlabel" style="text-align: center">Green</div>
     <div class="param-cell">
       <input type="range" id="gOffset" min="0" max="1" step="0.01" value="0.5" />
       <input type="number" id="gOffsetNum" min="0" max="1" step="0.01" value="0.5" />
@@ -110,7 +120,7 @@
     </div>
 
     <!-- Blue row -->
-    <div class="colorlabel">Blue</div>
+    <div class="colorlabel" style="text-align: center">Blue</div>
     <div class="param-cell">
       <input type="range" id="bOffset" min="0" max="1" step="0.01" value="0.5" />
       <input type="number" id="bOffsetNum" min="0" max="1" step="0.01" value="0.5" />
@@ -130,7 +140,7 @@
     </div>
 
     <!-- Global row -->
-    <div class="colorlabel">Global</div>
+    <div class="colorlabel" style="text-align: center">Global</div>
     <div class="param-cell">
       <input type="range" id="globalOffset" min="-1" max="1" step="0.01" value="0" />
       <input type="number" id="globalOffsetNum" min="-1" max="1" step="0.01" value="0" />
@@ -154,6 +164,11 @@
   <pre id="jsonOutput"></pre>
   <button id="copyButton">Copy JSON</button>
   <button id="randomizeButton">Randomize</button>
+
+    <!-- Credit and Additional Resources -->
+  <div class="credit-section" style="margin-top: 26px; text-align: left; font-size: 13px">
+    <p>This tool was originally created by Karsten Schmidt. <a href="https://github.com/thi-ng/umbrella/tree/develop/packages/color#cosine-gradients" target="_blank">Learn more on thi.ng. </a></p>
+  </div>
 
   <script>
     // Reduced dimensions: 20% smaller than original.
@@ -256,44 +271,44 @@
       let rAmp    = parseFloat(rAmplitudeNum.value);
       let rFreq   = parseFloat(rFreqNum.value);
       let rPhaseUI = parseFloat(rPhaseNum.value);
-      
+
       let gOffset = parseFloat(gOffsetNum.value);
       let gAmp    = parseFloat(gAmplitudeNum.value);
       let gFreq   = parseFloat(gFreqNum.value);
       let gPhaseUI = parseFloat(gPhaseNum.value);
-      
+
       let bOffset = parseFloat(bOffsetNum.value);
       let bAmp    = parseFloat(bAmplitudeNum.value);
       let bFreq   = parseFloat(bFreqNum.value);
       let bPhaseUI = parseFloat(bPhaseNum.value);
-      
+
       let gOff    = parseFloat(globalOffsetNum.value);
       let gAmpVal = parseFloat(globalAmplitudeNum.value);
       let gFrq    = parseFloat(globalFreqNum.value);
       let globalPhaseUI = parseFloat(globalPhaseNum.value);
-      
+
       // Convert UI phase values (range -1..1) to radians for computation
       let rPhase = rPhaseUI * TWO_PI;
       let gPhase = gPhaseUI * TWO_PI;
       let bPhase = bPhaseUI * TWO_PI;
       let globalPhase = globalPhaseUI * TWO_PI;
-      
+
       // For convenience, group per-channel values (offset, amplitude, frequency)
       let offsets = [rOffset, gOffset, bOffset];
       let amps    = [rAmp,    gAmp,    bAmp];
       let freqs   = [rFreq,   gFreq,   bFreq];
       let phases  = [rPhase,  gPhase,  bPhase];
-      
+
       // Colors for curves
       let colors = [
         color(255, 0, 0),
         color(0, 255, 0),
         color(0, 0, 255)
       ];
-      
+
       strokeWeight(2);
       noFill();
-      
+
       // Draw the cosine curves in the graph area (using adjusted phases for display)
       for (let c = 0; c < 3; c++) {
         stroke(colors[c]);
@@ -312,7 +327,7 @@
         }
         endShape();
       }
-      
+
       // Draw gradient preview in the designated preview area
       let yStart = graphHeight + gap;
       for (let x = 0; x < canvasWidth; x++) {
@@ -326,32 +341,32 @@
         stroke(rVal * 255, gVal * 255, bVal * 255);
         line(x, yStart, x, canvasHeight);
       }
-      
+
       // Create the JSON object from the slider values (with global adjustments)
       let palette = {
         "name": "My Palette",
-        "a": [ 
-          parseFloat((rOffset + gOff).toFixed(3)), 
-          parseFloat((gOffset + gOff).toFixed(3)), 
+        "a": [
+          parseFloat((rOffset + gOff).toFixed(3)),
+          parseFloat((gOffset + gOff).toFixed(3)),
           parseFloat((bOffset + gOff).toFixed(3))
         ],
-        "b": [ 
-          parseFloat((rAmp * gAmpVal).toFixed(3)), 
-          parseFloat((gAmp * gAmpVal).toFixed(3)), 
+        "b": [
+          parseFloat((rAmp * gAmpVal).toFixed(3)),
+          parseFloat((gAmp * gAmpVal).toFixed(3)),
           parseFloat((bAmp * gAmpVal).toFixed(3))
         ],
-        "c": [ 
-          parseFloat((rFreq * gFrq).toFixed(3)), 
-          parseFloat((gFreq * gFrq).toFixed(3)), 
+        "c": [
+          parseFloat((rFreq * gFrq).toFixed(3)),
+          parseFloat((gFreq * gFrq).toFixed(3)),
           parseFloat((bFreq * gFrq).toFixed(3))
         ],
-        "d": [ 
-          parseFloat((rPhaseUI + globalPhaseUI).toFixed(3)), 
-          parseFloat((gPhaseUI + globalPhaseUI).toFixed(3)), 
+        "d": [
+          parseFloat((rPhaseUI + globalPhaseUI).toFixed(3)),
+          parseFloat((gPhaseUI + globalPhaseUI).toFixed(3)),
           parseFloat((bPhaseUI + globalPhaseUI).toFixed(3))
         ]
       };
-     
+
       // update only if changed
       let currentJSON = JSON.stringify(palette);
       if (currentJSON !== lastJSON) {
@@ -359,7 +374,7 @@
         lastJSON = currentJSON;
       }
     }
-    
+
     function linkRangeAndNumber(rangeEl, numberEl) {
       rangeEl.addEventListener('input', () => {
         numberEl.value = rangeEl.value;
@@ -368,7 +383,7 @@
         rangeEl.value = numberEl.value;
       });
     }
-    
+
     function randomizeSlider(sliderEl) {
       let min = parseFloat(sliderEl.min);
       let max = parseFloat(sliderEl.max);
@@ -379,29 +394,29 @@
       sliderEl.value = newVal.toFixed(2);
       sliderEl.dispatchEvent(new Event('input'));
     }
-    
+
     function randomizeValues() {
       randomizeSlider(rOffsetRange);
       randomizeSlider(rAmplitudeRange);
       randomizeSlider(rFreqRange);
       randomizeSlider(rPhaseRange);
-      
+
       randomizeSlider(gOffsetRange);
       randomizeSlider(gAmplitudeRange);
       randomizeSlider(gFreqRange);
       randomizeSlider(gPhaseRange);
-      
+
       randomizeSlider(bOffsetRange);
       randomizeSlider(bAmplitudeRange);
       randomizeSlider(bFreqRange);
       randomizeSlider(bPhaseRange);
-      
+
       randomizeSlider(globalOffsetRange);
       randomizeSlider(globalAmplitudeRange);
       randomizeSlider(globalFreqRange);
       randomizeSlider(globalPhaseRange);
     }
-    
+
     window.addEventListener('DOMContentLoaded', () => {
       document.getElementById("copyButton").addEventListener("click", function() {
         let jsonText = document.getElementById("jsonOutput").innerText;
@@ -411,10 +426,9 @@
           console.error("Error copying JSON: ", err);
         });
       });
-      
+
       document.getElementById("randomizeButton").addEventListener("click", randomizeValues);
     });
   </script>
 </body>
 </html>
-

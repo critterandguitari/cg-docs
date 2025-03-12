@@ -192,7 +192,7 @@ The bottom graphic displays the following from left to right:
 
 -   The current positions of the knobs.
 -   Status of incoming MIDI notes.
--   A bargraph indicating audio gain stetting and stereo VU meter
+-   A bar graph indicating audio gain stetting and stereo VU meter
 -   An indicator of whether the trigger is currently engaged.
 -   A level meter for incoming audio signal.
 
@@ -403,7 +403,7 @@ The remaining settings are adjustable:
 
 - **Trigger Source** – Sets the trigger source for any modes that use triggers. Choices are:
   - **Audio** a trigger gets generated when audio exceeds about -5dB.
-  - **MIDI Note** A trigger gets generated when a MIDI Note On is recieved. For example pressing a key will generate a trigger, but not releasing it.
+  - **MIDI Note** A trigger gets generated when a MIDI Note On is received. For example pressing a key will generate a trigger, but not releasing it.
   - **MIDI Note or Audio** Either will generate a trigger.
   - **MIDI Clock** The remaining options are for divisions of the beat when MIDI clock signal is present. These settings allow trigger modes to change with the tempo of the music.
 
@@ -479,7 +479,7 @@ Below the output are the controls for manipulating the waveforms. Each color cos
 
 Once you have created a new palette, use the *Copy JSON* button and paste it in your desired location within your custom *palettes.json* file. Take care to ensure that a comma (`,`) is after the closed curly brace: `},` *unless* it is the last palette in the file. Be sure to give your new palette a name for easier reference. Save your updated *palettes.json* and upload it to the **System** folder (again, more on this in section 3.5 and chapter 4). As with any changes made to system files, the EYESY video engine will need to be restarted for changes to take effect (more on this in section 4.1). 
 
-The EYESY will present an error in the **Logs** if the *palettes.py* isn't formatted correctly. If this is the case, the EYESY will use the default file instead. The **Logs** will display an error like this:
+The EYESY will present an error in the **Logs** if the *palettes.json* isn't formatted correctly. If this is the case, the EYESY will use the default file instead. The **Logs** will display an error like this:
 
 `Error loading /sdcard/System/palettes.json: Expecting ',' delimiter: line 116 column 1 (char 2879), using default palettes.`
 
@@ -531,7 +531,7 @@ The test page displays a simple line drawing of the EYESY's controls, as well as
 
 Let's start with the EYESY's controls:
 
-- Knobs: To test the knobs (aka 'potentiometers') please turn a knob to maximum left and then to maximum right. This left to right order is important because it is how the EYESY is expecting the values to come in. If the potentiometer outputs the correct value range, it will pass and turn green. 
+- Knobs: To test the knobs (aka 'potentiometers') please turn a knob to maximum left and then to maximum right. This left-to-right order is important because it is how the EYESY is expecting the values to come in. If the potentiometer outputs the correct value range, it will pass and turn green. 
 - Buttons: A button must register three (3) presses to pass the test. If it does, it will turn green. If you press the `OSD` button, you will exit the test!
 
 To test the connections/other ports:
@@ -588,7 +588,7 @@ From top to bottom, the commands are:
 - *Cut, Copy, Paste, Rename, Zip, Unzip, Delete, Upload, New Folder*: the usual file management commands to apply to the *File Browser*. 
 	- There is a white box to the left of each item in the *File Browser*. You need to 'check' a box before choosing a command. (This does not apply to *Paste*, *New Folder* or *Upload*.)
 	- To copy a folder to/from the EYESY, you will need to zip it first. Folders cannot be uploaded or downloaded without zipping first. 
-- *File Browser*: There are two root folders: **/sdcard** and **/usbdrive** When operating in **/sdcard** you are editing files on the internal SD card. If there is a USB drive connected, it is also possible to edit files there. Click the preceeding **/** to select **/sdcard**  or **/usbdrive**. You can edit files in both locations, and move files between the two. Remember the EYESY is only running from USB or SD card (check the on screen display to see), so you want to make sure you are editing from the correct location to see results.
+- *File Browser*: There are two root folders: **/sdcard** and **/usbdrive** When operating in **/sdcard** you are editing files on the internal SD card. If there is a USB drive connected, it is also possible to edit files there. Click the preceding **/** to select **/sdcard**  or **/usbdrive**. You can edit files in both locations, and move files between the two. Remember the EYESY is only running from USB or SD card (check the on screen display to see), so you want to make sure you are editing from the correct location to see results.
 
 ##### The Code Pane
 
@@ -792,7 +792,7 @@ In addition to storing modes, the microSD card also stores the EYESY's operating
 
 Burning a fresh disk image on the microSD card will reset your EYESY to the 'factory' state. It includes one partition for the OS and another for mode storage, etc. This is useful to update to the latest EYESY OS, or to fix a problem with the microSD card.  
 
-This will completely wipe the microSD card clean, so make sure to backup anything on there that you need.  See Chapter 4 for information on downloading your modes and screenshots and other files. You can also use a brand new card if you wanted to keep your old OS available. If you are looking to use a new card with the same specifications of the card that shipped with your EYESY, those specificaitons are: SanDisk Edge 8GB microSDHC C4 UHS-I.
+This will completely wipe the microSD card clean, so make sure to backup anything on there that you need.  See Chapter 4 for information on downloading your modes and screenshots and other files. You can also use a brand new card if you wanted to keep your old OS available. If you are looking to use a new card with the same specifications of the card that shipped with your EYESY, those specifications are: SanDisk Edge 8GB microSDHC C4 UHS-I.
 
 Follow these steps to burn a new SD card:
 

@@ -475,7 +475,7 @@ A copy of the stock *palettes.json* file is located in the EYESY documentation m
 
 You can create your own palettes with the **Palette Picker** tool. The tool is located in the EYESY documentation menu to the left. It looks like this:
 
-![Palette Picker](images/palette_picker_tool.png)
+![Palette Picker](images/palette_picker_.png)
 
 The **Palette Picker** consists of a graph of three cosine waveforms representing Red, Green, and Blue values of a palette. Below the graph is the output of the cosine function. This output is what you see on your EYESY's `OSD` and `Palettes` menu. 
 

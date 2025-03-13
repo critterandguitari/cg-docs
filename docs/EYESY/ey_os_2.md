@@ -676,23 +676,15 @@ Follow these steps to burn a new SD card:
     - New OS release version 3.0 (see OS v3.0 manual after flashing): [EYESY-3.0](https://cgdiskimages.nyc3.digitaloceanspaces.com/EYESY-v3.0.img.zip). Requires 8GB or larger microSD card.
     
     - Old EYESY version 2.3: [EYESY-2.3](https://cgdiskimages.nyc3.digitaloceanspaces.com/EYESY-v2.3.img.zip). Requires 8GB or larger microSD card.
-     
-2. **Optional**: If you want to unzip the disk image please use one of the following programs: 
 
-    - Windows: [7-Zip](http://www.7-zip.org)
-
-    - Mac: [The Unarchiver](http://unarchiver.c3.cx/unarchiver)
-
-    - Linux: [Unzip](https://linux.die.net/man/1/unzip) 
-
-3. Download the flasher program to your computer: https://www.balena.io/etcher/  
-4. Power down the EYESY.
-5. Locate the thin slit in the rear of the enclosure (between the `MIDI In` and `HDMI` ports.)
-6. Use a pin or paperclip to press in on the black microSD card to eject it and it will spring out gently.
-7. Insert microSD into your computer (you may need an adapter or card reader)
-8. Use the Etcher program to burn the unzipped OS to the mircoSD card. When Etcher is finished your computer may display a message similar to 'This disk is not readable.' This message is normal and you may click 'Eject' to proceed.
-9. Remove the microSD card from your computer and reinsert it in EYESY. Make sure that the SD card is going into the socket on the circuit board, as it is easy to drop it into the device. If you can wiggle it a lot, it probably is not in socket. Use the same pin/paperclip to press it in until you hear/feel a 'click.'
-10. Restart the EYESY.
+2. Download the flasher program to your computer: https://www.balena.io/etcher/  
+3. Power down the EYESY.
+4. Locate the thin slit in the rear of the enclosure (between the `MIDI In` and `HDMI` ports.)
+5. Use a pin or paperclip to press in on the black microSD card to eject it and it will spring out gently.
+6. Insert microSD into your computer (you may need an adapter or card reader)
+7. Use the Etcher program to burn the unzipped OS to the mircoSD card. When Etcher is finished your computer may display a message similar to 'This disk is not readable.' This message is normal and you may click 'Eject' to proceed.
+8. Remove the microSD card from your computer and reinsert it in EYESY. Make sure that the SD card is going into the socket on the circuit board, as it is easy to drop it into the device. If you can wiggle it a lot, it probably is not in socket. Use the same pin/paperclip to press it in until you hear/feel a 'click.'
+9. Restart the EYESY.
 
 ### 6.2 Getting EYESY Video into Your Computer
 

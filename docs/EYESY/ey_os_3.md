@@ -802,7 +802,7 @@ Follow these steps to burn a new SD card:
 
 1. Download the microSD card disk image to your computer: 
 
-    - Current OS release: [EYESY-3.0](https://cgdiskimages.nyc3.digitaloceanspaces.com/EYESY-v3.0.img.zip). Requires 8GB or larger microSD card.
+    - Current OS release: [EYESY-3.0](https://cgdiskimages.nyc3.digitaloceanspaces.com/EYESY_v3.0.img.zip). Requires 8GB or larger microSD card.
 
 2. Download the flasher program to your computer: https://www.balena.io/etcher/  
 3. Power down the EYESY.

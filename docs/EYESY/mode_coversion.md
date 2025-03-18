@@ -2,6 +2,10 @@
 
 This guide will help you convert your EYESY modes from Python 2 to Python 3. The conversion process involves addressing both Python language differences and EYESY API changes.
 
+All of the factory modes for the Python 3 version are available here:
+
+[EYESY Modes OS v3](https://github.com/critterandguitari/EYESY_Modes_OSv3)
+
 ## Quick Start Approach
 
 1. **Try Running the Mode As-Is**: Sometimes Python 2 code might work in Python 3 without modifications, especially if it doesn't use any Python 2-specific features.
@@ -84,8 +88,8 @@ audio_data = eyesy.audio_in
 | `etc.xres`          | `eyesy.xres`         | Functionality remains the same        |
 | `etc.yres`          | `eyesy.yres`         | Functionality remains the same        |
 | `etc.knob1-5`       | `eyesy.knob1-5`      | Functionality remains the same        |
-| `etc.lastgrab`      | N/A                  | No direct equivalent mentioned        |
-| `etc.lastgrab_thumb`| N/A                  | No direct equivalent mentioned        |
+| `etc.lastgrab`      | N/A                  | No direct equivalent                  |
+| `etc.lastgrab_thumb`| N/A                  | No direct equivalent                  |
 | `etc.midi_notes`    | `eyesy.midi_notes`   | Functionality remains the same        |
 | `etc.midi_note_new` | `eyesy.midi_note_new`| Functionality remains the same        |
 | `etc.mode`          | `eyesy.mode`         | Functionality remains the same        |
@@ -106,16 +110,17 @@ color = eyesy.color_picker_lfo(eyesy.knob4, 1.1)
 ## Common Errors and Solutions
 
 1. **NameError: name 'etc' is not defined**
-   - Solution: Replace all instances of `etc` with `eyesy`
+   
+    - Solution: Replace all instances of `etc` with `eyesy`
 
 2. **AttributeError: 'eyesy' object has no attribute 'audio_trig'**
-   - Solution: Replace `eyesy.audio_trig` with `eyesy.trig`
+    - Solution: Replace `eyesy.audio_trig` with `eyesy.trig`
 
 3. **SyntaxError: Missing parentheses in call to 'print'**
-   - Solution: Update print statements to use parentheses
+    - Solution: Update print statements to use parentheses
 
 4. **TypeError: 'dict_keys' object is not subscriptable**
-   - Solution: Convert dictionary views to lists where needed: `list(my_dict.keys())`
+    - Solution: Convert dictionary views to lists where needed: `list(my_dict.keys())`
 
 ## Resources for Python 2 to 3 Conversion
 

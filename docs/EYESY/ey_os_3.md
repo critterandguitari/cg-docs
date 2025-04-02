@@ -116,7 +116,7 @@ An EYESY **Mode** is a method for creating visuals. In audio terms, you could th
 In building the initial factory modes, we have considered modes as falling into two broad categories:
 
 -   A *scope mode* directly visualizes the incoming audio signal. This could take the form of a classic “oscilloscope” signal representation or something far different. Either way, animation is continuously updated with the received audio.
--   A *trigger mode* also visualizes the incoming audio signal, but it doesn’t draw continually as an oscilloscope mode would. Instead a trigger event will generate a visual. By default a trigger is generated when the audio crosses a threshold, around -5dB. You can also select a MIDI note or clock to generate a trigger, see Chapter 3.
+-   A *trigger mode* uses a 'trigger event' to generate a visual change. Trigger modes are useful for when you want to sync visuals to a beat. The trigger source is set with the **On Screen Menu's** Audio MIDI Settings page. By default a trigger is generated when the audio crosses a threshold, around -5dB. You can also select a MIDI note or clock to generate a trigger, see Chapter 3.
 
 To make things easy to read, a factory mode whose name start with `S - ` is a scope mode, and one beginning with `T - ` is a trigger mode. But as the descriptions above may suggest, there is plenty of wiggle room as modes can readily blend these ideas or go off in completely new directions. Thinking in the scope/trigger paradigm to start is a good way to both help you understand the factory modes and organize your own ideas for new modes or new even categories.
 
@@ -229,13 +229,13 @@ There is a dependent relationship between the `Persist` and modes that have a kn
 
 The middle row of controls features five knobs. The role of the knobs is dependent on the current mode. Knobs can control mode parameters such as element size, position, quantity, color, rate of change, etc. A knob could be a single parameter that controls one discrete element of the mode, or it could be several parameters wrapped into a true “macro” function. While you may not know the specifics for each mode ahead of using a particular mode, it is good to keep in mind that a 'factory' mode will have five controls. 
 
-We spoke in chapter one about the difference between modes and scenes, but an additional word is appropriate here on how the foreground knobs behave when moving between modes and scenes.
+We spoke in Chapter 1 about the difference between modes and scenes, but an additional word is appropriate here on how the foreground knobs behave when moving between modes and scenes.
 
 *When you load a different* **mode***, the current values of the knobs are maintained for the new mode that is loaded.* In other words, if you just turned knob `1` to 3 o’clock and knob `3` is set to 10 o’clock, EYESY will supply those exact same settings to any successive modes that you load.
 
 *When you load a different* **scene***, the current values of the foreground knobs are ignored in favor of the settings stored in the scene.* In other words, loading a scene will load the scene’s stored knob values into EYESY, leaving no connection (for the moment) between the values currently used by the software engine and the physical position of the knobs.
 
-As we discussed in the concepts portion of chapter one, each scene is a snapshot of EYESY’s mode state at the time of the scene's creation. This state includes the mode that is being used as well as the value of each of the knobs and the state of the *Persist Toggle* button. 
+As we discussed in the concepts portion of Chapter 1, each scene is a snapshot of EYESY’s mode state at the time of the scene's creation. This state includes the mode that is being used as well as the value of each of the knobs and the state of the *Persist Toggle* button. 
 
 Turning a knob is always an absolute gesture: as soon as a change in the knob’s value is detected, it will be applied to EYESY’s video engine. This holds true after a scene has been loaded. By turning a knob, the new value there will take over, replacing the scene’s stored value and restoring the connection between the physical control and the software. Again, this may be an abrupt gesture at first — particularly if the stored value and the current knob position are on opposite sides of the control range. But once the knob is turned, all successive tweaks will create smooth value transitions.
 
@@ -264,7 +264,7 @@ Output files are numbered from zero (`0`), are saved as PNG files (for example, 
 
 To access these files, please use the EYESY Editor. More on this in Chapter 4.
 
-**The *Trigger* button** is on the bottom right of the panel, and its icon is a rectangle containing an exclamation mark surrounded by a star. Pressing this button produces a trigger event. This trigger event is the equivalent of a trigger event from external sources (See chapter ??? to set the trigger source). It is most commonly used in *trigger modes* (as discussed in Chapter 1).
+**The *Trigger* button** is on the bottom right of the panel, and its icon is a rectangle containing an exclamation mark surrounded by a star. Pressing this button produces a trigger event. This trigger event is the equivalent of a trigger event from external sources (See Chapter 3 to set the trigger source). It is most commonly used in *trigger modes* (as discussed in Chapter 1).
 
 Pressing the *Trigger* button will also fill EYESY’s audio buffer with an undulating sine wave. Together with the trigger behavior described above, these two functions make the *Trigger* button a useful substitute when you do not have audio flowing into EYESY. 
 
@@ -481,7 +481,7 @@ The **Palette Picker** consists of a graph of three cosine waveforms representin
 
 Below the output are the controls for manipulating the waveforms. Each color cosine has controls for Offset, Amplitude, Frequency, and Phase. The Global settings at the bottom of each column scale the values of their respective columns. Use the horizontal sliders to set values. You can also enter specific numbers into the text boxes below the sliders - this is a useful way to enter values outside of the slider's range. 
 
-Once you have created a new palette, use the *Copy JSON* button and paste it in your desired location within your custom *palettes.json* file. Take care to ensure that a comma (`,`) is after the closed curly brace: `},` *unless* it is the last palette in the file. Be sure to give your new palette a name for easier reference. Save your updated *palettes.json* and upload it to the **System** folder (again, more on this in section 3.5 and chapter 4). As with any changes made to system files, the EYESY video engine will need to be restarted for changes to take effect (more on this in section 4.1). 
+Once you have created a new palette, use the *Copy JSON* button and paste it in your desired location within your custom *palettes.json* file. Take care to ensure that a comma (`,`) is after the closed curly brace: `},` *unless* it is the last palette in the file. Be sure to give your new palette a name for easier reference. Save your updated *palettes.json* and upload it to the **System** folder (again, more on this in section 3.5 and Chapter 4). As with any changes made to system files, the EYESY video engine will need to be restarted for changes to take effect (more on this in section 4.1). 
 
 The EYESY will present an error in the **Logs** if the *palettes.json* isn't formatted correctly. If this is the case, the EYESY will use the default file instead. The **Logs** will display an error like this:
 
@@ -561,7 +561,7 @@ For deeper troubleshooting, logs can also provide insight into **mode errors, sc
 
 #### Customize your EYESY
 
-First, we are glad you made it this far! And just in case you skipped straight to this chapter, be sure to go back and read chapter two! We are assuming that general operation of EYESY is fairly clear at this point. So with that out of the way, let’s proceed.
+First, we are glad you made it this far! And just in case you skipped straight to this chapter, be sure to go back and read Chapter 2! We are assuming that general operation of EYESY is fairly clear at this point. So with that out of the way, let’s proceed.
 
 In this chapter, we are going outside of EYESY itself to focus on how it interacts with the wider world. While EYESY can be run successfully with its factory modes, you can definitely expand this performance device with new and/or modified modes. Here we will see how to do this using the EYESY Editor that runs in your web browser.
 
@@ -573,7 +573,7 @@ In short, this chapter covers what you can do with the EYESY Editor including:
 
 ### 4.1 Explanation of the Editor
 
-Using the editor requires having your EYESY connected to the network. See chapter 3, WiFi setup to get connected. Once connected, find the IP address of your EYESY which is listed on the WiFi menu. In your browser paste the IP after the `http://`. It should read something like: `http://192.168.1.106` and you should be seeing the editor:
+Using the editor requires having your EYESY connected to the network. See Chapter 3, WiFi setup to get connected. Once connected, find the IP address of your EYESY which is listed on the WiFi menu. In your browser paste the IP after the `http://`. It should read something like: `http://192.168.1.106` and you should be seeing the editor:
 
 ![](images/eyesy_editor.png)
 
@@ -627,7 +627,7 @@ Remember, the EYESY can use either the */sdcard* or a connected */usbdrive* as t
 
 Screen grabs taken with the **Screenshot** button are stored in the `Grabs`. It is permissible for this directory to be empty.
 
-Inside of the `Modes` folder there are two modes. So in the example shown above, the two modes available on EYESY would be `S - Circle Scope Connected`, and `T - Density Cloud`. And once more, the practice with factory modes is that a leading `S - ` indicates a scope mode while a leading `T - ` signifies a trigger mode (see chapter one).
+Inside of the `Modes` folder there are two modes. So in the example shown above, the two modes available on EYESY would be `S - Circle Scope Connected`, and `T - Density Cloud`. And once more, the practice with factory modes is that a leading `S - ` indicates a scope mode while a leading `T - ` signifies a trigger mode (see Chapter 1).
 
 Scenes are stored as individual **folders** inside the `Scenes` directory. Each scene has its own folder, making it easier to organize, rename, and manage them.  
 
@@ -782,7 +782,7 @@ The idea with the three *eyesy.color_picker...* functions is that you can easily
 
 As you program modes you might consider using the same knob for the color picker and background color selector across them. This is so that when you switch between modes using the same mapping, the foreground and background colors will be consistent, making transitions more fluid.
 
-This represents the API components that are available to you, the aspiring EYESY mode editor/writer. Remember that for any variable whose value is based on a hardware controller, changing scenes may override the value in use for a time (for more information on scenes, see chapter two). And since the `draw()` function is called for each and every video frame produced, querying any of the variables within the `draw()` function is an effective way to dynamically update your mode’s output.
+This represents the API components that are available to you, the aspiring EYESY mode editor/writer. Remember that for any variable whose value is based on a hardware controller, changing scenes may override the value in use for a time (for more information on scenes, see Chapter 2). And since the `draw()` function is called for each and every video frame produced, querying any of the variables within the `draw()` function is an effective way to dynamically update your mode’s output.
 
 Finally, we are not telling you how to make modes. We aren’t telling you what makes a good idea. Even our mode categories admit to being limited (scope versus trigger). This is where you and your ideas come in.
 

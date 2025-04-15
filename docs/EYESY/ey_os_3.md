@@ -758,7 +758,7 @@ Having walked through the general framework and requirements of EYESY’s modes,
 
 -   `eyesy.mode` - A *string* of the current mode’s name.
 -   `eyesy.mode_root` - A *string* of the file path to the current mode’s folder. This will return something like `/sdcard/Modes/Python/CurrentModeFolder`. This can be useful when images, fonts, or other resources need to be loaded from the mode’s folder. (The `setup()` function would be an appropriate place to do this.)
--   `eyesy.auto_clear` - A *boolean* which controls the *Persist* function. If `eyesy.auto_clear` is set to `True`, the *Persist* function is 'off.' If `eyesy.auto_clear` is set to `False`, the *Persist* function is 'on.'
+-   `eyesy.auto_clear` - A *boolean* which controls the *Persist* function. If `eyesy.auto_clear` is set to `True`, the *Persist* function is 'off.' If `eyesy.auto_clear` is set to `False`, the *Persist* function is 'on.' Depending on how this variable is used, the physical *Persist* button may be functionally ignored by your mode.
 
 Along with all of these variables, the `EYESY` object does have three functions worth mentioning as well:
 

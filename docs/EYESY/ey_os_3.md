@@ -758,8 +758,9 @@ Having walked through the general framework and requirements of EYESY’s modes,
 
 -   `eyesy.mode` - A *string* of the current mode’s name.
 -   `eyesy.mode_root` - A *string* of the file path to the current mode’s folder. This will return something like `/sdcard/Modes/Python/CurrentModeFolder`. This can be useful when images, fonts, or other resources need to be loaded from the mode’s folder. (The `setup()` function would be an appropriate place to do this.)
+-   `eyesy.auto_clear` - A *boolean* which controls the *Persist* function. If `eyesy.auto_clear` is set to `True`, the *Persist* function is 'off.' If `eyesy.auto_clear` is set to `False`, the *Persist* function is 'on.'
 
-Along with all of these variables, the `EYESY` object does have two functions worth mentioning as well:
+Along with all of these variables, the `EYESY` object does have three functions worth mentioning as well:
 
 -   `eyesy.color_picker_bg()` - This sets the background color. It is usually specified as *"eyesy.color_picker_bg(etc.knob5)"* but any knob can be used to control the background color.  This function takes the knob value (from 0-1) and translates it to RGB values and uses that for the background color.
 

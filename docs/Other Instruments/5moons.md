@@ -127,8 +127,7 @@ Is it your turn at Panorama Bar? Connect 5 Moons to a mixer via Send and Return.
 
 ### Modular
 
-While not technically a eurorack module, 5 Moons has 3.5mm TS input and output, so it's basically a eurorack module for your desk. Patch a module into the input and send 5 Moons back out to another module! Turn monophonic oscillators into 5-voice polysynths! 
-
+5 Moons has 3.5mm TS input and output so you can patch a module into the input and send 5 Moons back out to another module. Please note that 5 Moons is not a eurorack module: the input and output jacks operate at different voltage levels than a eurorack module and are not DC-coupled.
 ![image](images/5moonsModular.png) 
 
 ### Living room

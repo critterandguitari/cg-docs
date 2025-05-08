@@ -162,7 +162,7 @@ Again, our orientation would be upside down if you walked around to the back of 
 
 Compared to the back panel, the right-side panel is downright simple, housing two USB 2.0, Type A ports. They can connect class compliant devices that utilize MIDI over USB or other computer peripherals. 
 
-Please remember that the Type A port is indicative of a USB *host*. That is to say, the Organelle is a *host* to USB *devices* like USB-MIDI cables and WiFi adapters. Your computer is also a USB host. You cannot connect two hosts directly together! **Do not** purchase a special *USB A-to-A* cable to connnect the Organelle to your DAW. It won't work and you may damage your Organelle, computer, or both!
+Please remember that the Type A port is indicative of a USB *host*. That is to say, the Organelle is a *host* to USB *devices* like USB-MIDI cables and WiFi adapters. Your computer is also a USB host. You cannot connect two hosts directly together! **Do not** purchase a special *USB A-to-A* cable to connect the Organelle to your DAW. It won't work and you may damage your Organelle, computer, or both!
 
 > **NOTE:** Some MIDI controllers can be powered by their Host's USB port. The Organelle's USB ports can only supply a maximum of 0.5A. If your USB device requires more than the Organelle can provide, communication and/or performance issues may arise. If you experience these, please consult your USB device's manual about power requirements. A powered USB hub or power adapter for external device can resolve these power demands.
 

@@ -6,7 +6,7 @@ First edition by Dave Linnenbank - October 2015
   
 Updated for Organelle M - 2020
 
-OS version 4.0
+OS version 4.2
 
 ------------------------------------------------------------------------ 
 
@@ -820,9 +820,9 @@ Follow these steps to burn a new SD card:
 
 1. Download the microSD card disk image to your computer: 
 
-    - Current OS release: [OGM-4.1](https://cgdiskimages.nyc3.digitaloceanspaces.com/OGM-v4.1.img.zip). Requires 8GB or larger microSD card.
+	- Current OS release: [OGM-4.2](https://cgdiskimages.nyc3.digitaloceanspaces.com/OGM-v4.2.img.zip). Requires 8GB or larger microSD card.
+	- Previous OS release: [OGM-4.1](https://cgdiskimages.nyc3.digitaloceanspaces.com/OGM-v4.1.img.zip). Requires 8GB or larger microSD card.
 
-    - Previous OS release: [OGM-4.0](http://thepeacetreaty.org/organellem/images/OGM-v4.0.img.zip). Requires 8GB or larger microSD card.
  
 2. Download the flasher program to your computer: https://www.balena.io/etcher/  
 3. Power down the Organelle

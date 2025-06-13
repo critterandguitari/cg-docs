@@ -829,7 +829,7 @@ Follow these steps to burn a new SD card:
 4. Locate the thin slit in the rear of the enclosure (between the MIDI In port and the HDMI Port.)
 5. Use a pin or paperclip to press in on the black SD card to eject it and it will spring out gently.
 6. Insert microSD into your computer (you may need an adapter or card reader)
-7. Use the Etcher program to burn the OS file on to the SD Card. When Etcher is finished your computer may display a message similar to 'This disk is not readable.' This message is normal and you may click 'Eject' to proceed.
+7. Use the Etcher program to burn the OS file to the SD Card. It is best to select the **zipped** file to burn (i.e. do not unzip the downloaded disk image). When Etcher is finished your computer may display a message similar to 'This disk is not readable.' This message is normal and you may click 'Eject' to proceed.
 8. Remove the microSD card from your computer and reinsert it in Organelle. Make sure that the SD card is going into the socket on the circuit board, as it is easy to drop it into the device. Holding the Organelle upside down helps the orient the SD card. If you can wiggle it a lot, it probably is not in socket. Use the same pin/paperclip to press it in until you hear/feel a 'click.'
 9. Restart the Organelle. Check your OS version in Settings/Info. 
 

@@ -1,0 +1,1535 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://critterandguitari.github.io/cg-docs/Other%20Instruments/kloop/">
+      
+      
+        <link rel="prev" href="../bolsa_bass/">
+      
+      
+        <link rel="next" href="../pp201/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Kaleidoloop User Manual - Critter & Guitari Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#getting-started" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Critter &amp; Guitari Documentation" class="md-header__button md-logo" aria-label="Critter & Guitari Documentation" data-md-component="logo">
+      
+  <img src="../../logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Critter & Guitari Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Kaleidoloop User Manual
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Critter &amp; Guitari Documentation" class="md-nav__button md-logo" aria-label="Critter & Guitari Documentation" data-md-component="logo">
+      
+  <img src="../../logo.png" alt="logo">
+
+    </a>
+    Critter & Guitari Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    EYESY
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            EYESY
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EYESY/ey_os_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EYESY User Manual OS v2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EYESY/ey_os_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EYESY User Manual OS v3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EYESY/mode_coversion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Converting EYESY Modes from Python 2 to Python 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EYESY/palette_picker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Palette Picker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EYESY/scene_converter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scene Converter v2 to v3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Organelle
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Organelle
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Organelle/og1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Organelle 1 User Manual
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Organelle/og_ms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Organelle M / S User Manual
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Other Instruments
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Other Instruments
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5moons/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5 Moons User Manual
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bolsa_bass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bolsa Bass Manual
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Kaleidoloop User Manual
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kaleidoloop User Manual
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Started
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#safety-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      Safety First!
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Setup
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-top-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Top Panel
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-rear-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Rear Panel
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-your-kaleidoloop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Your Kaleidoloop
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Your Kaleidoloop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#power" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sound-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sound Output
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sound-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sound Input
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#navigating-tracks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigating Tracks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#volume-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Volume Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#record" class="md-nav__link">
+    <span class="md-ellipsis">
+      Record
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mode-select" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mode Select
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#knobs-1-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Knobs 1 &amp; 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#harnessing-100-of-your-kaleidoloop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Harnessing 100% of Your Kaleidoloop
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-playback-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default Playback Modes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disk-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disk Mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entering-disk-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entering Disk Mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-management-in-disk-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Management in Disk Mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loading-your-own-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loading Your Own Loops
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customizing-playback-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customizing Playback Modes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specifications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Specifications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#audio-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Audio Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microsd-card" class="md-nav__link">
+    <span class="md-ellipsis">
+      MicroSD Card
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usb-a-jack" class="md-nav__link">
+    <span class="md-ellipsis">
+      USB-A Jack
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#burning-microsd-card-disk-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Burning microSD Card Disk Image
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pp201/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pocket Piano 201 User Manual
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pp_midi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pocket Piano MIDI Manual
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../video_scopes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Video Scopes User Manual
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Started
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#safety-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      Safety First!
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Setup
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-top-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Top Panel
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-rear-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Rear Panel
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-your-kaleidoloop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Your Kaleidoloop
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Your Kaleidoloop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#power" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sound-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sound Output
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sound-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sound Input
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#navigating-tracks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigating Tracks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#volume-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Volume Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#record" class="md-nav__link">
+    <span class="md-ellipsis">
+      Record
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mode-select" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mode Select
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#knobs-1-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Knobs 1 &amp; 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#harnessing-100-of-your-kaleidoloop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Harnessing 100% of Your Kaleidoloop
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-playback-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default Playback Modes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disk-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disk Mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entering-disk-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entering Disk Mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-management-in-disk-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Management in Disk Mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loading-your-own-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loading Your Own Loops
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customizing-playback-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customizing Playback Modes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specifications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Specifications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#audio-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Audio Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microsd-card" class="md-nav__link">
+    <span class="md-ellipsis">
+      MicroSD Card
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usb-a-jack" class="md-nav__link">
+    <span class="md-ellipsis">
+      USB-A Jack
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#burning-microsd-card-disk-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Burning microSD Card Disk Image
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="kaleidoloop-user-manual">Kaleidoloop User Manual<a class="headerlink" href="#kaleidoloop-user-manual" title="Permanent link">&para;</a></h1>
+<p>Kaleidoloop is portable sound recorder manipulator! Use this manual to help record and play back sounds!</p>
+<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
+<h3 id="safety-first">Safety First!<a class="headerlink" href="#safety-first" title="Permanent link">&para;</a></h3>
+<p>As with all audio devices, it is important to protect your ears! Before using the Kaleidoloop, turn the volume knob down (all the way to the left). Then make all cable connections, turn it on, and <em>then</em> slowly turn up the volume. This will avoid unexpected bursts of sound from your speakers or headphones. </p>
+<h3 id="quick-setup">Quick Setup<a class="headerlink" href="#quick-setup" title="Permanent link">&para;</a></h3>
+<p>You probably want to get started right away! Here are a few steps to get you making music.</p>
+<ol>
+<li>Get power connected: Install batteries (see below) or connect the USB-A end of the cable to the USB power supply, the power supply to an outlet, then connect the other end to the USB-C jack on rear panel.  </li>
+<li>Connect the microphone to the audio input jack - the top left jack.</li>
+<li>Power on by pressing and holding the top-right button until the LEDs flash.</li>
+<li>Record a sound by pressing the center button. The LED above the center button turns red during recording. </li>
+<li>Press the button again to stop recording.</li>
+<li>Playback begins. The newly recorded sample will loop.</li>
+<li>Press the mode button (top left button) to change playback mode and adjust Knobs 1 &amp; 2 to manipulate plaback.</li>
+<li>When additional recordings have been made, press the previous/next track buttons to select different tracks.</li>
+</ol>
+<h2 id="the-top-panel">The Top Panel<a class="headerlink" href="#the-top-panel" title="Permanent link">&para;</a></h2>
+<p>Here are the controls, LED indicators, and audio input and output jacks found on the top of your Kaleidoloop:
+<img alt="" src="../images/top_panel.png" /></p>
+<h2 id="the-rear-panel">The Rear Panel<a class="headerlink" href="#the-rear-panel" title="Permanent link">&para;</a></h2>
+<p>Two USB ports and a microSD slot are found on the rear of your Kaleidoloop:
+<img alt="" src="../images/rear_panel.png" /></p>
+<h2 id="using-your-kaleidoloop">Using Your Kaleidoloop<a class="headerlink" href="#using-your-kaleidoloop" title="Permanent link">&para;</a></h2>
+<h3 id="power">Power<a class="headerlink" href="#power" title="Permanent link">&para;</a></h3>
+<h4 id="usb-power">USB Power<a class="headerlink" href="#usb-power" title="Permanent link">&para;</a></h4>
+<p>First connect the USB-C power adapter. Connect the adapter to a power outlet, and then connect its plug to the leftmost port on the back of Kaleidoloop. </p>
+<p>Once Kaleidoloop is connected to power it will automatically power on. The LEDs will flash green, red, and red again, which means the unit is powered. If Kaleidoloop is already connected to power, press the Power Switch for one second, or until the LEDs turn on. </p>
+<p>The same button is used to power down. Hold the button for one second, or until the LEDs flash purple. Don't fret! Everything you've recorded is saved.</p>
+<h4 id="batteries">Batteries<a class="headerlink" href="#batteries" title="Permanent link">&para;</a></h4>
+<p>To use your Kaleidoloop portably, add three 'AA' batteries to the battery compartment. To access the battery compartment, flip your Kaleidoloop over and remove the screw holding the battery door in place. With the door off, insert batteries so that the negative end (-) of the batteries are connected to the springs; the positive end (+) of the batteries are connected to the flat tabs. Replace the door and screw when finished.</p>
+<p>When the batteries are running low, the Power button will turn red. You may notice that the power button briefly flash red when a louder sound is played. This is normal and just means that the batteries are starting to get low. </p>
+<p>Warnings for battery use:  </p>
+<ul>
+<li><strong>Do not</strong> mix battery types (such as NiMH &amp; Alkaline).  </li>
+<li><strong>Do not</strong> mix old &amp; new batteries.  </li>
+<li><strong>Do not</strong> mix used &amp; fresh batteries.  </li>
+</ul>
+<h3 id="sound-output">Sound Output<a class="headerlink" href="#sound-output" title="Permanent link">&para;</a></h3>
+<p>Kaleidoloop outputs audio from the speaker or the right 1/4" monophonic audio Output Jack. Connect a 1/4" patch cable to speaker or mixer. The speaker is disabled when a cable is connected to the output jack.</p>
+<p>Audio format: 48 kHz, 16-bit.</p>
+<h3 id="sound-input">Sound Input<a class="headerlink" href="#sound-input" title="Permanent link">&para;</a></h3>
+<p>The Kaleidoloop features a 1/4" monophonic microphone input jack.</p>
+<p>This input is specifically designed for the Kaleidoloop microphone and provides a small amount of bias voltage to power the mic, so the Microphone will only work with the Kaleidoloop.</p>
+<p>Audio format: 48 kHz, 16-bit, monophonic.</p>
+<h3 id="navigating-tracks">Navigating Tracks<a class="headerlink" href="#navigating-tracks" title="Permanent link">&para;</a></h3>
+<p>Everytime you record a loop it is stored in a growing list of loops. Navigate these sounds using the Next Track and Previous Track buttons. </p>
+<h3 id="volume-control">Volume Control<a class="headerlink" href="#volume-control" title="Permanent link">&para;</a></h3>
+<p>Turn it up! This knob sets the volume for the speaker and output jack. </p>
+<h3 id="record">Record<a class="headerlink" href="#record" title="Permanent link">&para;</a></h3>
+<p>Press the center button to begin recording. Press again to stop recording. When you stop recording the sound will immediately being looping. Playback will continue during record, so if you are recording with the mic and don't want it bleeding thru, turn the Volume knob down.</p>
+<p>The LED above the Record button is green during playback, red during recording.</p>
+<h3 id="mode-select">Mode Select<a class="headerlink" href="#mode-select" title="Permanent link">&para;</a></h3>
+<p>This button cycles through six playback modes. The LED above the Mode button cycles through colors in this order: purple, pink, blue, green, orange, white.</p>
+<h3 id="knobs-1-2">Knobs 1 &amp; 2<a class="headerlink" href="#knobs-1-2" title="Permanent link">&para;</a></h3>
+<p>These knobs control different parameters depending on the playback Mode. Please see the chart below to see what the knobs control in the 'stock' modes.</p>
+<p>Some modes use a knob to control the playback speed of the recordings. When this knob crosses   the threshold of 100% forward playback, the two LEDs quickly flash red-green-blue. </p>
+<h3 id="harnessing-100-of-your-kaleidoloop">Harnessing 100% of Your Kaleidoloop<a class="headerlink" href="#harnessing-100-of-your-kaleidoloop" title="Permanent link">&para;</a></h3>
+<p>As mentioned above, playback continues during recording. This opens up all kinds of possibilities for creating new sounds. During recording you can do any/all of the following:</p>
+<ul>
+<li>Adjust the volume of the playback</li>
+<li>Select a different playback Mode</li>
+<li>Adjust Knobs 1 &amp; 2 to change playback speed, direction, or other mode parameters</li>
+<li>Use Previous / Next Track select buttons to play different recordings</li>
+</ul>
+<p>Things may get out of hand fairly quickly. Embrace it! - you never know what you might create!</p>
+<h2 id="default-playback-modes">Default Playback Modes<a class="headerlink" href="#default-playback-modes" title="Permanent link">&para;</a></h2>
+<p>The 'stock' <strong>Modes</strong> are:  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Mode</th>
+<th style="text-align: center;">Mode LED Color</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Name</th>
+<th style="text-align: center;">Knob 1</th>
+<th style="text-align: center;">Knob 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Purple</td>
+<td style="text-align: center;"><img alt="" src="../images/LEDcolors/purple.png" /></td>
+<td style="text-align: center;">Smooth &amp; Vibrato</td>
+<td style="text-align: center;">Speed Modulation Rate (vibrato)</td>
+<td style="text-align: center;">-4x to +4x Playback Speed</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">Pink</td>
+<td style="text-align: center;"><img alt="" src="../images/LEDcolors/pink.png" /></td>
+<td style="text-align: center;">Step &amp; Vibrato</td>
+<td style="text-align: center;">Speed Modulation Rate (vibrato)</td>
+<td style="text-align: center;">-4x to +4x Playback Speed in 0.5x intervals</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">Blue</td>
+<td style="text-align: center;"><img alt="" src="../images/LEDcolors/blue.png" /></td>
+<td style="text-align: center;">Simultaneous Forward &amp; Backward Playback</td>
+<td style="text-align: center;">Mix of two playback tracks</td>
+<td style="text-align: center;">-4x to +4x Playback Speed</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">Green</td>
+<td style="text-align: center;"><img alt="" src="../images/LEDcolors/green.png" /></td>
+<td style="text-align: center;">Distortion &amp; Filter</td>
+<td style="text-align: center;">Distortion Amount</td>
+<td style="text-align: center;">Filter Cutoff Frequency</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Orange</td>
+<td style="text-align: center;"><img alt="" src="../images/LEDcolors/orange.png" /></td>
+<td style="text-align: center;">Reverb</td>
+<td style="text-align: center;">Room Size</td>
+<td style="text-align: center;">Wet/Dry Mix</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">White</td>
+<td style="text-align: center;"><img alt="" src="images/LEDcolors/white.png" /></td>
+<td style="text-align: center;">Delay</td>
+<td style="text-align: center;">Feedback Amount</td>
+<td style="text-align: center;">Delay Time: 0-2000ms</td>
+</tr>
+</tbody>
+</table>
+<h2 id="file-management">File Management<a class="headerlink" href="#file-management" title="Permanent link">&para;</a></h2>
+<h3 id="disk-mode">Disk Mode<a class="headerlink" href="#disk-mode" title="Permanent link">&para;</a></h3>
+<p>Let's say you like the loops you've made and would like to hear them / save them on a computer. The Kaleidoloop has a built-in file managment function called <em>Disk Mode</em> to facilitate saving and uploading sound files, customizing playback modes, and backing up your Kaleidoloop.</p>
+<h3 id="entering-disk-mode">Entering Disk Mode<a class="headerlink" href="#entering-disk-mode" title="Permanent link">&para;</a></h3>
+<p>If Kaleidoloop is powered from a power outlet, turn it off. If it is powered from a computer's usb port, you're halfway there! Connect a USB-C cable (like the one used to power the unit) to a computer's USB port). </p>
+<p>While Kaleidoloop is on and connected to the computer, press the <strong>Next Track</strong> button and while holding it down press the <strong>Mode</strong> button.  Release both buttons and the Kaleidoloop will enter disk mode. The LEDs will flash red/green/blue to indicate disk mode.</p>
+<p>In Disk Mode, Kaleidoloop itself is no longer in its default 'recording mode' and no new recordings can be made.  The buttons will not have their normal functions. Instead each will emit a test tone when pressed. This is purely for testing procedures. Do not be alarmed if you press a button and hear a beep. </p>
+<h3 id="file-management-in-disk-mode">File Management in Disk Mode<a class="headerlink" href="#file-management-in-disk-mode" title="Permanent link">&para;</a></h3>
+<p>On your computer, open a file browser (Finder for Mac, Explorer for Windows). In the disks, select 'KALEIDOLOOP'. In the 'recordings' folder are all the recorded loops.</p>
+<p><strong>Important</strong>: When you are done using Disk Mode, first eject the KALEIDOLOOP drive from your computer as you would for a standard USB drive or external hard drive. </p>
+<p>Exit Disk Mode with the same key combo: pressing NEXT and while holding it down pressing MODE.</p>
+<p><img alt="" src="../images/diskmode.png" /></p>
+<h3 id="loading-your-own-loops">Loading Your Own Loops<a class="headerlink" href="#loading-your-own-loops" title="Permanent link">&para;</a></h3>
+<p>The Kaleidoloop will save its monophonic recordings with numbers: 1.wav, 2.wav, and so on. You can add your own files to the SD card using Disk Mode. The files can be named whatever you would like, but know that the Kaleidoloop will sort the files by number first and then letter as shown here:</p>
+<p><img alt="" src="../images/recordings.png" /></p>
+<p>Some file tips:</p>
+<ul>
+<li>Please avoid 'spaces' in file names. Use hyphens and/or underscores instead: <em>0_cool-drums.wav</em>. </li>
+<li>Files must be monophonic and in the 48KHz 16-bit .wav format.</li>
+</ul>
+<h3 id="customizing-playback-modes">Customizing Playback Modes<a class="headerlink" href="#customizing-playback-modes" title="Permanent link">&para;</a></h3>
+<p>You can also use Disk Mode to reorder, remove, and/or upload new playback modes to the Kaleidoloop. The playback modes can be found here:</p>
+<p><img alt="" src="../images/modes.png" /></p>
+<p>The Kaleidoloop needs each mode to be in its own folder. Each folder name needs to begin with a number 1-6 (no repeats). Modes are writen in Pure Data. Each folder needs to have a 'module.pd' file and a copy of the 'waveplayer~.pd-linux' file.</p>
+<h2 id="specifications">Specifications<a class="headerlink" href="#specifications" title="Permanent link">&para;</a></h2>
+<h3 id="audio-settings">Audio Settings<a class="headerlink" href="#audio-settings" title="Permanent link">&para;</a></h3>
+<p>Kaleidoloop records and plays back audio at 16-bit 48kHz. Recorded audio files are in the WAV format.</p>
+<h3 id="microsd-card">MicroSD Card<a class="headerlink" href="#microsd-card" title="Permanent link">&para;</a></h3>
+<p>The operating system and all recordings are stored on the Kaleidoloop' microSD card. Each unit comes with an 8 GB card installed. This card can be inserted into a Windows computer to browse files and make changes, just like in Disk Mode. This feature is not supported on Mac, but using Kaleidoloop in Disk Mode will accomplish the same task. </p>
+<p>There is a 1 GB partition for the operating system and a 7 GB partition for audio recordings. At 16-bit 48khz, that's about 20 hours of record time. </p>
+<p>If a larger partition for audio recordings is desired, you may use a larger microSD card as long as it is first flashed with the operating system. Kaleidoloop will detect the remaining space upon its first boot up. The remaining space will become the new audio recording partition. </p>
+<h3 id="usb-a-jack">USB-A Jack<a class="headerlink" href="#usb-a-jack" title="Permanent link">&para;</a></h3>
+<p>There is a USB-A port on the rear next to the microSD card slot. This port does not have a specific purpose at the time of this release. Stay tuned for future OS updates.</p>
+<h2 id="burning-microsd-card-disk-image">Burning microSD Card Disk Image<a class="headerlink" href="#burning-microsd-card-disk-image" title="Permanent link">&para;</a></h2>
+<p>Burning a new disk image on the micro SD card will reset your Kaleidoloop to the factory state. This is useful to update to the latest Kaleidoloop OS, or to fix a problem with the microSD card.</p>
+<p>This will completely wipe the microSD card clean, so make sure to backup anything on there that you need. See <strong>Disk Mode</strong> for information on downloading your files or moving them to a USB drive. You can also use a brand new card if you wanted to keep your old OS available.</p>
+<p>Follow these steps to burn a new microSD card:</p>
+<ol>
+<li>
+<p>Download the microSD card disk image to your computer: 
+<br> <a href="https://cgdiskimages.nyc3.digitaloceanspaces.com/kaleidoloop-v1.0.img.zip">kaleidoloop-v1.0.img.zip</a>
+<br> Current OS release: Kaleidoloop v1.0. Requires 8GB or larger microSD card.</p>
+</li>
+<li>
+<p>Download the flasher program to your computer: https://www.balena.io/etcher/</p>
+</li>
+<li>Power down Kaleidoloop. Disconnect the USB-C cable. </li>
+<li>Locate the thin slit in the rear of the enclosure (between the USB-C port and the USB-A port.) This is the microSD card slot.</li>
+<li>Eject the microSD card: Use a flathead screwdriver, paperclip, guitar pick, or similar tool to first press the black microSD card in, then let spring out gently.</li>
+<li>Insert microSD into your computer (you may need an adapter or card reader)</li>
+<li>Use the Etcher program to burn the OS file on to the SD Card. When Etcher is finished your computer may display a message similar to 'This disk is not readable.' This message is normal and you may click 'Eject' to proceed.</li>
+<li>Remove the microSD card from your computer and reinsert it in Kaleidoloop. Make sure that the microSD card is going into the socket on the circuit board, as it is easy to drop it into the device. If you can wiggle it a lot, it probably is not in socket. Use the same tool to press it in until you hear/feel a 'click.'</li>
+<li>Restart Kaleidoloop to confirm your new card is working. The first time it boots from a newly flashed SD card, the OS will resize the storage partition to the available space on the card. The LEDs will be red during this brief process. </li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

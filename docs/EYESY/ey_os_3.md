@@ -461,17 +461,16 @@ These selections are stored in the configuration and will be used every time EYE
 
 ####Customizing the List of Palettes
 
-A built-in file called *palettes.json* stores the palettes on the 'stock' OS. If you place file of the same name and format in the System folder (more on this in section 4.2) this file will override the default list of palettes.
+There are a number of built in palettes, but it is also possible to create your own list of palettes.  If you place a file named *palettes.json* in the System folder (more on this in section 4.2) this file will override the default list of palettes.
 
-A copy of the stock *palettes.json* file is located in the EYESY documentation menu to the left. Feel free to download it and remove and/or rearrange any of the individual palettes. A complete palette consists of the following:
+The *palettes.json* file has the following form:
 
-	{
-		"name": "Greyscale",
-		"a": [0.500, 0.500, 0.500],
-		"b": [0.500, 0.500, 0.500],
-		"c": [0.500, 0.500, 0.500],
-		"d": [0.500, 0.500, 0.500]
-	},
+```
+[
+{"name":"My Palette","a":[0.5,0.5,0.5],"b":[1,1,1],"c":[1,1,1],"d":[0,0.33,0.67]},
+{"name":"Palette 2","a":[0.55,0.09,0.09],"b":[-0.75,-1.12,-1.46],"c":[5,4.03,2.71],"d":[0,0.33,0.67]}
+]
+```
 
 You can create your own palettes with the **Palette Picker** tool. The tool is located in the EYESY documentation menu to the left. It looks like this:
 

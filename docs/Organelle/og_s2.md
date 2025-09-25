@@ -75,7 +75,7 @@ Some patches require various support files (audio media, other support patches t
 
 #### What is Pure Data? And do I need to learn it to use the Organelle? 
 
-*Pure Data* (often called *Pd* for short) is a **visual** multimedia programming environment, meaning that its software files (yes, those *patches*) are created by adding objects from its library and then interconnecting them with virtual *patch cords*. For example, here is a Pd patch that simply adds together 32 oscillators: 
+*Pure Data* (often called *Pd* for short) is a **visual** multimedia programming environment, meaning that its software files (yes, those *patches*) are created by adding objects from its library and then interconnecting them with virtual *patch cords*. For example, here is a Pd patch that simply adds together 32 oscillators and applies tremolo: 
 
 ![](images/s2/chapter_1/pd.png) 
 
@@ -104,11 +104,7 @@ Your uses of the Organelle are likely to change over time. If a chapter is not i
 
 As we begin to explore the universe that the Organelle makes available to us, we should start with the Organelle's place in the physical universe: its hardware. 
 
-### 2.1 Acquainting yourself with the box. 
-
-In this age of software and "virtual" devices, please do not neglect the hardware side of things! While its microcomputer does indeed run everything that the Organelle does, we endeavored to make the Organelle an "un-computer." Configuring and then interacting with the physical interface is just as critical as anything you do on the software side. In fact, this is how the pretty box can become an instrument. 
-
-#### Layout of the Unit 
+### 2.1 Acquainting yourself with the box 
 
 The Organelle is rectangular, with three of its six faces containing either controls, ports, or other interface items. We will start with the back and right-side panels (where all the ports are housed) before moving to the controls of the main face. 
 
@@ -117,7 +113,6 @@ The Organelle is rectangular, with three of its six faces containing either cont
 If you have turned on the Organelle, then you already have some familiarity with its ports, but there is a little more here than you realize (and a little more than is labeled). 
 
 ![](images/s2/chapter_2/rear_panel.png)
-
 
 
 Again, our orientation would be upside down if you walked around to the back of the unit and directly faced the back panel. We are assuming that you are standing in front of the Organelle, just as you will be when operating it. From that position, you would access the back panel either by leaning your head forward or by tilting the Organelle upward. 
@@ -251,7 +246,7 @@ Receive an external MIDI clock sync, MIDI notes, MIDI CC controls, or MIDI progr
 
 In this chapter, we'll explore where this combination of the Selector and on-board display can go, and we will also go through the default MIDI operation of the Organelle and how connected USB MIDI devices interface with the Organelle. 
 
-These topic areas will prepare you for general use of the Organelle. So let's start using it now and get the pretty box singing. 
+These topic areas will prepare you for general use of the Organelle. 
 
 ### 3.1 Main Menu Screen 
 
@@ -331,11 +326,11 @@ This menu contains all options related to the microSD card or USB drive, such as
 
 -   **Reload** rescans the **Patches** folder of the microSD card (or an attached USB drive) and then refreshes the Organelle's patches menu. (This also unloads the current patch so note that all sound will stop until you load another patch.) Any time that you connect a USB drive to the Organelle while the unit is already powered up, you should run this function. Once the reload process has completed, you will be left in the patches menu in order to load an available patch. 
 
--   **Save** stores the current parameter settings with the open patch, essentially printing the values that have been set with the knobs. Whenever this patch is reloaded, all of your previous parameters will be recalled regardless of the current knob positions. Once a knob is moved, however, its physical position will regain control. 
+-   **Save (See Note Below)** stores the current parameter settings with the open patch, essentially printing the values that have been set with the knobs. Whenever this patch is reloaded, all of your previous parameters will be recalled regardless of the current knob positions. Once a knob is moved, however, its physical position will regain control. 
 
--   **Save New** duplicates the current patch and all of its associated files into a new patch folder and then loads that patch. The new patch also stores the parameter values of the knobs, just as the **Save** function does. When recording sound to a sampler/recorder patch, **Save New** will save the new sound(s) to the new patch and preserve the default sound(s) in the original patch. The new patch takes the name of the original patch and adds an incremented number. So triggering **Save New** while a patch named **Basic Poly** is loaded would create (and load) **Basic Poly 2**. And selecting **Save New** again with either **Basic Poly** or **Basic Poly 2** loaded would spawn **Basic Poly 3**. 
+-   **Save New (See Note Below)** duplicates the current patch and all of its associated files into a new patch folder and then loads that patch. The new patch also stores the parameter values of the knobs, just as the **Save** function does. When recording sound to a sampler/recorder patch, **Save New** will save the new sound(s) to the new patch and preserve the default sound(s) in the original patch. The new patch takes the name of the original patch and adds an incremented number. So triggering **Save New** while a patch named **Basic Poly** is loaded would create (and load) **Basic Poly 2**. And selecting **Save New** again with either **Basic Poly** or **Basic Poly 2** loaded would spawn **Basic Poly 3**. 
 
-> **NOTE:** Save and Save New depend highly on the patch.  In other words, a patch must be coded to take advantage of these functions. Many of the factory patches support them, but there are also many user patches that do not.  Additionally there are many user patches that have there own mechanisms for storing and recalling presets and sounds.  
+> **NOTE:** Save and Save New depend highly on the patch. In other words, a patch must be coded to take advantage of these functions. Since some patches provide this funtionality and some do not, these functions might be moved out of the OS and made available as addons.
 
 #### Settings Menu
 
@@ -394,7 +389,7 @@ This menu may contain additional user defined functions for the Organelle. Some 
 
 ### 3.4 Organelle's Default MIDI Setup 
 
-The way the Organelle handles MIDI will be relevant to all users, even if you are mainly pressing the unit's own maple keys to trigger note messages. There are certain default MIDI assignments in the Organelle patches that you should know. 
+The way the Organelle handles MIDI will be relevant to anyone using MIDI, even if you are mainly pressing the unit's own maple keys to trigger note messages. There are certain default MIDI assignments in the Organelle patches that you should know. 
  
 The most simple MIDI configuration is to use the 1/8" MIDI jacks to send or receive notes or MIDI clock with another instrument. By default a patch running on the Organelle will send and receive MIDI on the 1/8" jacks.  It is also possible to use class compliant USB MIDI devices.
 

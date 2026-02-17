@@ -1,4 +1,4 @@
-# Critter & Guitari® Microphone Manual
+# Microphone Manual
 
 ![](images/mic_images/1.png)
 

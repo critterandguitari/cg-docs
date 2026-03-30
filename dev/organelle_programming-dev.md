@@ -1,6 +1,6 @@
 # Organelle Programming
 
-The Organelle is a powerful platform for creating and editing patches. While it ships with Pure Data patches, the Organelle supports a variety of programming languages and environments including Faust, Lua, Python, Chuck, and more.
+The Organelle is an open platform that allows you to customize and create your own patches. Traditionally this has been accomplished using the graphical music programming environment Pure Data (Pd). More recently, other programming languages are making their way into Organelle patches, for example the DSP language Faust, and the scripting language Lua. 
 
 There are several ways to edit patches on the Organelle: through the built-in web editor, remotely via VNC, or natively by connecting a monitor, keyboard, and mouse. The best method depends on what you are editing — text-based languages like Faust and Lua work great in the web editor, while graphical Pure Data patches are best edited via VNC or natively.
 
@@ -8,23 +8,11 @@ There are several ways to edit patches on the Organelle: through the built-in we
 
 ## 1. Editing Methods
 
-### 1.1 Web Editor
+### 1.1 Native (HDMI + Keyboard + Mouse)
 
-<!-- TODO: describe the web editor — how to access it (WiFi / IP address), what it looks like, what languages/file types it works well for -->
+You can connect a monitor, keyboard, and mouse directly to the Organelle for a traditional desktop editing experience. This provides a straitforward way to edit patches. 
 
-### 1.2 VNC
-
-VNC allows you to remotely view and control the Organelle's desktop from another computer. This is especially useful for editing Pure Data patches graphically without needing to connect a monitor directly to the Organelle.
-
-<!-- TODO: VNC setup instructions — enabling VNC, connecting from a VNC client, recommended clients -->
-
-For more information, check out [this forum posting](https://forum.critterandguitari.com/t/remote-patching-using-vnc/3607).
-
-### 1.3 Native (HDMI + Keyboard + Mouse)
-
-You can connect a monitor, keyboard, and mouse directly to the Organelle for a traditional desktop editing experience.
-
-#### 1.3.1 Keyboards and Mice
+#### 1.1.1 Keyboards and Mice
 
 Just about any USB mouse should work with the Organelle, and most PC-style USB keyboards should also be fine. Additionally, mice and keyboards that have their own USB wireless dongles should also work with the Organelle. So long as the data is coming across a USB port, your peripherals will probably work.
 
@@ -32,7 +20,7 @@ Just about any USB mouse should work with the Organelle, and most PC-style USB k
 
 A USB hub can be connected to the Organelle if you need more ports.
 
-#### 1.3.2 Starting the Desktop
+#### 1.1.2 Starting the Desktop
 
 After you have connected an HDMI monitor and powered it on, you will see a terminal window for text entry. To optimize performance, the Organelle runs in this fashion (with no graphical user interface, or GUI) by default.
 
@@ -68,6 +56,18 @@ By clicking on your loaded patch, it will move **mother.pd** to the background (
 
 The Linux file browser can be used as you would *File Explorer* (on Windows) or *Finder* (on Mac) to navigate, rename, or delete files.
 
+
+### 1.2 Web Editor
+
+<!-- TODO: describe the web editor — how to access it (WiFi / IP address), what it looks like, what languages/file types it works well for -->
+
+### 1.3 VNC
+
+VNC allows you to remotely view and control the Organelle's desktop from another computer. This is especially useful for editing Pure Data patches graphically without needing to connect a monitor directly to the Organelle.
+
+<!-- TODO: VNC setup instructions — enabling VNC, connecting from a VNC client, recommended clients -->
+
+For more information, check out [this forum posting](https://forum.critterandguitari.com/t/remote-patching-using-vnc/3607).
 ------------------------------------------------------------------------
 
 ## 2. Patch Languages & Environments
@@ -84,19 +84,9 @@ The actual process of creating and editing Pd patches is covered in a series of 
 
 <!-- TODO: brief description of Faust on the Organelle, how patches are structured, best editing method (web editor) -->
 
-### 2.3 Lua
+### 2.3 Lua + Faust
 
 <!-- TODO: brief description of Lua on the Organelle, how patches are structured, best editing method (web editor) -->
-
-### 2.4 Python
-
-<!-- TODO: brief description of Python on the Organelle, how patches are structured, best editing method (web editor) -->
-
-### 2.5 Chuck
-
-<!-- TODO: brief description of Chuck on the Organelle, how patches are structured, best editing method (web editor) -->
-
-### 2.6 Other Environments
 
 Other programming environments can be installed on the Organelle, such as SuperCollider.
 

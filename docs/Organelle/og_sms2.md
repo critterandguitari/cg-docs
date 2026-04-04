@@ -28,7 +28,7 @@ It is also possible for an incorrectly configured patch to output very loud soun
 
  For the simplest configuration, follow these steps. 
 
-1.  **First, connect the power adapter.** Connect the adapter to a power outlet, and then connect its plug to the leftmost port on the back of the Organelle. When starting a patch for the first time, it is a good idea to set the input to line in using the small switch on the back (see Chapter 2 for more information).  ![](images/s2/chapter_0/1-powerplug.png) Once the Organelle is connected to power, move the **Power** switch to the **On** position. The OLED Screen will be blank at first. The LED will be steady pale green for a brief time and then blink on/off blue. The screen will display the **Patches** menu when this process is done. 
+1.  **First, connect the power adapter.** Connect the adapter to a power outlet, and then connect its plug to the leftmost port on the back of the Organelle.  ![](images/s2/chapter_0/1-powerplug.png) Once the Organelle is connected to power, move the **Power** switch to the **On** position. The OLED Screen will be blank at first. The LED will be steady pale green for a brief time and then blink on/off blue. The screen will display the **Patches** menu when this process is done. 
 
 2.  **Set the volume.** The Vol knob on the top right of the Organelle controls output volume. Start with this knob all the way to the left (no sound). Connect either headphones or a 1/4" cable for your mixer, amp, etc. The leftmost 1/8" jack is for headphones, and the next 1/4" jack is stereo line out. 
 
@@ -69,23 +69,19 @@ In short, yes. The Organelle is a hardware device that comprises both controller
 
 #### What are these "patches" you speak of? 
 
-They are files configured with the program *Pure Data*. While the term "patch" often refers to the settings and parameter values that create one sound in a synthesizer (or some other predefined system), Pure Data patches are a bit more expansive. Each patch represents the entire software system for taking any/all input received by the Organelle, processing it as desired, and then delivering the output as audio, etc., via the Organelle's output ports. (So by analogy, these patches are closer to both the synthesizer structure itself *and* all the settings and parameters that define its initial sound.) 
+While the term "patch" often refers to the settings and parameter values that create one sound in a synthesizer (or some other predefined system), Organelle patches are a bit more expansive. Each patch represents the entire software system for taking any/all input received by the Organelle, processing it as desired, and then delivering the output as audio, etc., via the Organelle's output ports. (So by analogy, these patches are closer to both the synthesizer structure itself *and* all the settings and parameters that define its initial sound.) 
 
 Some patches require various support files (audio media, other support patches that are being referenced, "external" objects, etc.). Any time we discuss a particular patch, it is fair to assume that we are also referencing any necessary subsidiary files. 
 
-#### What is Pure Data? And do I need to learn it to use the Organelle? 
+The Organelle is an open source platform, so it is possible to create your own patches. Most of the patches are created in the music programming environment Pure Pata (or Pd for short). See [Organelle Programming](organelle_programming.md) for details on editing and creating patches.
 
-*Pure Data* (often called *Pd* for short) is a **visual** multimedia programming environment, meaning that its software files (yes, those *patches*) are created by adding objects from its library and then interconnecting them with virtual *patch cords*. For example, here is a Pd patch that simply adds together 32 oscillators and applies tremolo: 
+### 1.2 PLAY and EXPLORE patches
 
-![](images/s2/chapter_1/pd.png) 
+The latest version of the Organelle ships with two categories of patches: PLAY and EXPLORE. The PLAY category features a bunch of easy to play synthesizers. These are a great starting point if you are new to the Organelle. See [chapter 7.2](#72-play-patches) for instructions for these patches. 
 
-And no, you do not need to learn Pure Data to use the Organelle. Aside from the patches that come loaded on the Organelle, new patches will be listed on [the patches page](https://www.critterandguitari.com/organelle-patches), and many users have contributed patches available on [Patch Storage](https://www.patchstorage.com). You *can* customize or create your own patches, Pure Data is **free** and available for all computer platforms, but "to code or not to code" is completely up to you. 
+The EXPLORE category contains over 100 additional patches developed by Critter & Guitari over the years. Essentially these are the factory patches that shipped with earlier versions of the Organelle. There is a large variety of EXPLORE patches, they are documented on the [patch listing page.](https://www.critterandguitari.com/organelle-patches)
 
-#### What other concepts may be useful to understand? 
-
-A basic understanding of audio can only help. And MIDI (Musical Instrument Digital Interface) is the protocol for triggering *notes* and sending *control messages*. To use the Organelle as is, basics are enough. If you decide to create patches, a little bit more will be required, but we will get to all that in later chapters. 
-
-### 1.2 How to Use This Manual 
+### 1.3 How to Use This Manual 
 
  Certain chapters (such as this one!) are relevant to everyone. But depending on how you will start using the Organelle, some chapters may be more valuable to you than others. 
 
@@ -617,6 +613,8 @@ Your Organelle has successfully joined the network! If you navigate outside of t
 
 ### 5.2 Using AP mode
 
+> NOTE: AP mode is not supported by all USB WiFi adapters and may not be available depending on your adapter.
+
 If you're on the road or other situation where you don't have a trusted network to join, the Organelle's AP (Access Point) mode can be useful. AP mode allows you to connect to the Organelle with a computer and no other gear (such as a wireless router) is required.  
 
 When AP is active, it functions just like an existing network: once both devices are connected you can run LINK session, access the web interface and transfer patches and other files, etc. This section will walk through the steps to launch AP mode.
@@ -790,4 +788,52 @@ Follow these steps to burn a new SD card:
 7. Use the Etcher program to burn the OS file to the SD Card. It is best to select the **zipped** file to burn (i.e. do not unzip the downloaded disk image). When Etcher is finished your computer may display a message similar to 'This disk is not readable.' This message is normal and you may click 'Eject' to proceed.
 8. Remove the microSD card from your computer and reinsert it in Organelle. Make sure that the SD card is going into the socket on the circuit board. If you can wiggle it a lot, it probably is not in socket. Use the same pin/paperclip to press it in until you hear/feel a 'click.'
 9. Restart the Organelle. Check your OS version in Settings/Info. 
+
+### 7.2 PLAY Patches
+
+#### Operation
+
+The PLAY patches are synthesizers with some fun features accessed using the Aux button. They all operate in the same way, with the Aux button controlling a shift function. When you press Aux, the function of the 10 top keys on the Organelle are listed on the screen in two columns. The bottom 14 keys select various arpeggio patterns.
+
+#### Shift Button Controls
+
+Hold **Aux** button to access the operation menu. Black keys select functions:
+
+| Key | Function |
+|-----|----------|
+| C# | Play/Stop |
+| D# | Arm Recording |
+| F# | Previous Preset |
+| G# | Save Preset |
+| A# | Next Preset |
+| C#+ | Octave Down |
+| D#+ | Octave Up |
+| F#+ | Latch Toggle |
+| G#+ | Metronome |
+| A#+ | Delete Preset |
+
+The 14 white keys select different arpeggio patterns. The first key is no pattern.
+
+#### BPM
+
+Hold the **Aux** button while turning the encoder to adjust BPM (20-250). If you are connected to a network and a LINK session is present the Organelle will connect automatically.
+
+#### Recording a Sequence
+
+1. Press Arm (shift + D#) - LED turns purple
+2. Play notes and / or turn knobs - recording starts on first note or knob movement, LED turns red
+3. Press Aux to stop recording - playback begins, LED turns green
+
+#### MIDI
+
+Use the system MIDI Setup menu to select MIDI channel for note and CC messages.
+
+**MIDI CC message mapping:**
+
+| Control | CC |
+|---------|-----|
+| knob1 | 21 |
+| knob2 | 22 |
+| knob3 | 23 |
+| knob4 | 24 |
 

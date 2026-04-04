@@ -1,26 +1,26 @@
-# Organelle S2 User Manual  
+# Organelle M / S / S2 User Manual  
 
 ![](images/s2/chapter_0/s2-outline.png)
 
 First edition by Dave Linnenbank - October 2015    
   
-Updated for Organelle S2 - 2025
+Updated for Organelle OS 5.0 - 2026
 
-OS version 4.4
+OS version 5.0
 
 ------------------------------------------------------------------------ 
 
 ### WAIT AM I IN THE RIGHT PLACE? 
 
-Before we get started, please note that this manual is for the **Organelle S2** which debuted in August 2025.
+Before we get started, please note that this manual is for the Organelle models **M, S, and S2**.
 
-This manual is for OS version 4.4.  You can check your OS version number from the Info menu item in the SYSTEM menu. 
+This manual is for OS version 5.0.  You can check your OS version number from the Info menu item in the SYSTEM menu. 
 
 ### IMPORTANT NOTE 
 
-The Organelle S2 can make some very loud and startling sounds. Any patch that feeds audio from the input to the audio output, such as an effect processor, has the potential to feedback if there is an external speaker and it is enabled and the internal mic selected. For this reason it is **strongly recommended** to switch the input select switch to the line-in position when you start a patch for the first time.
+The Organelle can make some very loud and startling sounds. Any patch that feeds audio from the input to the audio output, such as an effect processor, has the potential to feedback if there is an external speaker connected and the internal mic selected. For this reason it is **strongly recommended** to switch the input select switch to the line-in position when you start a patch for the first time.
 
-It is also possible for an incorrectly configured patch to output very loud sounds. So if you are unsure of what a patch does, it is a good idea to turn the Organelle S2's volume down as well as the volume/gain of of any connected instruments, mixers, amps, etc.  Please see Chapter 2 for more information about the S2's hardware configuration.
+It is also possible for an incorrectly configured patch to output very loud sounds. So if you are unsure of what a patch does, it is a good idea to turn the Organelle's volume down as well as the volume/gain of of any connected instruments, mixers, amps, etc.  Please see Chapter 2 for more information about the Organelle's hardware configuration.
 
 ------------------------------------------------------------------------ 
 
@@ -30,9 +30,9 @@ It is also possible for an incorrectly configured patch to output very loud soun
 
 1.  **First, connect the power adapter.** Connect the adapter to a power outlet, and then connect its plug to the leftmost port on the back of the Organelle. When starting a patch for the first time, it is a good idea to set the input to line in using the small switch on the back (see Chapter 2 for more information).  ![](images/s2/chapter_0/1-powerplug.png) Once the Organelle is connected to power, move the **Power** switch to the **On** position. The OLED Screen will be blank at first. The LED will be steady pale green for a brief time and then blink on/off blue. The screen will display the **Patches** menu when this process is done. 
 
-2.  **Set the volume.** The Vol knob on the top right of the Organelle controls output volume. Start with this knob all the way to the left (no sound). From the front of the Organelle, peer over the back of the unit (don't worry; the port labels will be upright from this vantage), and connect either headphones or a 1/4" cable for your mixer, amp, etc. The leftmost 1/8" jack is for headphones, and the next 1/4" jack is stereo line out. 
+2.  **Set the volume.** The Vol knob on the top right of the Organelle controls output volume. Start with this knob all the way to the left (no sound). Connect either headphones or a 1/4" cable for your mixer, amp, etc. The leftmost 1/8" jack is for headphones, and the next 1/4" jack is stereo line out. 
 
-3.  **Load a patch.** ![](images/s2/chapter_0/3-Encoder-NOarrow.png) Immediately to the left of the volume knob is the *Selector* encoder. Turn this encoder to select one of the listed patches, and then press down the top of the encoder to load the patch.  Pick something from the Synthesizer category to start.      
+3.  **Load a patch.** ![](images/s2/chapter_0/3-Encoder-NOarrow.png) Immediately to the left of the volume knob is the *Selector* encoder. Turn this encoder to select one of the listed patches, and then press down the top of the encoder to load the patch. Pick something from the PLAY category to start.      
 
 4.  **Play!**  Play the keys, adjust some parameters (via the four knobs on the left), and enjoy! And if you want to try a different patch, simply turn the Selector encoder and select another patch.      
 
@@ -362,7 +362,7 @@ This menu accesses options for MIDI, WiFi, and Footswitch settings. It also cont
 
     - **Version** - The currently installed operating system.
 
-    - **Model** - Most likely says 'S2', but you already knew that! 
+    - **Model** - Organelle hardware model, for example 'M' or 'S2'.
 
 -	**Pedal Setup** will help you configure your expression pedal or footswitch function. By default, a footswitch will control whatever the current patch dictates (it may not have a programmed function). If patches have been added as Favourites, a press and release of the footswitch can jump to the next patch in that list. To enable this function, select the switch option in **Pedal Setup** and then save. The **Pedal Setup** can also be used to define the beginning and end of your expression pedal's range.  Select **Expr Min** and **Expr Max** and scroll to the desired value.  Select **Save** when finished.
 
@@ -771,7 +771,7 @@ See [Organelle Programming](organelle_programming.md) for details on editing and
 
 In addition to storing patches, the micro SD card also stores the Organelle's operating system.  
 
-Burning a new disk image on the micro SD card will reset your Organelle S2 to the factory state.  This is useful to update to the latest Organelle OS, or to fix a problem with the micro SD card.  
+Burning a new disk image on the micro SD card will reset your Organelle to the factory state.  This is useful to update to the latest Organelle OS, or to fix a problem with the micro SD card.  
 
 This will completely wipe the micro SD card clean, so make sure to backup anything on there that you need. See Chapter 5 for information on downloading your patches and files or moving them to a USB drive. You can also use a brand new card if you wanted to keep your old OS available.   
 
@@ -779,7 +779,7 @@ Follow these steps to burn a new SD card:
 
 1. Download the microSD card disk image to your computer: 
 
-	- Current OS release: [OGM-4.4](https://cgdiskimages.nyc3.digitaloceanspaces.com/OGS2-v4.4.img.zip). Requires 8GB or larger microSD card.
+	- Current OS release: [OGM-5.0](https://cgdiskimages.nyc3.digitaloceanspaces.com/OGSMS2_v5.0.img.zip). Requires 8GB or larger microSD card.
 
  
 2. Download the flasher program to your computer: https://www.balena.io/etcher/  

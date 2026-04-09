@@ -59,19 +59,18 @@ The Linux file browser can be used as you would *File Explorer* (on Windows) or 
 
 ### 1.2 Web Editor
 
-<!-- TODO: describe the web editor — how to access it (WiFi / IP address), what it looks like, what languages/file types it works well for -->
+The Organelle has a built-in web editor for editing patch files over WiFi. See [Section 5.4 Web Interface](og_sms2.md#54-web-interface) in the Organelle M/S/S2 manual for setup and usage instructions.
 
 ### 1.3 VNC
 
 VNC allows you to remotely view and control the Organelle's desktop from another computer. This is especially useful for editing Pure Data patches graphically without needing to connect a monitor directly to the Organelle.
 
-To use VNC you must first be connected to a local network. See the Organelle manual for getting your organelle connected using WiFi. To enable the VNC server navigate to Settings -> VNC Server in the System menu of the Organelle. Select start VNC server. Now you should be able to connect remotely from any computer on the same WiFi network using an VNC client. We use the VNC viewer from RealVNC. You can download this software for free from RealVNC: [VNC Viewer](https://www.realvnc.com/en/connect/download/viewer)
+To use VNC you must first be connected to a local network. See the Organelle manual for getting your Organelle connected using WiFi. To enable the VNC server navigate to Settings -> VNC Server in the System menu of the Organelle. Select **Start VNC Server**. Now you should be able to connect remotely from any computer on the same WiFi network using a VNC client. We use the VNC viewer from RealVNC. You can download this software for free from RealVNC: [VNC Viewer](https://www.realvnc.com/en/connect/download/viewer)
 
 After starting the VNC viewer, you will need to use the IP address of the Organelle to connect. You can see the Organelle's IP address in the WiFi screen or the Info screen of the Settings menu.
 
-Once you are connected you should see the Organelle desktop appear in a window on your computer. You can now launch a patch on the Organelle and edit Pd files just as you would using a monitor, keyboar, and mouse.
+Once you are connected you should see the Organelle desktop appear in a window on your computer. You can now launch a patch on the Organelle and edit Pd files just as you would using a monitor, keyboard, and mouse.
 
-<!-- TODO: VNC setup instructions — enabling VNC, connecting from a VNC client, recommended clients -->
 
 ------------------------------------------------------------------------
 
@@ -84,18 +83,6 @@ Pure Data (Pd) is the original and most common patching environment on the Organ
 Pd patches can be edited natively (with HDMI + keyboard + mouse) or remotely via VNC. The web editor can be used for quick text edits to Pd files, but the graphical patching experience requires a full desktop.
 
 The actual process of creating and editing Pd patches is covered in a series of [tutorial videos](https://youtu.be/wMmq8n2iq8U?list=PLsGeYhHwePZjYOvyj7xcMxFs-hO95L1ju).
-
-### 2.2 Faust
-
-<!-- TODO: brief description of Faust on the Organelle, how patches are structured, best editing method (web editor) -->
-
-### 2.3 Lua + Faust
-
-<!-- TODO: brief description of Lua on the Organelle, how patches are structured, best editing method (web editor) -->
-
-Other programming environments can be installed on the Organelle, such as SuperCollider.
-
-<!-- TODO: brief notes on installing additional environments -->
 
 ------------------------------------------------------------------------
 

@@ -198,7 +198,7 @@ function notein(jam, note, velocity)
 end
 ```
 
-And here is a more interesting arpeggio pattern. It simple cycles through the notes.:
+And here is a more interesting arpeggio pattern that cycles through the notes being held down:
 
 ```lua
 function init(jam)

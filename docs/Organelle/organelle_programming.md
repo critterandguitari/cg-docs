@@ -198,35 +198,39 @@ function notein(jam, note, velocity)
 end
 ```
 
-And here is a more interesting example, the Cascade pattern, adapted from the Critter & Guitari Pocket Piano. It arpeggiates held notes across shifting octave patterns on every sixteenth note:
+And here is a more interesting arpeggio pattern. It simple cycles through the notes.:
 
 ```lua
 function init(jam)
-    notes = {}
-    shifter_l = 0
-    octave_shift = {0, 0, 0, 0}
+    notes = {}  -- held notes in order pressed
+    index = 1
 end
 
 function tick(jam)
-    if #notes == 0 then return end
-    if jam.every(1/4) then
-        shifter_l = (shifter_l + 1) % 4
-        for i = 1, math.min(4, #notes) do
-            local shifted = (notes[i] + 24) - (12 * octave_shift[i])
-            jam.noteout(shifted, 100, 1/4 * 0.8)
-        end
+    if #notes > 0 and jam.every(1/4) then
+        if index > #notes then index = 1 end
+        jam.noteout(notes[index], 100, 0.2)
+        index = index + 1
     end
 end
 
 function notein(jam, n, v)
     if v > 0 then
-        if #notes < 4 then table.insert(notes, n) end
+        -- Add note and sort ascending
+        table.insert(notes, n)
+        table.sort(notes)
     else
+        -- Remove note
         for i, note in ipairs(notes) do
-            if note == n then table.remove(notes, i) break end
+            if note == n then
+                table.remove(notes, i)
+                if index > #notes then index = 1 end
+                break
+            end
         end
     end
 end
+
 ```
 
 The pattern files are a great place to start experimenting. They are short and self-contained, and you don't even need to reload the patch to hear your changes. Just edit and save the file, then re-select the pattern on the Organelle (Aux + white key) and the updated Lua file is loaded immediately. Try changing the timing (`jam.every(1/4)` to `jam.every(1/8)`), the octave logic, or the note selection to hear how it affects the musical output.

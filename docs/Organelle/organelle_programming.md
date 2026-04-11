@@ -61,6 +61,14 @@ The Linux file browser can be used as you would *File Explorer* (on Windows) or 
 
 The Organelle has a built-in web editor for editing patch files over WiFi. See [Section 5.4 Web Interface](og_sms2.md#54-web-interface) in the Organelle M/S/S2 manual for setup and usage instructions.
 
+The important controls in the web editor when editing textual patch files are:
+
+-   ![](images/s2/chapter_5/control_pane/Refresh_patches.png) - *Reload Patch* - if you are navigated to a valid patch folder in the web editor, this will reload that patch on the Organelle so you can hear your changes immediately.
+
+-   ![](images/s2/chapter_5/control_pane/Compile.png) - *Compile* - runs the patch's `compile.sh` file. If you are compiling a Pd external or other source file, you can put the build steps in a `compile.sh` file in the patch folder. The workflow is: edit your source, compile, then reload the patch.
+
+-   ![](images/s2/chapter_5/control_pane/Terminal.png) - *Terminal* - switches the main pane to a terminal for console access to the Organelle. This gives you low level access if you prefer to code that way.
+
 ### 1.3 VNC
 
 VNC allows you to remotely view and control the Organelle's desktop from another computer. This is especially useful for editing Pure Data patches graphically without needing to connect a monitor directly to the Organelle.

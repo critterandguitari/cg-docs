@@ -703,7 +703,11 @@ There are eleven command icons for standard file management processes. If you ho
 
 -   ![](images/s2/chapter_5/control_pane/Save.png) - *Save* - saves changes to file currently displayed in the `Code` pane. 
 
--   ![](images/s2/chapter_5/control_pane/Refresh_patches.png) - *Refresh Patches* - refreshes file list on the Organelle's OLED screen.
+-   ![](images/s2/chapter_5/control_pane/Refresh_patches.png) - *Reload Patch* - if you are navigated to a valid patch folder in the web editor, this will reload that patch on the Organelle.
+
+-   ![](images/s2/chapter_5/control_pane/Compile.png) - *Compile* - if the patch has a `compile.sh` file, this button will run that file.
+
+-   ![](images/s2/chapter_5/control_pane/Terminal.png) - *Terminal* - switches the main pane to a terminal for console access to the Organelle.
 
 Below the command icons is a file browser. Click into folders to view their contents. Click the file path above the file list to go 'back'. If you click into a file, it will be displayed in the `Code` pane. 
 

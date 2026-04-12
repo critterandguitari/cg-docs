@@ -782,7 +782,7 @@ Follow these steps to burn a new SD card:
 1. Download the microSD card disk image to your computer: 
 
 	- Current OS release: [OGM-5.0](https://cgdiskimages.nyc3.digitaloceanspaces.com/OGSMS2_v5.0.img.zip). Requires 8GB or larger microSD card.
-	- Previous OS release: [OGM-4.2](https://cgdiskimages.nyc3.digitaloceanspaces.com/OGM-v4.2.img.zip). Requires 8GB or larger microSD card.
+	- Previous OS release (model M and S only): [OGM-4.2](https://cgdiskimages.nyc3.digitaloceanspaces.com/OGM-v4.2.img.zip). Requires 8GB or larger microSD card.
 
  
 2. Download the flasher program to your computer: https://www.balena.io/etcher/  

@@ -1,0 +1,1571 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://critterandguitari.github.io/cg-docs/Organelle/organelle_programming/">
+      
+      
+        <link rel="prev" href="../og_sms2/">
+      
+      
+        <link rel="next" href="../../Other%20Instruments/5moons/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Organelle Programming - Critter & Guitari Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-editing-methods" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Critter &amp; Guitari Documentation" class="md-header__button md-logo" aria-label="Critter & Guitari Documentation" data-md-component="logo">
+      
+  <img src="../../logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Critter & Guitari Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Organelle Programming
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Critter &amp; Guitari Documentation" class="md-nav__button md-logo" aria-label="Critter & Guitari Documentation" data-md-component="logo">
+      
+  <img src="../../logo.png" alt="logo">
+
+    </a>
+    Critter & Guitari Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EYESY
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    EYESY
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EYESY/ey_os_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EYESY User Manual OS v2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EYESY/ey_os_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EYESY User Manual OS v3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EYESY/mode_coversion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Converting EYESY Modes from Python 2 to Python 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EYESY/palette_picker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Palette Picker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EYESY/scene_converter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scene Converter v2 to v3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Organelle
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Organelle
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../og1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Organelle 1 User Manual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../og_sms2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Organelle M / S / S2 User Manual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Organelle Programming
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Organelle Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-editing-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Editing Methods
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Editing Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-native-hdmi-keyboard-mouse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Native (HDMI + Keyboard + Mouse)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-web-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Web Editor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-vnc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 VNC
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-patch-languages-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Patch Languages &amp; Environments
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Patch Languages &amp; Environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-pure-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Pure Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-the-faust-lua-jam-patch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 The Faust-Lua-Jam Patch
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-under-the-hood" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Under the Hood
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Under the Hood">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-the-motherpd-helper-patch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 The mother.pd Helper Patch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-the-patch-load-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 The Patch Load Sequence
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Tips
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-creating-a-new-patch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Creating a New Patch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-using-externals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Using Externals
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Other Instruments
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Other Instruments
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Other%20Instruments/5moons/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5 Moons User Manual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Other%20Instruments/bolsa_bass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bolsa Bass Manual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Other%20Instruments/kloop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kaleidoloop User Manual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Other%20Instruments/microphone_manual/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microphone Manual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Other%20Instruments/pp201/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pocket Piano 201 User Manual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Other%20Instruments/pp_midi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pocket Piano MIDI Manual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Other%20Instruments/video_scopes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Video Scopes User Manual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-editing-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Editing Methods
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Editing Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-native-hdmi-keyboard-mouse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Native (HDMI + Keyboard + Mouse)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-web-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Web Editor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-vnc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 VNC
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-patch-languages-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Patch Languages &amp; Environments
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Patch Languages &amp; Environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-pure-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Pure Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-the-faust-lua-jam-patch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 The Faust-Lua-Jam Patch
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-under-the-hood" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Under the Hood
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Under the Hood">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-the-motherpd-helper-patch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 The mother.pd Helper Patch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-the-patch-load-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 The Patch Load Sequence
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Tips
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-creating-a-new-patch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Creating a New Patch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-using-externals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Using Externals
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="organelle-programming">Organelle Programming<a class="headerlink" href="#organelle-programming" title="Permanent link">&para;</a></h1>
+<p>The Organelle is an open platform that allows you to customize and create your own patches. Traditionally this has been accomplished using the graphical music programming environment Pure Data (Pd). More recently, other programming languages are making their way into Organelle patches, for example the DSP language Faust, and the scripting language Lua. </p>
+<p>There are several ways to edit patches on the Organelle: through the built-in web editor, remotely via VNC, or natively by connecting a monitor, keyboard, and mouse. The best method depends on what you are editing — text-based languages like Faust and Lua work great in the web editor, while graphical Pure Data patches are best edited via VNC or natively.</p>
+<p>This manual is written for Organelle OS 5. The Pd and native editing sections apply to all Organelle versions.</p>
+<hr />
+<h2 id="1-editing-methods">1. Editing Methods<a class="headerlink" href="#1-editing-methods" title="Permanent link">&para;</a></h2>
+<h3 id="11-native-hdmi-keyboard-mouse">1.1 Native (HDMI + Keyboard + Mouse)<a class="headerlink" href="#11-native-hdmi-keyboard-mouse" title="Permanent link">&para;</a></h3>
+<p>You can connect a monitor, keyboard, and mouse directly to the Organelle for a traditional desktop editing experience. This provides a straitforward way to edit patches. </p>
+<h4 id="111-keyboards-and-mice">1.1.1 Keyboards and Mice<a class="headerlink" href="#111-keyboards-and-mice" title="Permanent link">&para;</a></h4>
+<p>Just about any USB mouse should work with the Organelle, and most PC-style USB keyboards should also be fine. Additionally, mice and keyboards that have their own USB wireless dongles should also work with the Organelle. So long as the data is coming across a USB port, your peripherals will probably work.</p>
+<blockquote>
+<p><strong>NOTE:</strong> While we have aimed to support regular USB keyboards, not all manufacturers implement the general USB standards in the same way. Accordingly, some keyboards may not work with the Organelle. Please report any finding of incompatibility on <a href="http://forum.critterandguitari.com">our forum</a>.</p>
+</blockquote>
+<p>A USB hub can be connected to the Organelle if you need more ports.</p>
+<h4 id="112-starting-the-desktop">1.1.2 Starting the Desktop<a class="headerlink" href="#112-starting-the-desktop" title="Permanent link">&para;</a></h4>
+<p>After you have connected an HDMI monitor and powered it on, you will see a terminal window for text entry. To optimize performance, the Organelle runs in this fashion (with no graphical user interface, or GUI) by default.</p>
+<p><strong>To start the Organelle's graphical operation mode:</strong> type <strong>startx</strong>, and then press the [ENTER] / [RETURN] key.</p>
+<blockquote>
+<p><strong>NOTE:</strong> Booting the Organelle's graphical operation mode causes the system itself to be reloaded. This means that any currently loaded patch will be unloaded, and any audio output being produced will cease.</p>
+</blockquote>
+<p>After typing <strong>startx</strong> you will see an empty desktop screen.</p>
+<p>The operating system has been stripped down in favor of achieving the most stable audio performance. There are five icons along the bottom of the screen. If you hover over the icons with your mouse, their labels will appear on screen. From left to right:</p>
+<ul>
+<li>
+<p><img alt="" src="../images/s2/chapter_6/CLI_icon.png" /> - <em>Open Terminal</em> - represents a command-line interface (CLI). A terminal emulator instance starts when you click this icon.</p>
+</li>
+<li>
+<p><img alt="" src="../images/s2/chapter_6/SD_icon.png" /> - <em>Open SD Card</em> - opens a file browser window to the <strong>SD card's</strong> storage partition. Among other items, you will see the <strong>Patches</strong> folder here.</p>
+</li>
+<li>
+<p><img alt="" src="../images/s2/chapter_6/USB_drive_icon.png" /> - <em>Open USB Drive</em> - opens a file browser window showing the contents of a connected <strong>USB Drive</strong>. If no drive is connected, no files will be displayed. If you connect a <strong>USB Drive</strong> after boot up, be sure to select <strong>Reload</strong> from the Organelle's <strong>Storage</strong> menu. It may take a few seconds for the files to be displayed on the desktop so feel free to click the icon &amp; close the window until the window is updated.</p>
+</li>
+<li>
+<p><img alt="" src="../images/s2/chapter_6/Restart_menu.png" /> - <em>Restart OG Menu</em> - This will close out all open windows and unload the current the Organelle patch, interrupting any ongoing audio output and restarting the menu on the <strong>OLED Screen</strong>.</p>
+</li>
+<li>
+<p><img alt="" src="../images/s2/chapter_6/Exit_GUI.png" /> - <em>Exit GUI</em> - This will close out all open windows and unload the current the Organelle patch, interrupting any ongoing audio output. When you are done working in this graphical operation mode, you should click this icon. It is better to revert the Organelle to its normal CLI mode and keep the processor focused on audio tasks.</p>
+</li>
+</ul>
+<p>While you can navigate the file system with the keyboard and mouse, the best way to load a patch is to do it from the Organelle's hardware. By using the <strong>Selector</strong> encoder to choose and load a patch, you will then see the patch visually loaded by the Organelle along with a crucial helper patch. If we launch the <strong>Basic Poly</strong> patch using the <strong>Selector</strong> you will see a screen similar to this:</p>
+<p><img alt="" src="../images/s2/chapter_6/mother.png" /></p>
+<p>The Organelle unit itself is now functioning as we would normally expect it to: the patch has been loaded, the Organelle's hardware display has shifted to the patch information screen, and audio can now be produced.</p>
+<p>Within the computer interface, we are now seeing the behind-the-scenes implications of loading a patch. Our patch has been loaded, and its main.pd file is taking up most of the screen. But sitting to the right of the patch we expected is one we did not — <strong>mother.pd</strong> (see <a href="#the-motherpd-helper-patch">Under the Hood</a> below).</p>
+<p>By clicking on your loaded patch, it will move <strong>mother.pd</strong> to the background (without closing it) and allow you to focus on working with your patch.</p>
+<p>The Linux file browser can be used as you would <em>File Explorer</em> (on Windows) or <em>Finder</em> (on Mac) to navigate, rename, or delete files.</p>
+<h3 id="12-web-editor">1.2 Web Editor<a class="headerlink" href="#12-web-editor" title="Permanent link">&para;</a></h3>
+<p>The Organelle has a built-in web editor for editing patch files over WiFi. See <a href="../og_sms2/#54-web-interface">Section 5.4 Web Interface</a> in the Organelle M/S/S2 manual for setup and usage instructions.</p>
+<p>The important controls in the web editor when editing textual patch files are:</p>
+<ul>
+<li>
+<p><img alt="" src="../images/s2/chapter_5/control_pane/Refresh_patches.png" /> - <em>Reload Patch</em> - if you are navigated to a valid patch folder in the web editor, this will reload that patch on the Organelle so you can hear your changes immediately.</p>
+</li>
+<li>
+<p><img alt="" src="../images/s2/chapter_5/control_pane/Compile.png" /> - <em>Compile</em> - runs the patch's <code>compile.sh</code> file. If you are compiling a Pd external or other source file, you can put the build steps in a <code>compile.sh</code> file in the patch folder. The workflow is: edit your source, compile, then reload the patch.</p>
+</li>
+<li>
+<p><img alt="" src="../images/s2/chapter_5/control_pane/Terminal.png" /> - <em>Terminal</em> - switches the main pane to a terminal for console access to the Organelle. This gives you low level access if you prefer to code that way.</p>
+</li>
+</ul>
+<h3 id="13-vnc">1.3 VNC<a class="headerlink" href="#13-vnc" title="Permanent link">&para;</a></h3>
+<p>VNC allows you to remotely view and control the Organelle's desktop from another computer. This is especially useful for editing Pure Data patches graphically without needing to connect a monitor directly to the Organelle.</p>
+<p>To use VNC you must first be connected to a local network. See the Organelle manual for getting your Organelle connected using WiFi. To enable the VNC server navigate to Settings -&gt; VNC Server in the System menu of the Organelle. Select <strong>Start VNC Server</strong>. Now you should be able to connect remotely from any computer on the same WiFi network using a VNC client. We use the VNC viewer from RealVNC. You can download this software for free from RealVNC: <a href="https://www.realvnc.com/en/connect/download/viewer">VNC Viewer</a></p>
+<p>After starting the VNC viewer, you will need to use the IP address of the Organelle to connect. You can see the Organelle's IP address in the WiFi screen or the Info screen of the Settings menu.</p>
+<p>Once you are connected you should see the Organelle desktop appear in a window on your computer. You can now launch a patch on the Organelle and edit Pd files just as you would using a monitor, keyboard, and mouse.</p>
+<hr />
+<h2 id="2-patch-languages-environments">2. Patch Languages &amp; Environments<a class="headerlink" href="#2-patch-languages-environments" title="Permanent link">&para;</a></h2>
+<h3 id="21-pure-data">2.1 Pure Data<a class="headerlink" href="#21-pure-data" title="Permanent link">&para;</a></h3>
+<p>Pure Data (Pd) is the original and most common patching environment on the Organelle. Pd patches are graphical — you connect objects with virtual patch cables. Each patch lives in its own folder and contains a <strong>main.pd</strong> file.</p>
+<p>Pd patches can be edited natively (with HDMI + keyboard + mouse) or remotely via VNC. The web editor can be used for quick text edits to Pd files, but the graphical patching experience requires a full desktop.</p>
+<p>The actual process of creating and editing Pd patches is covered in a series of <a href="https://youtu.be/wMmq8n2iq8U?list=PLsGeYhHwePZjYOvyj7xcMxFs-hO95L1ju">tutorial videos</a>.</p>
+<h3 id="22-the-faust-lua-jam-patch">2.2 The Faust-Lua-Jam Patch<a class="headerlink" href="#22-the-faust-lua-jam-patch" title="Permanent link">&para;</a></h3>
+<p>In this section we'll use the <a href="../files/Flutetine.zip">Flutetine</a> patch as an example. Download it and install it on your Organelle to follow along.</p>
+<p>This patch features a hybrid architecture that combines three software systems: Faust, Lua, and Pd. It might seem excessive to use three environments, but each one excels at what it does. Faust synthesizes the sound, which is exactly what it was designed for. Lua, via the Jam system, handles all the control-rate logic: notes, knobs, sequencing, arpeggiation. Pd ties everything together and manages communication with the Organelle hardware. The other <a href="../og_sms2/#12-play-and-explore-patches">PLAY</a> patches use the same architecture.</p>
+<p>This separation of roles follows clear conceptual lines: the Lua code is the "mind" deciding what notes to play and how to play them, while the Faust code describes the musical instrument that plays those notes.</p>
+<p>Using the web editor, you can edit source files, compile where necessary, and reload the patch, all without leaving the browser. You can change the entire musical behavior and sound characteristics of the instrument from the same editor. This setup also works well with LLM-assisted programming, since the Lua and Faust source files are self-contained and text-based.</p>
+<h4 id="221-architecture-overview">2.2.1 Architecture Overview<a class="headerlink" href="#221-architecture-overview" title="Permanent link">&para;</a></h4>
+<p>A PLAY patch folder contains the following key files:</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Language</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>main.pd</code></td>
+<td>Pd</td>
+<td>Loads the Jam object and Faust synth, routes audio and messages</td>
+</tr>
+<tr>
+<td><code>jam.lua</code></td>
+<td>Lua</td>
+<td>Main Jam script: defines instrument behavior (notes, knobs, sequencing, presets)</td>
+</tr>
+<tr>
+<td><code>fsynth.dsp</code></td>
+<td>Faust</td>
+<td>Synthesizer DSP definition (oscillators, filters, envelopes, effects)</td>
+</tr>
+<tr>
+<td><code>patterns/*.lua</code></td>
+<td>Lua</td>
+<td>Selectable arpeggio/pattern sub-jams</td>
+</tr>
+<tr>
+<td><code>lib/</code></td>
+<td>—</td>
+<td>Compiled externals, helper modules, and utilities</td>
+</tr>
+</tbody>
+</table>
+<!-- TODO: add architecture diagram image -->
+<!-- ![](images/programming/architecture.png) -->
+
+<p>The signal flow is:</p>
+<ol>
+<li>The <strong>Jam script</strong> (<code>jam.lua</code>) receives input from the Organelle hardware (keys, knobs, encoder) and generates note and control messages.</li>
+<li>These messages are sent to the <strong>Faust synth</strong> (<code>fsynth.dsp</code>), a compiled Pd object that synthesizes audio.</li>
+<li><strong>Pd</strong> (<code>main.pd</code>) connects everything and handles audio I/O.</li>
+</ol>
+<h4 id="222-faust-defining-the-sound">2.2.2 Faust: Defining the Sound<a class="headerlink" href="#222-faust-defining-the-sound" title="Permanent link">&para;</a></h4>
+<p>The <code>fsynth.dsp</code> file defines the synthesizer using the <a href="https://faust.grame.fr/">Faust</a> DSP language. Faust is a functional language purpose-built for audio signal processing. A typical Organelle Faust synth defines a set of standard controls and a <code>process</code> function that produces stereo audio output.</p>
+<p>Every PLAY synth receives the same set of inputs from the Jam system:</p>
+<pre><code>freq  — note frequency (Hz)
+gain  — note velocity (0–1)
+gate  — note on/off trigger
+knob1 — mapped to Organelle knob 1 (0–1)
+knob2 — mapped to Organelle knob 2 (0–1)
+knob3 — mapped to Organelle knob 3 (0–1)
+knob4 — mapped to Organelle knob 4 (0–1)
+</code></pre>
+<p>The <code>process</code> function combines oscillators, filters, envelopes, and effects to produce the final audio. Here is a simplified excerpt from the Flutetine patch:</p>
+<pre><code class="language-faust">freq = hslider(&quot;freq&quot;, 440, 20, 2000, 1);
+gain = hslider(&quot;gain&quot;, 0.5, 0, 1, 0.01) : si.smoo;
+gate = button(&quot;gate&quot;);
+knob1 = hslider(&quot;knob1&quot;, 0.5, 0, 1, 0.001) : si.smoo;
+
+// Envelope
+ampEnv = gate : en.adsre(0.006, 0.28, 0.55, 0.22);
+
+// Oscillator body
+f0 = freq;
+body = os.osc(f0) * 0.55 : fi.lowpass(1, lpCut) : *(ampEnv);
+
+// Stereo output
+process = (body, body) : (*(gain), *(gain));
+</code></pre>
+<p><strong>Editing and compiling Faust:</strong></p>
+<ol>
+<li>Open <code>fsynth.dsp</code> in the web editor.</li>
+<li>Make your changes to the DSP code.</li>
+<li>Save the file.</li>
+<li>Press the <strong>Compile</strong> button in the web editor. This runs the <code>compile.sh</code> script, which calls <code>faust2puredata</code> to compile the <code>.dsp</code> file into a Pd external (<code>fsynth~.pd_linux</code>).</li>
+</ol>
+<!-- TODO: add compile button screenshot -->
+<!-- ![](images/programming/compile_button.png) -->
+<ol>
+<li>Press <strong>Reload</strong> to reload the patch and hear your changes.</li>
+</ol>
+<!-- TODO: add reload button screenshot -->
+<!-- ![](images/programming/reload_button.png) -->
+
+<p>A good workflow is to save different synth variations as separate <code>.dsp</code> files, or duplicate the entire patch folder to preserve a version you like before experimenting further.</p>
+<h4 id="223-lua-programming-musical-behavior">2.2.3 Lua: Programming Musical Behavior<a class="headerlink" href="#223-lua-programming-musical-behavior" title="Permanent link">&para;</a></h4>
+<p>The control logic for PLAY patches is written in Lua using the <a href="https://github.com/owenosborn/jampd">Jam</a> system. Jam is a Pd external that loads and runs Lua scripts, providing a timing and message framework for composing musical behavior. A Jam script defines functions like <code>init</code>, <code>tick</code>, and <code>notein</code> that respond to events and produce musical output. The best place to start is the arpeggio pattern scripts.</p>
+<h4 id="224-arpeggio-patterns">2.2.4 Arpeggio Patterns<a class="headerlink" href="#224-arpeggio-patterns" title="Permanent link">&para;</a></h4>
+<p>Each PLAY patch ships with 14 selectable arpeggio patterns stored in the <code>patterns/</code> folder. These are selected by pressing the white keys while holding the Aux button. Each pattern is a short, self-contained Jam script that transforms held notes into rhythmic patterns.</p>
+<p>A pattern script defines three functions:</p>
+<ul>
+<li><strong><code>init(jam)</code></strong> — called once when the pattern loads. Set up any state you need here.</li>
+<li><strong><code>tick(jam)</code></strong> — called on every rhythmic tick. This is where the pattern generates notes.</li>
+<li><strong><code>notein(jam, note, velocity)</code></strong> — called when a note is pressed or released. Use this to track which notes are held.</li>
+</ul>
+<p>The <code>jam</code> object passed to these functions provides timing and output:</p>
+<ul>
+<li><code>jam.bpm</code> — current tempo</li>
+<li><code>jam.every(interval)</code> — returns true at regular beat intervals (e.g., <code>jam.every(1/4)</code> for sixteenth notes, <code>jam.every(1)</code> for quarter notes)</li>
+<li><code>jam.noteout(note, velocity, duration)</code> — send a note with automatic note-off after the given duration (in beats)</li>
+</ul>
+<p>Here is the simplest pattern, "None", which just passes notes straight through with no arpeggiation:</p>
+<pre><code class="language-lua">function init(jam)
+end
+
+function tick(jam)
+end
+
+function notein(jam, note, velocity)
+    jam.noteout(note, velocity)
+end
+</code></pre>
+<p>And here is a more interesting arpeggio pattern that cycles through the notes being held down:</p>
+<pre><code class="language-lua">function init(jam)
+    notes = {}  -- held notes in order pressed
+    index = 1
+end
+
+function tick(jam)
+    if #notes &gt; 0 and jam.every(1/4) then
+        if index &gt; #notes then index = 1 end
+        jam.noteout(notes[index], 100, 0.2)
+        index = index + 1
+    end
+end
+
+function notein(jam, n, v)
+    if v &gt; 0 then
+        -- Add note and sort ascending
+        table.insert(notes, n)
+        table.sort(notes)
+    else
+        -- Remove note
+        for i, note in ipairs(notes) do
+            if note == n then
+                table.remove(notes, i)
+                if index &gt; #notes then index = 1 end
+                break
+            end
+        end
+    end
+end
+
+</code></pre>
+<p>The pattern files are a great place to start experimenting. They are short and self-contained, and you don't even need to reload the patch to hear your changes. Just edit and save the file, then re-select the pattern on the Organelle (Aux + white key) and the updated Lua file is loaded immediately. Try changing the timing (<code>jam.every(1/4)</code> to <code>jam.every(1/8)</code>), the octave logic, or the note selection to hear how it affects the musical output.</p>
+<!-- TODO: add screenshot of pattern files in web editor -->
+<!-- ![](images/programming/subjam_files.png) -->
+
+<h4 id="225-the-main-jam">2.2.5 The Main Jam<a class="headerlink" href="#225-the-main-jam" title="Permanent link">&para;</a></h4>
+<p>The arpeggio patterns live inside a larger Jam script, <code>jam.lua</code>, that manages the overall instrument behavior. This main Jam handles all the things you see when you play a PLAY patch: responding to knobs, managing latch, recording and playing back sequences, saving presets, transposing octaves, and loading the arpeggio patterns as sub-jams.</p>
+<p>You can edit <code>jam.lua</code> too if you want to change how the instrument works at a deeper level. It uses the same Jam functions, just with more of them and more complex state management. See the <a href="https://github.com/owenosborn/jampd">Jam documentation</a> for the full API.</p>
+<hr />
+<h2 id="3-under-the-hood">3. Under the Hood<a class="headerlink" href="#3-under-the-hood" title="Permanent link">&para;</a></h2>
+<h3 id="31-the-motherpd-helper-patch">3.1 The <strong>mother.pd</strong> Helper Patch<a class="headerlink" href="#31-the-motherpd-helper-patch" title="Permanent link">&para;</a></h3>
+<p><strong>mother.pd</strong> exists at the root (or top) directory of the Organelle, which is located on the microSD that comes preloaded within the Organelle hardware. This helper patch is the other half of the data handshake between the Pure Data patches we run and the Organelle's hardware.</p>
+<p>In short, this helper patch is executing the raw communications with the Organelle hardware. (This is done using the <em>Open Sound Control</em> [<em>OSC</em>] protocol.)</p>
+<p>Accordingly, <strong>mother.pd</strong> is necessary for the general operation of the Organelle. That is why this patch is loaded concurrently with any patch that you call up.</p>
+<blockquote>
+<p><strong>NOTE:</strong> In general, you should not edit <strong>mother.pd</strong>. That being said, the Organelle will use any file named <strong>mother.pd</strong> that it finds within the <strong>Patches</strong> folder of your microSD card or USB drive. By copying the root directory's <strong>mother.pd</strong> to your <strong>Patches</strong> folder, you could experiment with editing this patch while keeping the master version clean. Again, you probably don't want to do this.</p>
+</blockquote>
+<h3 id="32-the-patch-load-sequence">3.2 The Patch Load Sequence<a class="headerlink" href="#32-the-patch-load-sequence" title="Permanent link">&para;</a></h3>
+<p>Anytime a patch is loaded, the Organelle goes through a sequence of steps.</p>
+<ol>
+<li>If a patch is currently loaded, it receives a quitting message. This allows any "cleanup" processes to be executed.</li>
+<li>If a patch is currently loaded, it then prompts the Pure Data application to quit. This effectively closes any and all open patches, including the <strong>mother.pd</strong> helper patch.</li>
+<li>The Pure Data application is relaunched, and the patch we have requested is then opened, specifically the file main.pd in the patch's folder.</li>
+<li>The <strong>mother.pd</strong> helper patch is loaded.</li>
+</ol>
+<p>Once this sequence completes, all assets needed for your patch to communicate with the Organelle will be loaded and ready to go. So the general flurry of windows closing and opening that you see in the Organelle's graphical operation mode is both expected and proper.</p>
+<hr />
+<h2 id="4-tips">4. Tips<a class="headerlink" href="#4-tips" title="Permanent link">&para;</a></h2>
+<h3 id="41-creating-a-new-patch">4.1 Creating a New Patch<a class="headerlink" href="#41-creating-a-new-patch" title="Permanent link">&para;</a></h3>
+<p>Duplicate a simple patch in your <strong>Patches</strong> folder, rename the new folder, and then open the contained <strong>main.pd</strong> patch for editing. (You could also create your own "new patch" template for this purpose.)</p>
+<h3 id="42-using-externals">4.2 Using Externals<a class="headerlink" href="#42-using-externals" title="Permanent link">&para;</a></h3>
+<p>Explore the factory patches — in addition to finding ideas and platforms that you can build upon, you will also encounter some external objects that are not part of the Vanilla Pd distribution. To use an external in a patch of your own, copy it to your patch's folder.</p>
+<blockquote>
+<p><strong>NOTE:</strong> Externals that you encounter here are built for the Linux operating system that the Organelle is running. If you are building patches on your own computer, these externals will only work if you are also running Linux (these compiled externals are platform-specific).</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

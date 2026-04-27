@@ -4,9 +4,9 @@
 
 First edition by Dave Linnenbank - October 2015    
   
-Updated for Organelle OS 5.0 - 2026
+Updated for Organelle OS 5.1 - 2026
 
-OS version 5.0
+OS version 5.1
 
 ------------------------------------------------------------------------ 
 
@@ -571,7 +571,7 @@ Patches are stored on the internal microSD in the same manner as the USB drive. 
 
 ## 5. Using WiFi with the Organelle
 
-The Organelle ships with a USB WiFi adapter which allows it to connect a WiFi network or create its own WiFi 'hot spot.'
+The Organelle ships with a USB WiFi adapter which allows it to connect an existing WiFi network.
 
 The two major WiFi features included in the Organelle are a web-based interface and the support for Ableton [LINK](https://www.ableton.com/en/link/), for wireless tempo synchronization.  The web-based interface allows you to access and manage the Organelle's patches and audio, MIDI, and similar files. You can access this interface from any web browser once the Organelle and your computer are on the same network.  
 
@@ -579,7 +579,8 @@ In order to get the Organelle connected we use a USB WiFi adapter.  To get start
 
 > **NOTE:**  We have experimented with other WiFi adapters but we don't have a conclusive list of which adapters work and which do not. When in doubt, stick with the included adapter which has been proven to work very well.
 
-The Organelle has two modes of WiFi operation: normal and AP mode. In normal mode the Organelle connects to an existing WiFi network.  In AP mode the Organelle creates its own network (Access Point, or hot-spot).  We'll cover joining an existing network first.
+> **NOTE:** In previous OSes, the Organelle was able to create its own WiFi network. This is known as an *Access Point* (AP) or *hot-spot*. Beginning in OS v5.1, the Access Point function is disabled. 
+
 
 ### 5.1 Joining Existing WiFi Network   
 
@@ -611,42 +612,13 @@ Your Organelle has successfully joined the network! If you navigate outside of t
 ![](images/s2/chapter_5/WiFi_6_Connected_Antenna.png)
 
 
-### 5.2 Using AP mode
+### 5.2 Now That You're Connected
 
-> NOTE: AP mode is not supported by all USB WiFi adapters and may not be available depending on your adapter.
-
-If you're on the road or other situation where you don't have a trusted network to join, the Organelle's AP (Access Point) mode can be useful. AP mode allows you to connect to the Organelle with a computer and no other gear (such as a wireless router) is required.  
-
-When AP is active, it functions just like an existing network: once both devices are connected you can run LINK session, access the web interface and transfer patches and other files, etc. This section will walk through the steps to launch AP mode.
-
-From the Settings menu select WiFi Setup to launch the main WiFi Setup screen. Select **Start AP Mode**.  This will create a WiFi network named 'ORGANELLE'.
-
-![](images/s2/chapter_5/Start_AP.png)
-
-- - - - - -
-
-The updated WiFi Setup screen will show new bits of information:
-
-1. The top line now says *AP Mode* to indicate the WiFi network has been created with the name *ORGANELLE*.
-1. The second line displays the IP address for the browser.
-1. The third line shuts down *AP Mode*
-1. The fourth line is a command to start the *Web Server* so you can view the browser. More on this in the section 5.4.
-
-![](images/s2/chapter_5/AP_Start_web_server.png)
-
-Now we can join this network from another device.  On your computer open WiFi settings and look for the network named 'Organelle'.
-
-When you are prompted for a password type 'coolmusic'.  We are now connected to the Organelle's own WiFi network.
-
-> NOTE: We have found that some devices will not connect to the 'ORGANELLE' network. "Your mileage may vary" in this regard.
-
-### 5.3 Now That You're Connected
-
-By joining an existing network or creating an AP, there are some new possibilities for your Organelle:
+By joining an existing network, there are some new possibilities for your Organelle:
 
 The first is that the Organelle has saved the network and password and will automatically join it if it is present the next time the Organelle boots up (and the USB WiFi adapter is connected). 
 
-Next, Ableton Link-enabled patches will create a Link session. Not all user-contributed patches have this feature, so check the patch documentation when in doubt. If your network or AP has any devices (phones, computers, groove boxes, etc.) connected to it that also have Link capabilities, they will be in tempo sync. If there are more than one LINK devices on the network/AP, Link-enabled Organelle patches will automatically display 'LINK' next to the tempo as shown here:
+Next, Ableton Link-enabled patches will create a Link session. Not all user-contributed patches have this feature, so check the patch documentation when in doubt. If your network has any devices (phones, computers, groove boxes, etc.) connected to it that also have Link capabilities, they will be in tempo sync. If there are more than one LINK devices on the network, Link-enabled Organelle patches will automatically display 'LINK' next to the tempo as shown here:
 
 ![](images/s2/chapter_5/WiFi_Link.png)
 
@@ -655,15 +627,15 @@ The next is that you can select 'Forget Saved Net[work]s' from the WiFi menu and
 Lastly, you can now use the Organelle's web interface to manage patches, back up recordings, and other file management opportunities! This topic requires its own section, so please proceed to section 5.4!
 
 
-### 5.4 Web Interface
+### 5.3 Web Interface
 
-> NOTE: This section assumes 1. the Organelle is connected to an existing network or running in AP mode, and 2. that your computer is on the same network. Please see the earlier sections of this chapter for any questions about WiFi. 
+> NOTE: This section assumes 1. the Organelle is connected to an existing network, and 2. that your computer is on the same network. Please see the earlier sections of this chapter for any questions about WiFi. 
 
 In order to wirelessly manage patches and other files, we use the Organelle's web interface. The Organelle's web interface is disabled by default, so first we need to turn it on. In WiFi Setup select **Start Web Server**:
 
 ![](images/s2/chapter_5/WiFi_5_Connected_start_webserver.png)
 
-On your computer open a web browser and navigate to the IP address listed on the WiFi Setup page. Be sure your browser is connecting with 'http://' and not 'https://'. This will bring you to the Organelle's page:
+On your computer open a web browser and navigate to the IP address listed on the WiFi Setup page. Be sure your browser is connecting with '*http://*' and not '*https://*'. This will bring you to the Organelle's page:
 
 ![](images/s2/chapter_5/browser.png)
 

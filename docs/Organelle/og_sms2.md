@@ -624,7 +624,7 @@ Next, Ableton Link-enabled patches will create a Link session. Not all user-cont
 
 The next is that you can select 'Forget Saved Net[work]s' from the WiFi menu and it will delete the name and password of existing networks you have joined. Deleting this information will be complete the next time the Organelle is shut down.
 
-Lastly, you can now use the Organelle's web interface to manage patches, back up recordings, and other file management opportunities! This topic requires its own section, so please proceed to section 5.4!
+Lastly, you can now use the Organelle's web interface to manage patches, back up recordings, and other file management opportunities! This topic requires its own section, so please proceed to section 5.3!
 
 
 ### 5.3 Web Interface
@@ -731,6 +731,24 @@ Hit the **Refresh Patches** icon to update the patch menu on the Organelle.
 **Downloading a Patch:** The Patch Manager supports downloading single files by pressing the download icon next to any file in the browser.  To download an entire patch we must first zip into a single compressed file.  Select the patch folder you wish to download and press **Zip**.  This will create a .zip file of the same name that you can download.  
 
 **Deleting a Patch:** Select one or more patch folders and press the **Delete** button. 
+
+
+### 5.4 VNC (Virtual Network Computing)
+
+> NOTE: This section assumes 1. the Organelle is connected to an existing network, and 2. that your computer is on the same network. Please see the earlier sections of this chapter for any questions about WiFi. 
+
+Using the VNC function of the Organelle falls into the *advanced* category. It shares the Organelle's desktop on another computer. A user could use VNC to program new patches and/or edit existing ones as well as do file management like placing audio files in desired locations. Please see Chapter 6 for information about editing and creating patches. 
+
+> NOTE: We **highly** recommend using REALVNC's VNC Viewer software on your computer. Other VNC software may work but may require changing the Organelle's VNC configuration. VNC Viewer does not require a subscription.
+
+Here is how to use VNC:
+
+1. Join your Organelle to the same WiFi network your computer is on (see the beginning of this chapter).
+1. On the Organelle's screen, navigate to **Settings/VNC Setup**. Then select **Start Server**. The screen will reload. 
+1. Confirm the VNC server is running by navigating back to the **VNC Setup** page or navigate to the **Settings/Info** page. On either page, VNC should be listed as 'Running'.
+1. If you are not viewing the **Info** page, please navigate to either that page or the **WiFi Setup** page as you will need the Organelle's IP address.
+1. Open VNC Viewer on your computer. In the *VNC Server* field, enter the Organelle's IP address followed by *:5901*. Example: *192.168.60.28:5901*. When prompted for a username and password, use 'music' (lowercase) for both fields. 
+1. When you have finished your VNC session, be sure to disconnect from the Organelle on  VNC Viewer. Please navigate to **Settings/VNC Setup** and select *Stop Server*.
 
 
 ------------------------------------------------------------------------ 

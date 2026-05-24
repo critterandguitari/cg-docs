@@ -12,7 +12,7 @@ tags:
 # Jeraphy Simple
 
 
-![Jeraphy Simple](images/jeraphy-simple/5ba5d457a410b7d92cdb181d_Jeraphy-Simple.svg)
+![Jeraphy Simple](../images/jeraphy-simple/5ba5d457a410b7d92cdb181d_Jeraphy-Simple.svg)
 
 **Tags:** Sample Player, Looper, Link Enabled, Rhythm Maker
 

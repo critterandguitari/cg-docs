@@ -30,6 +30,10 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = REPO_ROOT / "docs" / "Organelle" / "patches"
 IMG_DIR = OUT_DIR / "images"
 
+# Source-of-truth for category grouping on the index page.
+PATCHES_FOLDER = REPO_ROOT.parent / "Organelle_Patches"
+CATEGORY_ORDER = ["Effects", "Hybrids", "Samplers", "Synthesizers", "Utilities", "Wepa!"]
+
 
 def api_get(path: str, token: str, **params: Any) -> dict:
     r = requests.get(
@@ -111,12 +115,13 @@ def build_page(patch: dict, tag_names: dict[str, str]) -> tuple[str, list[tuple[
             seen.add(t)
             all_tags.append(t)
 
-    # Cover image.
+    # Cover image. Patches live one directory deep (in a category folder),
+    # so image refs need to go up one level.
     cover_md = ""
     cover = f.get("patch-cover-image")
     if cover and cover.get("url"):
         fname = image_filename(cover["url"], "cover.jpg")
-        rel = f"images/{slug}/{fname}"
+        rel = f"../images/{slug}/{fname}"
         downloads.append((cover["url"], IMG_DIR / slug / fname))
         cover_md = f"![{name}]({rel})\n\n"
 
@@ -179,21 +184,70 @@ def build_page(patch: dict, tag_names: dict[str, str]) -> tuple[str, list[tuple[
     return body, downloads
 
 
-def build_index(patches: list[dict], tag_names: dict[str, str]) -> str:
-    by_tag: dict[str, list[dict]] = {}
-    for p in patches:
-        tag = tag_names.get(p["fieldData"].get("tag") or "", "Uncategorized")
-        by_tag.setdefault(tag, []).append(p)
+def _norm(s: str) -> str:
+    # Drop parenthesized aliases like " (AARRPP)", then keep alphanumerics only.
+    s = re.sub(r"\(.*?\)", "", s)
+    return re.sub(r"[^a-z0-9]+", "", s.lower())
 
+
+def build_category_map() -> dict[str, str]:
+    """Map normalized patch name → category by scanning Organelle_Patches folders."""
+    mapping: dict[str, str] = {}
+    if not PATCHES_FOLDER.exists():
+        print(f"warn: {PATCHES_FOLDER} not found, categories will be empty", file=sys.stderr)
+        return mapping
+    for category in CATEGORY_ORDER:
+        cat_dir = PATCHES_FOLDER / category
+        if not cat_dir.exists():
+            continue
+        # Wepa! is a patch itself (loose files), not a folder of subpatches.
+        if not any(p.is_dir() for p in cat_dir.iterdir()):
+            mapping[_norm(category)] = category
+            continue
+        for entry in cat_dir.iterdir():
+            if entry.is_dir():
+                mapping[_norm(entry.name)] = category
+    return mapping
+
+
+def categorize(patches: list[dict], category_map: dict[str, str]) -> dict[str, list[dict]]:
+    by_cat: dict[str, list[dict]] = {c: [] for c in CATEGORY_ORDER + ["Other"]}
+    for p in patches:
+        f = p["fieldData"]
+        key = _norm(f["name"])
+        category = category_map.get(key) or category_map.get(_norm(f["slug"])) or "Other"
+        by_cat[category].append(p)
+    return by_cat
+
+
+def build_top_index(by_cat: dict[str, list[dict]]) -> str:
     lines = ["# Organelle Patches\n",
-             "Documentation for all Organelle patches.\n"]
-    for tag in sorted(by_tag):
-        lines.append(f"## {tag}\n")
-        for p in sorted(by_tag[tag], key=lambda x: x["fieldData"]["name"].lower()):
+             "Documentation for all Organelle patches, organized by category.\n"]
+    for cat in CATEGORY_ORDER + ["Other"]:
+        items = by_cat.get(cat) or []
+        if not items:
+            continue
+        lines.append(f"## {cat}\n")
+        for p in sorted(items, key=lambda x: x["fieldData"]["name"].lower()):
             f = p["fieldData"]
-            lines.append(f"- [{f['name']}]({f['slug']}.md)")
+            lines.append(f"- [{f['name']}]({cat}/{f['slug']}.md)")
         lines.append("")
     return "\n".join(lines).rstrip() + "\n"
+
+
+def cleanup_old_markdown() -> None:
+    """Remove all .md files under OUT_DIR (except images/) so stale files
+    from previous runs or recategorizations don't linger."""
+    if not OUT_DIR.exists():
+        return
+    for md_file in OUT_DIR.rglob("*.md"):
+        if IMG_DIR in md_file.parents:
+            continue
+        md_file.unlink()
+    # Also remove now-empty category directories so renames don't leave shells.
+    for sub in OUT_DIR.iterdir():
+        if sub.is_dir() and sub != IMG_DIR and not any(sub.iterdir()):
+            sub.rmdir()
 
 
 def main() -> int:
@@ -214,14 +268,26 @@ def main() -> int:
     patches = fetch_all_items(PATCHES_COLLECTION_ID, token)
     print(f"  {len(patches)} patches")
 
+    category_map = build_category_map()
+    print(f"  {len(category_map)} folder→category mappings loaded")
+    by_cat = categorize(patches, category_map)
+
+    cleanup_old_markdown()
+
     written = 0
     image_jobs: list[tuple[str, Path]] = []
-    for p in patches:
-        body, dls = build_page(p, tag_names)
-        slug = p["fieldData"]["slug"]
-        (OUT_DIR / f"{slug}.md").write_text(body, encoding="utf-8")
-        image_jobs.extend(dls)
-        written += 1
+    for category, items in by_cat.items():
+        if not items:
+            continue
+        cat_dir = OUT_DIR / category
+        cat_dir.mkdir(parents=True, exist_ok=True)
+        for p in items:
+            body, dls = build_page(p, tag_names)
+            slug = p["fieldData"]["slug"]
+            (cat_dir / f"{slug}.md").write_text(body, encoding="utf-8")
+            image_jobs.extend(dls)
+            written += 1
+        print(f"  {category}: {len(items)} patches")
     print(f"wrote {written} patch pages")
 
     print(f"downloading {len(image_jobs)} cover images...")
@@ -232,7 +298,7 @@ def main() -> int:
             print(f"  failed {url}: {e}", file=sys.stderr)
         time.sleep(0.05)
 
-    (OUT_DIR / "index.md").write_text(build_index(patches, tag_names), encoding="utf-8")
+    (OUT_DIR / "index.md").write_text(build_top_index(by_cat), encoding="utf-8")
     print("wrote index.md")
     return 0
 

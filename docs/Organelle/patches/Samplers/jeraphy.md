@@ -14,7 +14,7 @@ tags:
 
 <div class="video-embed"><iframe width="560" height="315" src="https://www.youtube.com/embed/SdG4pZu7NGI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
-![Jeraphy](images/jeraphy/5ba5d4f969214848ae180401_Jeraphy-Visual.svg)
+![Jeraphy](../images/jeraphy/5ba5d4f969214848ae180401_Jeraphy-Visual.svg)
 
 **Tags:** Sample Player, Looper, Link Enabled, Rhythm Maker
 

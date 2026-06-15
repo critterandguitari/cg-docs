@@ -478,11 +478,20 @@ One of the strengths of the Organelle is its depth. Included on your Organelle's
 
 As was mentioned in an earlier chapter, [the patches page](https://www.critterandguitari.com/organelle-patches) is the official repository of the Organelle patches. It is a great place to start when looking for new sounds, options, and performance approaches. In addition [Patch Storage](http://www.patchstorage.com) is a website that hosts many user created patches for the Organelle and also other open platforms. 
 
-The Organelle can load patches from the internal microSD or a USB drive inserted into one of the USB ports on the side.  When you power up the Organelle (or choose **Reload** from the Storage menu), the Organelle will first check if a USB drive is present and contains patches.  If there is no USB drive, the Organelle will check the internal microSD card and use the patches there.
+The Organelle can load patches from the internal microSD or a USB drive inserted into one of the USB ports on the side.  When you power up the Organelle (or choose **Reload** from the Storage menu), the Organelle will first check if a USB drive is present and contains patches.  If there is no USB drive, the Organelle will check the internal microSD card and use the patches stored there.
 
-Finding and downloading Organelle-ready patches is easy enough. To use these patches, we need to get them from a computer to the Organelle's microSD card or USB drive. (And yes, that computer could be running Windows, Macintosh, Linux, or some other operating system. No additional software is required; the computer is just being used to download files, possibly decompress them, and then copy their folders to your Organelle.) 
+Finding and downloading Organelle-ready patches is easy enough. To use these patches, we need to get them to the Organelle's microSD card or USB drive from a computer. And yes, that computer could be running Windows, Macintosh, Linux, or some other operating system. 
 
-Getting patches on a USB drive is simply a matter of inserting the drive in a computer and copying over the files.  To use the internal microSD card we need to connect to the Organelle over WiFi and transfer them using a web browser interface.  
+#### Interfacing with a USB Drive or microSD Card
+
+Before proceeding with managing your patches, let's take a minute to talk about methods for using your computer to connect to a USB Drive or the Organelle's microSD card.
+
+To manage patch files on the Organelle's internal microSD card we *must* use WiFi and the Organelle's web browser interface. This is covered in Chapter 5. WiFi must be used because the SD card is not formatted for regular file browsing on most computers.
+
+For USB storage, there are two methods available for file management: 
+
+1. Use WiFi and the Organelle's web browser interface (as with the microSD card above - See Chapter 5).
+1. Insert the drive into your computer and use your computer's file browser. 
 
 ### 4.1 Folder Structure 
 

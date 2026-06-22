@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
-"""Import Organelle Patches from the Webflow CMS into mkdocs.
+"""One-time import of Organelle Patches from the old Webflow CMS into mkdocs.
+
+This is a migration tool: it pulls the initial snapshot from the Webflow site
+before that site goes offline. Day-to-day, patches are added by hand as markdown
+files and the index is rebuilt with build_patch_index.py (no Webflow needed).
 
 Usage:
     export WEBFLOW_API_TOKEN=...
     dev/.venv/bin/python dev/import_patches.py
 
 Writes one markdown file per patch to docs/Organelle/patches/<slug>.md,
-downloads cover images to docs/Organelle/patches/images/<slug>/,
-and regenerates docs/Organelle/patches/index.md.
+downloads cover images to docs/Organelle/patches/images/<slug>/, and rebuilds
+docs/Organelle/patches/index.md via build_patch_index.regenerate().
 """
 from __future__ import annotations
 
@@ -98,6 +102,20 @@ def yaml_escape(s: str) -> str:
     return s
 
 
+def extract_tags(field_data: dict, tag_names: dict[str, str]) -> list[str]:
+    """Resolve a patch's tag IDs to names: main tag first, then secondary,
+    deduplicated and order-preserving."""
+    main_tag = tag_names.get(field_data.get("tag") or "", "")
+    secondary = [tag_names[t] for t in (field_data.get("tags") or []) if t in tag_names]
+    seen: set[str] = set()
+    out: list[str] = []
+    for t in ([main_tag] if main_tag else []) + secondary:
+        if t and t not in seen:
+            seen.add(t)
+            out.append(t)
+    return out
+
+
 def build_page(patch: dict, tag_names: dict[str, str]) -> tuple[str, list[tuple[str, Path]]]:
     """Return (markdown_text, list_of_image_downloads)."""
     f = patch["fieldData"]
@@ -105,15 +123,7 @@ def build_page(patch: dict, tag_names: dict[str, str]) -> tuple[str, list[tuple[
     name = f["name"]
     downloads: list[tuple[str, Path]] = []
 
-    main_tag = tag_names.get(f.get("tag") or "", "")
-    secondary = [tag_names[t] for t in (f.get("tags") or []) if t in tag_names]
-    # Deduplicate while preserving order; drop main tag from the secondary list.
-    seen = set()
-    all_tags: list[str] = []
-    for t in ([main_tag] if main_tag else []) + secondary:
-        if t and t not in seen:
-            seen.add(t)
-            all_tags.append(t)
+    all_tags = extract_tags(f, tag_names)
 
     # Cover image. Patches live one directory deep (in a category folder),
     # so image refs need to go up one level.
@@ -220,21 +230,6 @@ def categorize(patches: list[dict], category_map: dict[str, str]) -> dict[str, l
     return by_cat
 
 
-def build_top_index(by_cat: dict[str, list[dict]]) -> str:
-    lines = ["# Organelle Patches\n",
-             "Documentation for all Organelle patches, organized by category.\n"]
-    for cat in CATEGORY_ORDER + ["Other"]:
-        items = by_cat.get(cat) or []
-        if not items:
-            continue
-        lines.append(f"## {cat}\n")
-        for p in sorted(items, key=lambda x: x["fieldData"]["name"].lower()):
-            f = p["fieldData"]
-            lines.append(f"- [{f['name']}]({cat}/{f['slug']}.md)")
-        lines.append("")
-    return "\n".join(lines).rstrip() + "\n"
-
-
 def cleanup_old_markdown() -> None:
     """Remove all .md files under OUT_DIR (except images/) so stale files
     from previous runs or recategorizations don't linger."""
@@ -298,8 +293,10 @@ def main() -> int:
             print(f"  failed {url}: {e}", file=sys.stderr)
         time.sleep(0.05)
 
-    (OUT_DIR / "index.md").write_text(build_top_index(by_cat), encoding="utf-8")
-    print("wrote index.md")
+    # Rebuild the tag-explorer index from the markdown we just wrote. This is
+    # the same generator used day-to-day after the old site goes offline.
+    from build_patch_index import regenerate
+    print(f"wrote index.md ({regenerate()} patches)")
     return 0
 
 

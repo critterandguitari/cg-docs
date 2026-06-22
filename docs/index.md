@@ -42,6 +42,11 @@ Welcome to the Critter & Guitari Information Center. Select an instrument below,
     <span class="cg-label">Bolsa Bass</span>
   </a>
 
+  <a class="cg-card" href="Other%20Instruments/melody_mill/">
+    <img src="images/home/museum-melody-mill-module.jpg" alt="Melody Mill">
+    <span class="cg-label">Melody Mill</span>
+  </a>
+
   <a class="cg-card" href="Other%20Instruments/microphone_manual/">
     <img src="images/home/museum-microphone.png" alt="Microphone">
     <span class="cg-label">Microphone</span>

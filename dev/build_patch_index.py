@@ -181,14 +181,13 @@ def scan_patches() -> list[dict]:
         if md_file.name == "index.md" or IMG_DIR in md_file.parents:
             continue
         rel = md_file.relative_to(PATCHES_DIR)
-        if len(rel.parts) < 2:
-            # Patches live one category-folder deep; skip stray top-level files.
-            print(f"warn: skipping uncategorized {rel}", file=sys.stderr)
-            continue
         fm = parse_frontmatter(md_file.read_text(encoding="utf-8"))
         title = str(fm.get("title") or md_file.stem)
         tags = [str(t) for t in (fm.get("tags") or []) if str(t).strip()]
-        category = rel.parts[0]
+        # Patches in a category subfolder use the folder name as their category
+        # label. Top-level patches (e.g. PLAY) have no category folder, mirroring
+        # how they're grouped on the instrument; they get a blank category.
+        category = rel.parts[0] if len(rel.parts) >= 2 else ""
         url = "/".join(quote(p) for p in rel.with_suffix("").parts) + "/"
         patches.append({"t": title, "u": url, "c": category, "g": tags})
     patches.sort(key=lambda p: p["t"].lower())

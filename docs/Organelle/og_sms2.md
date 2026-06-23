@@ -77,7 +77,7 @@ The Organelle is an open source platform, so it is possible to create your own p
 
 ### 1.2 PLAY and EXPLORE patches
 
-The latest version of the Organelle ships with two categories of patches: PLAY and EXPLORE. The PLAY category features a bunch of easy to play synthesizers. These are a great starting point if you are new to the Organelle. See [chapter 7.2](#72-play-patches) for instructions for these patches. 
+The latest version of the Organelle ships with two categories of patches: PLAY and EXPLORE. The PLAY category features a bunch of easy to play synthesizers. These are a great starting point if you are new to the Organelle. See the [PLAY - 8 Patch Set](patches/play---8-patch-set.md) page for instructions for these patches. 
 
 The EXPLORE category contains over 100 additional patches developed by Critter & Guitari over the years. Essentially these are the factory patches that shipped with earlier versions of the Organelle. There is a large variety of EXPLORE patches, they are documented on the [patch listing page.](https://www.critterandguitari.com/organelle-patches)
 
@@ -792,52 +792,4 @@ Follow these steps to burn a new SD card:
 7. Use the Etcher program to burn the OS file to the SD Card. It is best to select the **zipped** file to burn (i.e. do not unzip the downloaded disk image). When Etcher is finished your computer may display a message similar to 'This disk is not readable.' This message is normal and you may click 'Eject' to proceed.
 8. Remove the microSD card from your computer and reinsert it in Organelle. Make sure that the SD card is going into the socket on the circuit board. If you can wiggle it a lot, it probably is not in socket. Use the same pin/paperclip to press it in until you hear/feel a 'click.'
 9. Restart the Organelle. Check your OS version in Settings/Info. 
-
-### 7.2 PLAY Patches
-
-#### Operation
-
-The PLAY patches are synthesizers with some fun features accessed using the Aux button. They all operate in the same way, with the Aux button controlling a shift function. When you press Aux, the function of the 10 top keys on the Organelle are listed on the screen in two columns. The bottom 14 keys select various arpeggio patterns.
-
-#### Shift Button Controls
-
-Hold **Aux** button to access the operation menu. Black keys select functions:
-
-| Key | Function |
-|-----|----------|
-| C# | Play/Stop |
-| D# | Arm Recording |
-| F# | Previous Preset |
-| G# | Save Preset |
-| A# | Next Preset |
-| C#+ | Octave Down |
-| D#+ | Octave Up |
-| F#+ | Latch Toggle |
-| G#+ | Metronome |
-| A#+ | Delete Preset |
-
-The 14 white keys select different arpeggio patterns. The first key is no pattern.
-
-#### BPM
-
-Hold the **Aux** button while turning the encoder to adjust BPM (20-250). If you are connected to a network and a LINK session is present the Organelle will connect automatically.
-
-#### Recording a Sequence
-
-1. Press Arm (shift + D#) - LED turns purple
-2. Play notes and / or turn knobs - recording starts on first note or knob movement, LED turns red
-3. Press Aux to stop recording - playback begins, LED turns green
-
-#### MIDI
-
-Use the system MIDI Setup menu to select MIDI channel for note and CC messages.
-
-**MIDI CC message mapping:**
-
-| Control | CC |
-|---------|-----|
-| knob1 | 21 |
-| knob2 | 22 |
-| knob3 | 23 |
-| knob4 | 24 |
 

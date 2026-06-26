@@ -1,0 +1,35 @@
+/* Home page instrument grid */
+.cg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.2rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.cg-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.4rem;
+  overflow: hidden;
+  text-decoration: none !important;
+  color: var(--md-default-fg-color) !important;
+  transition: transform 0.15s ease;
+}
+
+.cg-card:hover {
+  transform: translateY(-3px);
+}
+
+.cg-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  padding: 0.6rem;
+  box-sizing: border-box;
+}
+
+.cg-card .cg-label {
+  padding: 0.7rem 0.8rem;
+  font-weight: 400;
+  text-align: center;
+}

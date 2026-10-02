@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scenes CSV to ZIP Converter</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #555;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            font-weight: 300;
+        }
+        
+        .upload-area {
+            border: 3px dashed #3498db;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: #f8f9ff;
+        }
+        
+        .upload-area:hover {
+            border-color: #2980b9;
+            background: #e3f2fd;
+            transform: translateY(-2px);
+        }
+        
+        .upload-area.dragover {
+            border-color: #27ae60;
+            background: #e8f5e8;
+        }
+        
+        #fileInput {
+            display: none;
+        }
+        
+        .upload-text {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .file-info {
+            margin: 15px 0;
+            padding: 15px;
+            background: #e8f5e8;
+            border-radius: 8px;
+            border-left: 4px solid #27ae60;
+        }
+        
+        .progress {
+            margin: 20px 0;
+            padding: 20px;
+            background: #fff3cd;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .success {
+            margin: 20px 0;
+            padding: 20px;
+            background: #d4edda;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+        }
+        
+        .error {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8d7da;
+            border-radius: 8px;
+            border-left: 4px solid #dc3545;
+        }
+        
+        .btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .stats {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 EYESY Scenes Converter</h1>
+        <p>Convert old EYESY v2 Scenes.csv to v3. The Scenes.csv file will get converted to a collection of v3 scenes that you can upload to your EYESY and unzip.</p>
+        
+        <div class="upload-area" id="uploadArea">
+            <div class="upload-text">
+                <strong>Click here or drag & drop your Scenes.csv file</strong>
+            </div>
+            <div style="color: #999; font-size: 0.9em;">Supports CSV files up to 10MB</div>
+            <input type="file" id="fileInput" accept=".csv" />
+        </div>
+        
+        <div id="status"></div>
+    </div>
+
+    <script>
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const status = document.getElementById('status');
+
+        // Click to upload
+        uploadArea.addEventListener('click', () => fileInput.click());
+
+        // Drag and drop
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFile(files[0]);
+            }
+        });
+
+        // File input change
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFile(e.target.files[0]);
+            }
+        });
+
+        function handleFile(file) {
+            if (!file.name.toLowerCase().endsWith('.csv')) {
+                showError('Please upload a CSV file.');
+                return;
+            }
+
+            if (file.size > 10 * 1024 * 1024) { // 10MB limit
+                showError('File too large. Please upload a file smaller than 10MB.');
+                return;
+            }
+
+            showFileInfo(file);
+            processFile(file);
+        }
+
+        function showFileInfo(file) {
+            status.innerHTML = `
+                <div class="file-info">
+                    <strong>File selected:</strong> ${file.name}<br>
+                    <strong>Size:</strong> ${(file.size / 1024).toFixed(1)} KB<br>
+                    <strong>Modified:</strong> ${new Date(file.lastModified).toLocaleString()}
+                </div>
+            `;
+        }
+
+        function showProgress(message) {
+            status.innerHTML = `
+                <div class="progress">
+                    <strong>Processing...</strong> ${message}
+                </div>
+            `;
+        }
+
+        function showSuccess(sceneCount, zipSize) {
+            status.innerHTML = `
+                <div class="success">
+                    <strong>✅ Success!</strong> Created ${sceneCount} scene files and packaged them into a ZIP.<br>
+                    <div class="stats">ZIP file size: ${(zipSize / 1024).toFixed(1)} KB</div>
+                </div>
+            `;
+        }
+
+        function showError(message) {
+            status.innerHTML = `
+                <div class="error">
+                    <strong>❌ Error:</strong> ${message}
+                </div>
+            `;
+        }
+
+        function processFile(file) {
+            showProgress('Reading CSV file...');
+            
+            Papa.parse(file, {
+                header: false, // CSV doesn't have headers, just data
+                skipEmptyLines: true,
+                dynamicTyping: true,
+                complete: function(results) {
+                    if (results.errors.length > 0) {
+                        showError('CSV parsing error: ' + results.errors[0].message);
+                        return;
+                    }
+                    
+                    // Debug: log the first row to see what we're getting
+                    console.log('First row as array:', results.data[0]);
+                    
+                    // Check if we have data
+                    if (results.data.length === 0) {
+                        showError('No data found in CSV file.');
+                        return;
+                    }
+                    
+                    createZipFile(results.data);
+                },
+                error: function(error) {
+                    showError('Failed to read CSV: ' + error.message);
+                }
+            });
+        }
+
+        function createZipFile(scenes) {
+            showProgress(`Creating ZIP with ${scenes.length} scenes...`);
+            
+            const zip = new JSZip();
+            const scenesFolder = zip.folder("Scenes");
+            
+            scenes.forEach((sceneRow, index) => {
+                // Debug: log each scene row to see what we're getting
+                console.log(`Scene ${index + 1} row:`, sceneRow);
+                
+                // Create numbered folder (1, 2, 3, etc.)
+                const folderName = (index + 1).toString();
+                const sceneFolder = scenesFolder.folder(folderName);
+                
+                // Map array indices to our expected fields
+                // CSV format: mode,knob1,knob2,knob3,knob4,knob5,auto_clear
+                const sceneData = {
+                    mode: sceneRow[0] || "",
+                    knob1: parseFloat(sceneRow[1]) || 0,
+                    knob2: parseFloat(sceneRow[2]) || 0,
+                    knob3: parseFloat(sceneRow[3]) || 0,
+                    knob4: parseFloat(sceneRow[4]) || 0,
+                    knob5: parseFloat(sceneRow[5]) || 0,
+                    auto_clear: sceneRow[6] === 'True' || sceneRow[6] === 'true' || sceneRow[6] === true,
+                    bg_palette: 0,
+                    fg_palette: 0
+                };
+                
+                // Debug: log the final scene data
+                console.log(`Final scene data for ${folderName}:`, sceneData);
+                
+                // Add scene.json to the folder
+                sceneFolder.file("scene.json", JSON.stringify(sceneData, null, 4));
+            });
+            
+            // Generate and download ZIP
+            zip.generateAsync({type: "blob"})
+                .then(function(content) {
+                    const url = URL.createObjectURL(content);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'Scenes.zip';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                    
+                    showSuccess(scenes.length, content.size);
+                })
+                .catch(function(error) {
+                    showError('Failed to create ZIP: ' + error.message);
+                });
+        }
+    </script>
+</body>
+</html>

@@ -571,7 +571,7 @@ The two major features are a web based interface and the support for Ableton [LI
 
 In order to get the Organelle connected we use a USB-WiFi adapter.  To get started, insert your WiFi adapter into one of the Organelle's USB ports.
 
-> **NOTE:**  The USB-WiFi adapter sold on the C&G website uses the Ralink 5370 chipset.  This will only connect to 2.4 GHz WiFi networks.  We have experimented with other WiFi adapters but we don't have a conclusive list of what works and what doesn't.  It is recommended to use a WiFi adapter this Ralink 5370 chipset. Please consult the [forum](https://forum.critterandguitari.com) to discuss other possible adapters.  
+> **NOTE:**  The USB-WiFi adapter that shipped with the Organelle 1 uses the Ralink 5370 chipset.  This will only connect to 2.4 GHz WiFi networks.  We have experimented with other WiFi adapters but we don't have a conclusive list of what works and what doesn't.  It is recommended to use a WiFi adapter with the Ralink 5370 chipset. Please consult the [forum](https://forum.critterandguitari.com) to discuss other possible adapters.  
 
 The Organelle has 2 modes of WiFi operation: normal and AP mode.  In normal mode the Organelle connects to an existing WiFi network.  In AP mode the Organelle creates its own network (Access Point, or hot-spot).  
 

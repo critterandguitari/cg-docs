@@ -644,9 +644,13 @@ In order to wirelessly manage patches and other files, we use the Organelle's we
 
 ![](images/s2/chapter_5/WiFi_5_Connected_start_webserver.png)
 
-On your computer open a web browser and navigate to the IP address listed on the WiFi Setup page. Be sure your browser is connecting with '*http://*' and not '*https://*'. This will bring you to the Organelle's page:
+On your computer, open a web browser and navigate to the IP address listed on the WiFi Setup page. This will bring you to the Organelle's page:
 
 ![](images/s2/chapter_5/browser.png)
+
+> NOTE: Be sure your browser is connecting with '*http://*' and not '*https://*'. 
+
+> Be sure your browser has been granted 'Local Network' permissions in your computer's system settings. 
 
 From this screen you can manage files and preview audio files just like you can with your computer's Finder/File Explorer. You can upload, download, move, add, delete, and copy files and folders on both the storage partition of the microSD card and the USB drive (if one is connected). It is also possible to move files between a USB drive and microSD. First, we'll discuss the elements of the web interface and then move on to how to manage patches. 
 

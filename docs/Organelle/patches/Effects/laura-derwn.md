@@ -2,9 +2,10 @@
 title: Laura Derwn
 date: 2023-01-20
 tags:
-  - Pitch Shift
   - Effect
   - Vibrato
+  - Pitch Shift
+  
 ---
 
 
@@ -13,7 +14,7 @@ tags:
 
 <div class="video-embed"><iframe width="560" height="315" src="https://www.youtube.com/embed/bRw4m8FdkHE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
-**Tags:** Pitch Shift, Effect, Vibrato
+**Tags:** Effect, Pitch Shift, Vibrato
 
 **[Download Patch](https://patchstorage.com/wp-content/uploads/2023/01/Laura-Derwn-63cb048b53d5e.zip)**
 
